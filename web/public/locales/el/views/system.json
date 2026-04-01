@@ -1,0 +1,39 @@
+{
+  "documentTitle": {
+    "cameras": "Στατιστικά Καμερών - SecureVu",
+    "storage": "Στατιστικά αποθήκευσης - SecureVu",
+    "general": "Γενικά στατιστικά - SecureVu",
+    "enrichments": "Στατιστικά Εμπλουτισμού - SecureVu",
+    "logs": {
+      "securevu": "SecureVu αρχέιο καταγραφών - SecureVu",
+      "go2rtc": "Αρχείο καταγραφής Go2RTC - SecureVu",
+      "nginx": "Αρχείο καταγραφών Nginx - SecureVu"
+    }
+  },
+  "title": "Σύστημα",
+  "metrics": "Μετρήσεις συστήματος",
+  "logs": {
+    "download": {
+      "label": "Λήψη Αρχείων Καταγραφής"
+    },
+    "copy": {
+      "label": "Αντιγραφή στο πρόχειρο",
+      "success": "Αρχεία καταγραφής αντιγράφτηκαν στο πρόχειρο",
+      "error": "Αποτυχία αντιγραφής των αρχείων καταγραφής στο πρόχειρο"
+    },
+    "type": {
+      "label": "Τύπος",
+      "timestamp": "Χρονοσήμανση",
+      "tag": "Λέξη Κλειδί",
+      "message": "Μήνυμα"
+    }
+  },
+  "general": {
+    "title": "Γενικά",
+    "detector": {
+      "title": "Ανιχνευτές",
+      "inferenceSpeed": "Ταχύτητα Συμπεράσματος Ανιχνευτή",
+      "temperature": "Θερμοκρασία Ανιχνευτή"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "documentTitle": {
+    "default": "Preferencias - SecureVu",
+    "authentication": "Configuracións de Autenticación - SecureVu",
+    "camera": "Configuracións da Cámara - SecureVu",
+    "general": "Configuracións xerais - SecureVu",
+    "notifications": "Configuración de Notificacións - SecureVu",
+    "enrichments": "Configuración complementarias - SecureVu",
+    "masksAndZones": "Editor de máscaras e zonas - SecureVu"
+  }
+}

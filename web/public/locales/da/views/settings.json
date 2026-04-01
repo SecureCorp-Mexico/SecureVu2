@@ -1,0 +1,19 @@
+{
+  "documentTitle": {
+    "default": "Indstillinger - SecureVu",
+    "authentication": "Bruger Indstillinger - SecureVu",
+    "camera": "Kamera indstillinger - SecureVu",
+    "object": "Debug - SecureVu",
+    "cameraManagement": "Administrér kameraer - SecureVu",
+    "cameraReview": "Indstillinger for kameragennemgang - SecureVu",
+    "enrichments": "Indstillinger for berigelser - SecureVu",
+    "masksAndZones": "Maske- og zoneeditor - SecureVu",
+    "motionTuner": "Bevægelsesjustering - SecureVu",
+    "general": "Brugergrænsefladeindstillinger - SecureVu",
+    "securevuPlus": "SecureVu+ Indstillinger - SecureVu",
+    "notifications": "Notifikations indstillinger - SecureVu"
+  },
+  "menu": {
+    "ui": "Brugergrænseflade"
+  }
+}

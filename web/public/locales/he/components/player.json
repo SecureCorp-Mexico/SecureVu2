@@ -1,0 +1,51 @@
+{
+  "noRecordingsFoundForThisTime": "לא נמצאו הקלטות לזמן זה",
+  "stats": {
+    "droppedFrames": {
+      "title": "פריימים שנשמטו:",
+      "short": {
+        "title": "נשמטו",
+        "value": "{{droppedFrames}} פריימים"
+      }
+    },
+    "streamType": {
+      "title": "סוג זרם:",
+      "short": "סוג"
+    },
+    "bandwidth": {
+      "title": "רוחב-פס:",
+      "short": "רוחב-פס"
+    },
+    "latency": {
+      "title": "השהיה:",
+      "value": "{{seconds}} שניות",
+      "short": {
+        "title": "השהיה",
+        "value": "{{seconds}} שניה"
+      }
+    },
+    "decodedFrames": "פריימים מפוענחים:",
+    "droppedFrameRate": "קצב פריימים מופחת:",
+    "totalFrames": "סך כל המסגרות:"
+  },
+  "toast": {
+    "success": {
+      "submittedSecureVuPlus": "הפריים נשלח בהצלחה ל-SecureVu+"
+    },
+    "error": {
+      "submitSecureVuPlusFailed": "שליחת הפריים ל-SecureVu+ נכשלה"
+    }
+  },
+  "noPreviewFound": "לא נמצאה תצוגה מקדימה",
+  "noPreviewFoundFor": "לא נמצאה תצוגה מקדימה עבור {{cameraName}}",
+  "submitSecureVuPlus": {
+    "title": "לשלוח את הפריים הזה ל-SecureVu+?",
+    "submit": "אישור"
+  },
+  "livePlayerRequiredIOSVersion": "נדרשת iOS 17.1 ומעלה עבור סוג השידור החי הזה.",
+  "streamOffline": {
+    "title": "זרם מצלמה לא זמין",
+    "desc": "לא התקבלו פריימים בזרם <code>detect</code> של {{cameraName}}, בדקו את יומני השגיאות"
+  },
+  "cameraDisabled": "המצלמה מושבתת"
+}

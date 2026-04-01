@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    "Dockerfile",
+    "Dockerfile.*",
+    "CMakeLists.txt",
+    "*.db",
+    "node_modules",
+    "__pycache__",
+    "dist",
+    "/audio-labelmap.txt"
+  ],
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "securevu-dictionary",
+      "path": "./.cspell/securevu-dictionary.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["securevu-dictionary"]
+}

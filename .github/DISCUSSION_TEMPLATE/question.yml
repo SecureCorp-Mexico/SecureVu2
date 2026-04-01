@@ -1,0 +1,21 @@
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for questions you have about SecureVu.
+
+        Before submitting your question, please [search the discussions][discussions], read the [official SecureVu documentation][docs], and read the [SecureVu FAQ][faq] pinned at the Discussion page to see if your question has already been answered by the community.
+
+        **If you are looking for support, start a new discussion and use a support category.**
+
+        [discussions]: https://www.github.com/SecureCorp-Mexico/SecureVu2/discussions
+        [docs]: https://docs.secure.vu
+        [faq]: https://github.com/SecureCorp-Mexico/SecureVu2/discussions/12724
+  - type: textarea
+    id: description
+    attributes:
+      label: "What is your question?"
+    validations:
+      required: true

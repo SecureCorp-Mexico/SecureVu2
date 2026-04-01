@@ -1,0 +1,30 @@
+{
+  "documentTitle": {
+    "cameras": "Kameru statistika - SecureVu",
+    "storage": "Uzglabāšanas statistika - SecureVu",
+    "general": "Vispārīgā statistika - SecureVu",
+    "enrichments": "Bagātināšanas statistika - SecureVu",
+    "logs": {
+      "securevu": "SecureVu konfigurācija - SecureVu",
+      "go2rtc": "Logi Go2RTC - SecureVu",
+      "nginx": "Logi Nginx - SecureVu"
+    }
+  },
+  "stats": {
+    "cameraIsOffline": "{{camera}} ir izslēgta",
+    "detectIsSlow": "{{detect}} ir lēns ({{speed}} ms)",
+    "detectIsVerySlow": "{{detect}} ir ļoti lēns ({{speed}} ms)"
+  },
+  "enrichments": {
+    "infPerSecond": "Inferences sekundē",
+    "averageInf": "Vidējais inferences ilgums",
+    "embeddings": {
+      "face_recognition": "Seju atpazīšana",
+      "plate_recognition": "Numurzīmju atpazīšana",
+      "plate_recognition_speed": "Numurzīmju atpazīšanas ātrums",
+      "object_description": "Objekta apraksts",
+      "object_description_events_per_second": "Objekta apraksts"
+    }
+  },
+  "title": "Sistēma"
+}

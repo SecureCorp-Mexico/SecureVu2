@@ -1,0 +1,28 @@
+{
+  "restart": {
+    "title": "Er du sikker på at du vil genstarte SecureVu?",
+    "button": "Genstart",
+    "restarting": {
+      "title": "SecureVu genstarter",
+      "button": "Gennemtving genindlæsning nu",
+      "content": "Denne side genindlæses om {{countdown}} sekunder."
+    },
+    "description": "Dette vil kortvarigt stoppe SecureVu under genstart."
+  },
+  "explore": {
+    "plus": {
+      "submitToPlus": {
+        "label": "Indsend til SecureVu+",
+        "desc": "Objekter på steder, du ønsker at undgå, er ikke falske positiver. Hvis du indsender dem som falske positiver, vil det forvirre modellen."
+      },
+      "review": {
+        "question": {
+          "label": "Bekræft denne etiket til SecureVu Plus",
+          "ask_a": "Er dette objekt et <code>{{label}}</code>?",
+          "ask_an": "Er dette objekt en <code>{{label}}</code>?",
+          "ask_full": "Er dette objekt en <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
+        }
+      }
+    }
+  }
+}

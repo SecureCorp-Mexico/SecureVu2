@@ -1,0 +1,17 @@
+{
+  "documentTitle": {
+    "cameras": "Estatísticas de cámaras - SecureVu",
+    "storage": "Estatísticas de Almacenamento - SecureVu",
+    "general": "Estatísticas Xerais - SecureVu",
+    "enrichments": "Estatísticas complementarias - SecureVu",
+    "logs": {
+      "securevu": "Rexistros de SecureVu - SecureVu"
+    }
+  },
+  "title": "Sistema",
+  "logs": {
+    "download": {
+      "label": "Descargar logs"
+    }
+  }
+}

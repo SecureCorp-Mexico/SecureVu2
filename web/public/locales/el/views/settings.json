@@ -1,0 +1,58 @@
+{
+  "documentTitle": {
+    "default": "Ρυθμίσεις - SecureVu",
+    "authentication": "Ρυθμίσεις ελέγχου ταυτοποίησης - SecureVu",
+    "camera": "Ρυθμίσεις Κάμερας - SecureVu",
+    "enrichments": "Ρυθμίσεις εμπλουτισμού - SecureVu",
+    "masksAndZones": "Ρυθμίσεις Μασκών και Ζωνών - SecureVu",
+    "motionTuner": "Ρύθμιση Κίνησης - SecureVu",
+    "object": "Επίλυση σφαλμάτων - SecureVu",
+    "general": "Ρυθμίσεις UI - SecureVu",
+    "securevuPlus": "Ρυθμίσεις SecureVu+ - SecureVu",
+    "notifications": "Ρυθμίσεις Ειδοποιήσεων",
+    "cameraManagement": "Διαχείριση καμερών - SecureVu",
+    "cameraReview": "Ρυθμίσεις αξιολόγησης κάμερας - SecureVu"
+  },
+  "masksAndZones": {
+    "zones": {
+      "point_one": "{{count}} σημέιο",
+      "point_other": "{{count}} σημεία"
+    },
+    "motionMasks": {
+      "point_one": "{{count}} σημείο",
+      "point_other": "{{count}} σημεία"
+    },
+    "objectMasks": {
+      "point_one": "{{count}} σημέιο",
+      "point_other": "{{count}} σημεία"
+    }
+  },
+  "menu": {
+    "ui": "Επιφάνεια Εργασίας",
+    "enrichments": "Εμπλουτισμοί",
+    "cameras": "Ρυθμίσεις Κάμερας",
+    "masksAndZones": "Μάσκες / Ζώνες",
+    "motionTuner": "Ρυθμιστής Κίνησης",
+    "debug": "Επίλυση Σφαλμάτων"
+  },
+  "dialog": {
+    "unsavedChanges": {
+      "title": "Έχετε μη αποθηκευμένες αλλαγές.",
+      "desc": "Θέλετε να αποθηκεύσετε τις αλλαγές σας πριν την συνέχεια;"
+    }
+  },
+  "cameraSetting": {
+    "camera": "Κάμερα",
+    "noCamera": "Δεν υπάρχει Κάμερα"
+  },
+  "triggers": {
+    "dialog": {
+      "form": {
+        "friendly_name": {
+          "placeholder": "Ονομάτισε ή περιέγραψε αυτό το εύνασμα",
+          "description": "Ένα προαιρετικό φιλικό όνομα, ή ένα περιγραφικό κείμενο για αυτό το εύνασμα."
+        }
+      }
+    }
+  }
+}

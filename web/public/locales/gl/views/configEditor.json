@@ -1,0 +1,12 @@
+{
+  "documentTitle": "Editor de configuración - SecureVu",
+  "configEditor": "Editor de Preferencias",
+  "saveOnly": "Só gardar",
+  "toast": {
+    "error": {
+      "savingError": "Erro gardando configuración"
+    }
+  },
+  "saveAndRestart": "Gardar e Reiniciar",
+  "copyConfig": "Copiar Configuración"
+}

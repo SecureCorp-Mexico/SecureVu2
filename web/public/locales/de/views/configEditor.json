@@ -1,0 +1,18 @@
+{
+  "configEditor": "Konfigurationseditor",
+  "copyConfig": "Konfiguration kopieren",
+  "saveAndRestart": "Sichern und Neustarten",
+  "saveOnly": "Nur Sichern",
+  "toast": {
+    "error": {
+      "savingError": "Fehler beim Speichern der Konfiguration"
+    },
+    "success": {
+      "copyToClipboard": "Konfiguration in Zwischenablage kopiert."
+    }
+  },
+  "documentTitle": "Konfigurationseditor – SecureVu",
+  "confirm": "Verlassen ohne zu Speichern?",
+  "safeConfigEditor": "Konfiguration Editor (abgesicherter Modus)",
+  "safeModeDescription": "SecureVu ist aufgrund eines Konfigurationsvalidierungsfehlers im abgesicherten Modus."
+}

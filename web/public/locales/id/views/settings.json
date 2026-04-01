@@ -1,0 +1,51 @@
+{
+  "documentTitle": {
+    "default": "Pengaturan - SecureVu",
+    "camera": "Pengaturan Kamera - SecureVu",
+    "classification": "Pengaturan Klasifikasi - SecureVu",
+    "authentication": "Pengaturan Autentikasi - SecureVu",
+    "masksAndZones": "Editor Mask dan Zona - SecureVu",
+    "motionTuner": "Penyetel Gerakan - SecureVu",
+    "general": "SecureVu - Pengaturan Umum",
+    "object": "Debug - SecureVu",
+    "enrichments": "SecureVu - Pengaturan Pengayaan",
+    "cameraManagement": "Pengaturan Kamera - SecureVu",
+    "cameraReview": "Pengaturan Ulasan Kamera - SecureVu",
+    "securevuPlus": "Pengaturan SecureVu+ - SecureVu",
+    "notifications": "Pengaturan Notifikasi - SecureVu"
+  },
+  "menu": {
+    "cameraManagement": "Manajemen",
+    "notifications": "Notifikasi",
+    "ui": "Antarmuka Pengguna",
+    "enrichments": "Peningkatan",
+    "cameraReview": "Ulasan",
+    "motionTuner": "Pengatur Gerak",
+    "triggers": "Pemicu",
+    "users": "Pengguna",
+    "roles": "Peran",
+    "securevuplus": "SecureVu+",
+    "masksAndZones": "Mask / Zona",
+    "debug": "Debug"
+  },
+  "dialog": {
+    "unsavedChanges": {
+      "title": "Anda memiliki perubahan yang belum disimpan.",
+      "desc": "Apakah Anda ingin menyimpan perubahan Anda sebelum melanjutkan?"
+    }
+  },
+  "cameraSetting": {
+    "camera": "Kamera",
+    "noCamera": "Tidak Ada Kamera"
+  },
+  "general": {
+    "title": "Pengaturan Antarmuka Pengguna",
+    "liveDashboard": {
+      "title": "Dashboard Langsung",
+      "automaticLiveView": {
+        "label": "Tampilan Langsung Otomatis",
+        "desc": "Secara otomatis beralih ke tampilan langsung kamera saat aktivitas terdeteksi. Menonaktifkan opsi ini menyebabkan gambar statis kamera di dasbor langsung hanya diperbarui sekali per menit."
+      }
+    }
+  }
+}
