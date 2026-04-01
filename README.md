@@ -2,7 +2,7 @@
   <img align="center" alt="logo" src="docs/static/img/branding/logo.svg" width="200">
 </p>
 
-# SecureVu NVR™ - Realtime Object Detection for IP Cameras
+# SecureVu™ - VMS with embedded Ai analysis
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -12,7 +12,7 @@
 
 \[English\] | [简体中文](https://github.com/SecureCorp-Mexico/SecureVu2/blob/dev/README_CN.md)
 
-A complete and local NVR designed for [Home Assistant](https://www.home-assistant.io) with AI object detection. Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.
+Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.
 
 Use of a GPU or AI accelerator is highly recommended. AI accelerators will outperform even the best CPUs with very little overhead. See SecureVu's supported [object detectors](https://docs.secure.vu/configuration/object_detectors/).
 
@@ -31,16 +31,12 @@ Use of a GPU or AI accelerator is highly recommended. AI accelerators will outpe
 
 View the documentation at https://docs.secure.vu
 
-## Donations
-
-If you would like to make a donation to support development, please use [Github Sponsors](https://github.com/sponsors/blakeblackshear).
-
 ## License
 
 This project is licensed under the **MIT License**.
 
 - **Code:** The source code, configuration files, and documentation in this repository are available under the [MIT License](LICENSE). You are free to use, modify, and distribute the code as long as you include the original copyright notice.
-- **Trademarks:** The "SecureVu" name, the "SecureVu NVR" brand, and the SecureVu logo are **trademarks of SecureVu, Inc.** and are **not** covered by the MIT License.
+- **Trademarks:** The "SecureVu" name, the "SecureVu" brand, and the SecureVu logo are **trademarks of SecureVu, Inc.** and are **not** covered by the MIT License.
 
 Please see our [Trademark Policy](TRADEMARK.md) for details on acceptable use of our brand assets.
 
