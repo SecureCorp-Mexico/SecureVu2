@@ -10,8 +10,6 @@
 <img src="https://hosted.weblate.org/widget/frigate-nvr/language-badge.svg" alt="Translation status" />
 </a>
 
-\[English\] | [简体中文](https://github.com/SecureCorp-Mexico/SecureVu2/blob/dev/README_CN.md)
-
 Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.
 
 Use of a GPU or AI accelerator is highly recommended. AI accelerators will outperform even the best CPUs with very little overhead. See SecureVu's supported [object detectors](https://docs.secure.vu/configuration/object_detectors/).
