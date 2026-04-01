@@ -269,8 +269,7 @@ sudo cp docker/main/rootfs/usr/local/nginx/conf/* /usr/local/nginx/conf/ && sudo
 
 ## Contributing translations of the Web UI
 
-SecureVu uses [Weblate](https://weblate.org) to manage translations of the Web UI. To contribute translation, sign up for an account at Weblate and navigate to the SecureVu NVR project:
+SecureVu manages translations directly in the GitHub repository. To contribute a translation, submit a pull request with changes to the relevant locale files under `web/public/locales/`.
 
-https://hosted.weblate.org/projects/frigate-nvr/
 
 When translating, maintain the existing key structure while translating only the values. Ensure your translations maintain proper formatting, including any placeholder variables (like `{{example}}`).
