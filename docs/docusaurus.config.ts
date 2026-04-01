@@ -10,8 +10,8 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/branding/favicon.ico",
-  organizationName: "blakeblackshear",
+  favicon: "img/branding/favicon.svg",
+  organizationName: "SecureCorp-Mexico",
   projectName: "securevu",
   themes: [
     "@docusaurus/theme-mermaid",
@@ -37,7 +37,7 @@ const config: Config = {
       content: `
         <span style="margin-right: 8px; display: inline-block; animation: pulse 2s infinite;">🚀</span>
         Get more relevant and accurate detections with SecureVu+ models.
-        <a style="margin-left: 12px; padding: 3px 10px; background: #94d2bd; color: #001219; text-decoration: none; border-radius: 4px; font-weight: 500; " target="_blank" rel="noopener noreferrer" href="https://securevu.io/plus/">Learn more</a>
+        <a style="margin-left: 12px; padding: 3px 10px; background: #94d2bd; color: #001219; text-decoration: none; border-radius: 4px; font-weight: 500; " target="_blank" rel="noopener noreferrer" href="https://docs.secure.vu">Learn more</a>
         <span style="margin-left: 8px; display: inline-block; animation: pulse 2s infinite;">✨</span>
         <style>
           @keyframes pulse {
@@ -63,7 +63,7 @@ const config: Config = {
       },
       aiChatSettings: {
         chatSubjectName: "SecureVu",
-        botAvatarSrcUrl: "https://securevu.io/images/favicon.png",
+        botAvatarSrcUrl: "https://secure.vu/favicon.svg",
         getHelpCallToActions: [
           {
             name: "GitHub",
@@ -138,12 +138,12 @@ const config: Config = {
           position: "left",
         },
         {
-          href: "https://securevu.io",
-          label: "Website",
+          href: "https://secure.vu",
+          label: "secure.vu",
           position: "right",
         },
         {
-          href: "http://demo.securevu.io",
+          href: "https://secure.vu",
           label: "Demo",
           position: "right",
         },
