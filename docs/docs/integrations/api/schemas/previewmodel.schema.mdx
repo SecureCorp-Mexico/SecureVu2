@@ -1,0 +1,33 @@
+---
+id: previewmodel
+title: "PreviewModel"
+description: "Model representing a single preview clip."
+sidebar_label: "PreviewModel"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"camera":"string","src":"string","type":"string","start":0,"end":0}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"PreviewModel"}
+>
+</Heading>
+
+
+
+Model representing a single preview clip.
+
+<Schema
+  schema={{"properties":{"camera":{"type":"string","title":"Camera","description":"Camera name for this preview"},"src":{"type":"string","title":"Src","description":"Path to the preview video file"},"type":{"type":"string","title":"Type","description":"MIME type of the preview video (video/mp4)"},"start":{"type":"number","title":"Start","description":"Unix timestamp when the preview starts"},"end":{"type":"number","title":"End","description":"Unix timestamp when the preview ends"}},"type":"object","required":["camera","src","type","start","end"],"title":"PreviewModel","description":"Model representing a single preview clip."}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

@@ -1,0 +1,33 @@
+---
+id: triggerembeddingbody
+title: "TriggerEmbeddingBody"
+description: ""
+sidebar_label: "TriggerEmbeddingBody"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"type":"thumbnail","data":"string","threshold":0.5}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"TriggerEmbeddingBody"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"type":{"type":"string","enum":["thumbnail","description"],"title":"TriggerType"},"data":{"type":"string","title":"Data"},"threshold":{"type":"number","maximum":1,"minimum":0,"title":"Threshold","default":0.5}},"type":"object","required":["type","data"],"title":"TriggerEmbeddingBody"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

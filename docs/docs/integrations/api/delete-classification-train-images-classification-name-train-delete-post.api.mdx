@@ -1,0 +1,71 @@
+---
+id: delete-classification-train-images-classification-name-train-delete-post
+title: "Delete classification train images"
+description: "Deletes specific train images for a given classification model."
+sidebar_label: "Delete classification train images"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU2P0zAQ/SvWnEAyTVnBJTfYRYDEl5bCpVTVNJk2BscOtlOoovx3NLa7bbfsgrjRS1J75s3Mm3mTAQJuPJRzuNTovVqrCoOyBhYSavKVU138W8IVaQrkhe+oYjMRHCojVIsb8mJtnUCxUVsyojpBEq2tSU++GCGEmDWUPMTrKy/a3gexIm3NRgQrQkN7dKoz/NrqmtxEXFPonfEChe+rirwXLXnPQBzYCHLOOqHWEcRgS0J5ocwWtaonIMF25GI6r2sooY61LE8TXcaIy1TQ7bslYy6zSXbvrA8goUOHLQVyTOMAbAhlekhQTF2HoQEJjr73ylENZXA9SfBVQy1COUDYdezjg1NmAxKCCpoP3jHIOC6SL/nw3NY7dqisCWQCv2LX6Zxl8dVzq4ZzZLv6SlU4Qo5A4ziODO07azx5tr+YTvlx2vqPifJ1r8V1Ngb59zl0jtkPKkXI/TtKbmWtJjRH2eWAMErIbb6PpbfZhIu5Xe+B8/lN5APo4gDykgw5Vd3Ul7h5cnFxTsdnHqo02y947P6di5oCKs1vKlDrzw20rU5u0ezer+OYnZIxypsTZQJtyMG4ONCBzuHuiLE3NqucCfabvyJ3D3a3aSRDzPj2T63gulLobHfUiQO9id27y7hK9P0u2N7k1Wz24Qww9bal0FjeBjc6Dg2UUJwqvxhYyWMRlV8k5YMET267V3zvNJTQhND5sihqau3EU9U72vYTZQvsVOzPwawsCm0r1I31oXw6nT5ONgsJPDDXB6m/+Iltx3UMI6+StY3059JAAqeQZnI6eTyZMlVcTItx6vImSov79lY+3t5wa9cf7Zf/fO3nsQj0MxSdRhUnPjZiyP2ew2neIKHMuzumErmJTV9I4IaxyzCs0NMnp8eRj7/35HZQzhcStugUrrg/8wFq5fm9hnKN2tM9LD+4zuJ4KO7Keq8BwwrYou7zDHyj3f5zEyXfENbkYvx0dZmiPIrCPLie7Sme0eTxrKqoC/faLo708+H9xxlIWOVvEzceSnD4g0WPP1KaNlYdl1g8G0Cj2fRxtUPC5N8vHof3VQ==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete classification train images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/classification/{name}/train/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes specific train images for a given classification model.
+    The image IDs must belong to the specified train folder. Returns a success message or an error if the name is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

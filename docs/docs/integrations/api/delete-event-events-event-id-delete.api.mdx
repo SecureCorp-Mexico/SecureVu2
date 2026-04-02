@@ -1,0 +1,71 @@
+---
+id: delete-event-events-event-id-delete
+title: "Delete event"
+description: "Deletes an event from the database."
+sidebar_label: "Delete event"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VE2P0zAQ/SvWnECymu4KLrkhbQUrLQIthUupqmkybbw4dtaeVFRR/juynbbpll0QBy75sN98vXkzHTBuPeQLmO3IsIelhJJ84VTDyhrI4YY0MXmBRlCAiI2zteCKRImMa/Q0+W6EEOKeuHXGCxS+LQryXtTkPW5JWBetnbNOqE20Ta6UF8ay2NjWlBOQYBtyGOLelpBDGSOvIjQ9/Wr4U+Vqla5BQoMOa2JyoY4ODNYEORyAIEGFOhrkCiQ4emyVoxJydi1J8EVFNULeAe+bYOfZKbMFCaxYh4NIjLgtoe+Xwd431njyweR6Og2vc8K+pOo3rRb3AxgkFNYwGQ5wbBqtilhn9uCDTTdKo3GBBVYpwkDlKL+1tZrQjBIcAkIvYWD8pXI+DpC+lweMXT9QwWfkLI6RT06XJyfvyZBTxbG+vg/u3lxfX9LxDbUqY7FiFhTw71yUxKh0+FJMtb8EaFuc3aLZf9pETZyT0cvjiTJMW3LQL090oHO4HzF2Z1OCkWC//StyD85ekFUch3m4/VMrQl0p9IAbdeJEb2L3+TJuEn2/C3aAfJjPP184TL2tiSt7mso4dlxBDlmazKw7DFwPEjy53WEeW6chh4q58XmWlVTbiaeidbRrJ8pm2KjYkBMszzJtC9SV9Zy/nU6vEmYZBnljI6dDviAhhElCm06uJtNQf2M91xilNOyCtMPS0oEnC647yfG/7rqhB0w/OWs0qiivSEI3ULtIOyyMYH7cZksJgZdw23Uho69O9304fmzJ7SFfLCXs0ClcB4oWHZTKh+8S8g1qTy+U/+p+EN1r8VyCB22ZoKwd6nZoww/aj3duHKeKsCQXc0jX74qCGh4ZXkx/aPJRaTezu9l8Bn3/CyoGRp4=
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete event"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/events/{event_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes an event from the database.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: categorize-classification-image-classification-name-dataset-categorize-post
+title: "Categorize a classification image"
+description: "Categorizes a specific classification image for a given classification model and category."
+sidebar_label: "Categorize a classification image"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU2P2zYQ/SvEnFpAtZxFe9Gt3QZtgbYJNm4vrmGMqbHFlCIVknLWFfTfgyFpS15nt0GP9UUyNZ/vvRkOEPDgoVrDvUbv1V5JDMoa2BRQk5dOdfFvBfcY6GCd+oe8QOE7kmws5JWbUC0eSOytEygO6kjmqUFra9ICTS1kCnha/GWEEGLVUPZuex8EPSofhDIiNHTORjMn8UChdybW0ktJ3ouWvGd/Tm4EOWedUPsYwGAbz8/uQnmhzBG1qhdQgO3IxfJ+qaECeel0e138Ntb39HDLwbfbGgN6CtuZd2d9gAI6dNhSIMc4D8DmUKVHAYqx7TA0UICjD71yVEMVXE8FeNlQi1ANEE4d+/jglDlAAUEFzQe/c5Bx3CRf8uEHW5/YQVoTyAR+xa7TudbyvWcuh9vIdveeZJhFjoHGcRw5tO+s8eTZ/m655Me1Nt4lBva9Fg/ZGIovr6FzTEBQKUOmc1bczlpNaGbV5YQwFpBZfwml37IJN/O03wnz9SXzFHQzBfmJDDklL/0lbL69u7uF40/WVZL7a1bhf8eipoBK85sK1PpbA23l1Vc0pzf7KLNrMMbicqJMoAM5GDcTHOgcnmaI/WrzGmCA/eGLwD0He940giFW/PXfqOC+UupsN2Nigjeh+3wbPyb4PpfsbPLzavX2JmDitqXQWF4IlzkODVRQXs9/OfAkj2We/3KafyjAkzue5753GipoQuh8VZY1tXbhSfaOjv1C2RI7FVmazKqy1FaibqwP1XfL5atksymAZfMwDfzrR2w77mYYeaHsbSQhNwgFcAlJmcvFq8WSAeOWWozay/to2u8CP7vV4cmNMFsy/+vLISsn0GMoO40qDkVkaciSWMN1H1BAldd7VgVvgEkXmwKYU3Ychh16+sPpceTjDz25E1TrTQFHdAp3TOF6gFp5fq+h2qP29AITXz3kKfpaPFf7eVgMj8oRdZ9l8jedzvdS3A0NYU0u5k+f7lOWb+IET643C41lnDy+l5K68KLtZjZob9+8W0EBu3yJsRygAocfeTvgx1SmjV3HbRfPBtBoDn28AyDF5N8npFQVJg==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Categorize a classification image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/classification/{name}/dataset/categorize"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Categorizes a specific classification image for a given classification model and category.
+    The image must exist in the specified category. Returns a success message or an error if the name or category is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

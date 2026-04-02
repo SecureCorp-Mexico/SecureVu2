@@ -1,0 +1,71 @@
+---
+id: get-classification-dataset-classification-name-dataset-get
+title: "Get classification dataset"
+description: "Gets the dataset for a specific classification model."
+sidebar_label: "Get classification dataset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlE1v2zAMhv+KwNMGCHFabBffhq3oBuwLXbZLFgSqzcTqbEsV6aCBof8+UHaSul/AjjtZlsiX0sNX6oHNliBfwvvaENmNLQxb18JKQ4lUBOvTbw6XyKS4QlUaNoSsNi4oo8hjIVmqmOSrxpVYz363Sim1qFC1pkHVdMQK7yyxsm0SeyqLZuoKuQstiX5XFEikGiQyW1RStFUYggvKbpJGkrakbLsztS1noMF5DEnxUwk5bJHX00Lr8RAPp9eitT6ubpFBgzfBNMgYhFMPEgL58NFghY03XIGGgLedDVhCzqFDDVRU2BjIe+C9lxziYNstaGDLtUx8FZEYV5JL3rWEJOHn87l8pg34MZDYdLW6GoNBQ+FaxpYl3HhfjwfJbkhy+tMWYoxRw5vz88fCv4TawP9CuP6DKvggqNkO+y6Rja1lZBkbehxQu2Kyatr9t02iOiUU9XHGtoxbDBBXUR/mTAhmfw/jZze6NmpoaPsS8S+Dj+Ao9nxogqEWshpPtd31DRY86fYynWsoPcatTjInvAPd54/xYcD3VLFDyMfF4vsjwaG3DXLlRrsn13IFOWRTh2e9+DZmo8NBA2HYHazdhRpyqJg95VlWYuNmhEUXcNfNrMuMt6kzp7A8y2pXmLpyxPnb+fxsiFnJvdi4BHfcOGiQMoPj5rOz2VxAeEfcmOSp8VpdIj98FE57nfi2P7n0/3qcxt4y3nHma2OTbRPTfuzaEqalQUM+vjcHGCsNAl1i+/7aEP4MdYwyfdth2EO+XGnYmWDNtfBf9lBaknEJ+cbUhC/QfHU1Wvu1em67Bwe34t+dqbuxx39wf3gb04Wt0JQYUv1h6V1RoOd7SY/eF3HP0cuXFwuI8S8i7E0D
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get classification dataset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/classification/{name}/dataset"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets the dataset for a specific classification model.
+    The name must exist in the classification models. Returns a success message or an error if the name is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

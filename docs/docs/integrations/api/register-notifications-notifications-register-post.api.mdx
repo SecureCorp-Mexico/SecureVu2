@@ -1,0 +1,71 @@
+---
+id: register-notifications-notifications-register-post
+title: "Register notifications"
+description: "Registers a notifications subscription."
+sidebar_label: "Register notifications"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVE1v1DAQ/SvWnM1mW8HFNz4qgQS02i5clgh5k9nEJbFdj7NlFeW/o4nT/SpFcCKXOJPnNzNvnt1D1BWBWsFnF83GFDoaZwlyCSVSEYznb1CwwMpQxEBCC3sMFdSt98DZNyuEEAuMXbAMpa4okEi0SKQrFC4IbQWG4IIwGxFrPNkvDDG78MFtTYnlDCQ4j2FM9aEEBWGq4/tJEWdfe5B3FEFCwPsOKb5x5Q5UD4WzEW3kpfa+mbZld8Sd9kBFja3mVdx5BAVufYcF80QTGw6MRMMwDExN3llCYvzlfM6vU+VukwSbrhGLCQzyr2tIWV5eXj4l/qobU47bxBUL+g+s4APLGk2qu8SoTcMrE7Glp4DGFSd/td1db0Ct9hJRDMZWMMh9xNiIFQYY8kE+xnQIenek40eXCoRBQkvVkeQT3wH6KRkI9mTPQ0cxxJL/Dofc+yGyGUzAkk3PfaXUEy4/0BzkTeo+38a7JN/vkj1C3i+XN08I02xbjLVja09m9TrWoCA7sXT2aGmQQBi2GGiUvwsNKKhj9KSyrMTWzQiLLuC2mxmXaW/GmRxgKssaV+imdhTVq/n8ImFyCWySxeGgXP3Urefa+0GCsRs3Sj61AxK4hOTD+exiNmd5uIFWj06zusWjW+P0yoCzy+XoRP7He2YaXcSfMfONNqMrR+H6aSYrOG9jP5VcAivKmL5fa8IvoRkGDt93GHagVrmErQ5Gr1nAFR+KGnWJYRzjD9yBgrdJhRejdRnedKPdzk8yTzTteF0U6OMfsfmRw26ub5cgYT3dg60reU/QD9yKfkiDdT51p/oU66HRtur48ClInPz8Ak+ILMk=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Register notifications"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/notifications/register"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Registers a notifications subscription.
+    Returns a success message or an error if the subscription is not provided.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

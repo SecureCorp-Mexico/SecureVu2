@@ -1,0 +1,71 @@
+---
+id: update-role-users-username-role-put
+title: "Update user role"
+description: "Updates a user's role. The built-in admin user's role cannot be modified."
+sidebar_label: "Update user role"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v4zYQ/SvEXNoFFMubthfdsl/YBVo0cJ1eXCOgxbHFrURyyaGzhqD/vhhSjux1kra36iKJnK/35nHYA8ldgGoFN5EaWBegMNReO9LWQAV3TknCIKSIAf0PQXjb4kwsGxSbqFu60kZI1Wlzui9qaYwlsUHRWaW3GtXsL7PAL1F7jpXsc6A/ZatV+g5CehQKt9qgEtoIalDU1mz1LnrJ5cygAOsw/3xSUEFM1d2z+z3nD/fpZWSH93nVRYICnPSyQ0LPSHvgffYeTaEAzVidpAYK8LlOBRX5iAWEusFOQtUDHRz7BfLa7KAA0tTywt0U6Jw9pumYRdhtgsT/4qGxATNXZEWGAcOwztkx0BurDpzy+2JqawgN8ZZ0rtV1IqP8HDhff1Kr80wVaQwpjOVCn0ew4P1hKI4GdvMZazojY5WDrCenG+duI7FrqnYYOIDH4KwJOe31fM6vc1L+iHWNIWxjKxajMfx7YDnLz08FfiOVWGT6xJX4ZPaP2oLk8tOlywfrN1opNOJKvM2iTYo9PCFq60+UKx6J4dDX15ehk7ITCPHee+v/A8bvmqeQpG75SxN24dKgtfXZrjSH37dJ6ef9HorHFW0Id+hhWE9Nl97Lw4kofrW5QIbYhd1L+vkNQ5C7xHM2ed40kSGWvPtPgmNcOfVodyK+id7M7vMw3mX6nkp2NPm4XN5eBMxK65Aay7PmOEmogQrKNG3K/ni4hzLJrICAfn8cM9G3UEFD5EJVlgo7OwtYR4/7ONO2lE6njkxmVVm2tpZtYwNVv8znr7PNugCWyGKaDO+/ys7lE51P9tRh0GZrE/8jNiiAK8qinM9ez+Zs5WygTibZjdMwT/o8nkYwZ4LuJ/n+726Fsa+EX6l0rdRJsonXfuzYKk37AAVUJ2P/ONGYcLbp+40MeOfbYeDlLxH9AarVuoC99FpumNBVD0oH/lZQbWUb8AWifhzhqVfiuTKPqjWs2b1s49i0v/Fwekelg9qgVOhTDXn7bc50lY7T5H4xXVhn2eOmrtHRi7brE9Xf3i2hgM14G3VWsYuXD0yefMiV2gQ83zO81kMrzS7yPKggh+TnGypy57Y=
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update user role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/users/{username}/role"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates a user's role. The built-in admin user's role cannot be modified.
+Requires admin role. Valid roles are defined in the configuration.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"username","in":"path","required":true,"schema":{"type":"string","title":"Username","description":"The username of the user whose role to update"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"role":{"type":"string","title":"Role"}},"type":"object","required":["role"],"title":"AppPutRoleBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"400":{"description":"Bad Request - Invalid role"},"403":{"description":"Forbidden - Cannot modify admin user's role or admin role required"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: generate-review-summary-review-summarize-start-start-ts-end-end-ts-post
+title: "Generate Review Summary"
+description: "Use GenAI to summarize review items over a period of time."
+sidebar_label: "Generate Review Summary"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VEtrGzEQ/itiTi0IrxPay94CDWmgJSF2ejHGyLtjW+mupEhat86i/15G0vpRN4US6GVXGs18M/PNowcv1g7KGTzgVuIPmHOo0VVWGi+1ghIeHbIbVFe3zGvmurYVVr4gs1GdSY+tY3qLlglm0EpdM71iXrY4Ag7aoBUEdFtDCWtUdMVFMl4ktN3pVb7gwnlh/SL/vFssUNXpQxejnQcORljRokdL4fegRItQwmADHCSFb4TfAAeLz520WEPpbYccXLXBVkDZg98ZslNdu0QLHLz0DQkmBMSmDkLge/QUwpuxr1WdkOdk7YxWDh0ZXI7H9DutwKSrKnRu1TXsISsDh0orj8qTujCmkVXkuXhyZNMfggghBA4fLi/Pgb+JRtbRjF1bq+0/oIKxVFsvU9w1eiEbOsWGOFdodHXyKtTubhXrljly3kq1BuI6S6TyuEYLYR74IBPWit0RkV90ChACh9atjzjPeAfVr+icWCPswV5XjWSwKb2Gg2+9fMLKn9R7FvNKrrPe/ABzoDex+3oanxJ9f3I2qHyeTu/PAFNtW/QbTfO1Hwy/gRKKNFbFfqyKOBtFP4xIKFDVRZ96OgAHh3Y7jFNnGyhh471xZVHU2OqRw6qzuO1GUhfCyFirg1pZFI2uRLPRzpcfx+OLpDOnWVnpSHdOBTiQm9SD49HFaEzUUPCtiF2Wh+0mrwuWVhObpHUBv22o/tC0b1tWmXqPP31hGiFjV8UE+8zpDBIScTWA05kIBQ7l0fJBVZMkL4w5B+KFEPp+KRw+2iYEEj93aHdQzuYctsJKsSSKZj3U0tG5hnIlGod/yfndQ+7H9+y1JIa2U0TeVjRdLsN33B2vTCrof/SbuYnzvUFRo42Zp8erqkLjj8zO1hG11r717+8mUwjhF9wQVu0=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate Review Summary"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/review/summarize/start/{start_ts}/end/{end_ts}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Use GenAI to summarize review items over a period of time.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"start_ts","in":"path","required":true,"schema":{"type":"number","title":"Start Ts"}},{"name":"end_ts","in":"path","required":true,"schema":{"type":"number","title":"End Ts"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

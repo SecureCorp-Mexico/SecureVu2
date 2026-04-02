@@ -1,0 +1,71 @@
+---
+id: regenerate-description-events-event-id-description-regenerate-put
+title: "Regenerate event description"
+description: "Regenerates an event's description."
+sidebar_label: "Regenerate event description"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVGP0zgQ/ivWvMBJUVNWx0vekNgDJNChZbmXvapyk2ljcOxgj1dUUf77aeykcVm6h0DiKW0y883M940/D0Dy4KG6g+t7NORhU0CDvnaqJ2UNVHCDBzToJKEX0gjksCdeZEGrf40QQtwgBWe8kMKHukbvRYfeywMK62Kmc9YJtRfUYoIRygtjSextMM0KCrA9F1LWvGmgAneqvM2qbWOq36bnVjXbs69ZUh8ICuilkx0SOp5yACM7hArmZChA8ZS9pBYKcPglKIcNVOQCFuDrFjsJ1QB07DnPk1PmAAWQIs0vIm3iTQPjWJzQvQ2uxhn7S0B3PAPfS+3P0KU5/r2P/X1bB03oWB5qQ7czUmkPBXgje99aYrXmRhadXi50XHM2NzbBmqA1jFHjvQyaoDoHnsE+pAHymfb2F0faWatRmsfbmWDmPv6yqY0Nl/K9NR49g1+t1/w439QPae32QYubKRgKqK0hNBRb6nut6rhg5SfPOUPWcO94/UilCtMOZ9LP/WcsTTFjAdOqP7Yp76aQcSzmGLv7hDWd8Xh3qryAZiq/Yo1VfZpvHBnuz6urh3T8I7Vq4rDimo/ez3PRIEml+Zci7PzDAG3rs6+X1jmTXhnCAzoYNwsd0jl5zBh7a1ODkWB/+CFyZ7BHTmz0oVv++n9S8Fyp9BSXKbHQm9i9PMbLRN/3is0hr29v3z8ATNp2SK1lO5ztjFqooEwuWA6zkY1lpn65uCC7Bbr72f6C01BBS9T7qiwb7OzKYx0c3oeVsqXsVRRpCavKUtta6tZ6qp6v189SzIaNYG8jz9MMUACXScu3Xj1brZmT3nrqZFyvyUgWo5pugXxtv7l9hmVlf+tFNOlE+JXKXksVVzCSMkwK3KUrhI9plV0m57NkMmwKYAo5cRh20uNHp8eRXycvZXEa5eVOZ276GY/5bXIvdYhMs0QXgmebXmI3/McpDv5+lYuMP72ZzsIf4hIn88qbY15zbuZETDzlLcoGXewhfX5R19hTlvjAlLj50wF4//EWxvE/TET+vA==
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Regenerate event description"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/events/{event_id}/description/regenerate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Regenerates an event's description.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}},{"name":"source","in":"query","required":false,"schema":{"anyOf":[{"type":"string","enum":["thumbnails","snapshot"],"title":"RegenerateDescriptionEnum"},{"type":"null"}],"default":"thumbnails","title":"Source"}},{"name":"force","in":"query","required":false,"schema":{"anyOf":[{"type":"boolean"},{"type":"null"}],"default":false,"title":"Force"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

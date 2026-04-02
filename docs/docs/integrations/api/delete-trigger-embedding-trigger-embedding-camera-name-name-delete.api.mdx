@@ -1,0 +1,71 @@
+---
+id: delete-trigger-embedding-trigger-embedding-camera-name-name-delete
+title: "Delete trigger embedding"
+description: "Deletes a trigger embedding for a specific trigger."
+sidebar_label: "Delete trigger embedding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVEuL2zAQ/itiTi2IOLu0F99KN9DC9sE27SUNQbHHtra25JXGocH4v5eRFSfZ7BYKpT2NGM3zm2+mB1Klh3QFix0a8rCWkKPPnG5JWwMp3GCNhF4oQU6XJTqBzRbzXJtSFNYJJXyLmS50djCYfTdCCHGH1DnDjr7LMvReNOi9KlGwlxHonHVCF4IqnGJrL4wlUdjO5DOQYFt0iit5n0MKeahlE403UyFPaDaZatCpjVENbjZRjP4goVVONUjouPUe+BdSOHEBCZq7bxVVIMHhQ6cd5pCS61CCzypsFKQ90L5lV09OmxIkkKaaFW9DLPGRYw2DnHL8leAx6pp9fWuNR8/m1/M5i/P5fRnBL7pa3EVjkJBZQ2iIzVXb1joLICf3nn36yxLs9h4zOinhEEuM/BDLOMDFRI5LjTgBRYgoRn8YhmGQ8Or6+rKDb6rWeahPLJgzf1J+65hBpEeAciSla35pwsZfGtQ2O/tVZv+pCBQ5HwUPNGq0ISzRwbAe5EGnnFP7E7Bu7VggDBIaX/5utB/GHYEp2POmAQyx5N/hmHua1JFWq9DXmDrarY9hjvCO6D7fxs0I31PJDibvlsvPFwHH2TZIlT1ucdhCqiCFJG5vMm1v0p+s4pD0QYAEj2532NnO1ZBCRdT6NElybOzMY9Y53HUzbRPV6jClo1maJLXNVF1ZT+nr+fxqtFnzMhY2AB2bAAmcZmTffHY1mzMorfXUqMCvuMuR+hd3ER7d0P7I1/98TuPYCH9S0tZKB0YGiPo4jRVEX5Bw2lB6fhzTINcSGE326vut8vjV1cPA6ocO3R7S1VrCTjmttgzsqodce37nkBaq9vgboF7cRf6+FM8VfqCpYZLuVN3F4f3A/aNrzkz4h6nHnHwQKlQ5utD6+PUmy7ClE6eL+8WMnHblZnG7WC5gGH4Bg3agWA==
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete trigger embedding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/trigger/embedding/{camera_name}/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a trigger embedding for a specific trigger.
+    Returns a success message or an error if the trigger is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"type":"string","title":"Camera Name"}},{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","title":"Response Delete Trigger Embedding Trigger Embedding  Camera Name   Name  Delete"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: motion-activity-review-activity-motion-get
+title: "Motion Activity"
+description: "Get motion and audio activity."
+sidebar_label: "Motion Activity"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v2zAM/SsGz0acdtvFt24rugErNrTZLkFQMDaTqJMtV6KzBYb/+0DJH0nTtOt2SmQ9PZKPT1QDjGsH6RxuaKvoFyxiyMllVlWsTAkpXBFHhZFFhGUeYZ0rE2HGaqt4N4EYTEUWZf9zDikE6F0PuLOedlx3+2tiiKFCiwUxWcmggRILghQyLMiigxiUJPBQk91BDJYeamUph3SF2lEMLttQgZA2wLtKDjq2qlyDVLDCWjOkgFpDDKxYC+BDx9y28RBtSStj6fXByrpYkt0jfx+I9rlxxR7yv9QXnmef2WWo/yFpVTKtPfUg0ZvpGOfWs7btQrhcZUpHTk6fT6fyc2iM2zrLyLlVraObDgwxZKZkKlngWFVaZd4ayb2TM81xRmgtSu6KqfCxKiuGYhUiO0bLd6yk6CeqGBIXWDQTWBt3HnxO0OuAaOPObE+Z6NA0on4PMct7yvhA8Pl+pkMGA/1ipAv37KK7DyGRQb92Hxe+RQES9SeiQDCuu/0rYmhbyfLt+flxt36gVrnvRXRprbGvadVhS3JiVFr+neiZNtnBLpa7ryt/wQ8lFjs/6mi7GFXundEL8sWEBH2H3fq5ll2Tc7gOcnrIaagXI5rJ7ksdlrpC6A6319VR3qDu6TI+BvmeCtZDPs1m344IQ28L4o2ROdsPUN5ACkmYskk/ZZPBf47sth+vtdWQwoa5cmmS5FSYiaOstrStJ8okWCnfkhGWJok2GeqNcZy+m07PAmYhY2dlvKpdxhCDhAlWm07OJlNRoDKOC/Rm6sbWIy/Do8emGT358rvTqcf0m5NKo/LG8Mk3nS5zCLpADDhG7LRZxCB1Capplujou9VtK5/DOBXFcuVwqfcG6k/aHTxQW9S1r1+EO4EeHpi/Afcvxt9g+zdgxC5kYZWAIZ3LXdoQ5mR9MeHQRZZRxXunjq6+sAw2u7qcQdv+Aejexuw=
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Motion Activity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/review/activity/motion"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get motion and audio activity.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"cameras","in":"query","required":false,"schema":{"type":"string","default":"all","title":"Cameras"}},{"name":"before","in":"query","required":false,"schema":{"type":"number","title":"Before"}},{"name":"after","in":"query","required":false,"schema":{"type":"number","title":"After"}},{"name":"scale","in":"query","required":false,"schema":{"type":"integer","default":30,"title":"Scale"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"properties":{"start_time":{"type":"integer","title":"Start Time"},"motion":{"type":"number","title":"Motion"},"camera":{"type":"string","title":"Camera"}},"type":"object","required":["start_time","motion","camera"],"title":"ReviewActivityMotionResponse"},"title":"Response Motion Activity Review Activity Motion Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

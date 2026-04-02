@@ -1,0 +1,73 @@
+---
+id: preview-hour-preview-year-month-day-hour-camera-name-tz-name-get
+title: "Get preview clips for specific hour"
+description: "Gets all preview clips for a specific hour in a given timezone."
+sidebar_label: "Get preview clips for specific hour"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFv2zgM/iuEXtoCRpwVuxcD9zC0RW/AdVes6YChFxiqxcRaZcmT5HSp4f9+oGQ3TrPmWgzXp3uKY1MfKfL7SLbM86Vj2Q27tLiSeM/mCRPoCitrL41mGTtH74ArBXW0gELJ2sHCWODgaizkQhZQmsaC1MBhKVeowcsKH4zGyd8aAODE6BVa78CXCLU1KylQgOAeU7KEhTVV+NYDonhEAG/genYCXAuw6K3EFbqI+vOofMl9iGcC1w6h4BVanmte4e8HXKkDAlyiH0666JywoqnrY56VCP4hHARXmkYJuEXgm8CUvEM4+FChlQVPP+F9/tXYuwM4bMitqSruQGrnkQswC3CKuxLd0YQlzNRoOSX4o2AZ6yPJKeh8+JOvkdu8MtqXeZ4Lvs7zaJDnoyvled7HmOdL9CxhNbe8Qo+Wytoy+sQytgFjCZNU15qHZ4vfG2lRsMzbBhPmihIrzrKW+XVNJ523Ui9Zwrz0il58RW7hIkB1XfLoQfD1a6Gl9rhEO8I+5estULrwr6P+QShj2FECX4zO9fqvRUjpdmIItn+jG6VYN984Pgl+4BP5GfvvS/bLpZg9DNhzOu5qox06OnE8ndLPtpSvmqJA5xaNgs+9MUtYYbRH7cMd61rJIhAz/eboTLsbBbc2ltpjFXzVlujsZfQcc7sv6pgV9rTR9MkKeos6lm4QKesS5myxD/XKFjuQl9yXJPfYdWKjoNZjYCEVEmhE25Nhev8U9uLjxRnQCZL1LvZh+Emr+v1RiNtz60c+dFPdbtHzKhg8dXKt5Y/Qa5znVQ33JXXVka8A68gBarEP/kyLV4OjFo4YO4Ca229Y+C2O3gyVjpXpTYfrxqhGUujny4URqHYTSm/BYm3RofZSL2m2SL1UuNXgJ6FkPeJAYeihgWT++Ac2bQoATvkaIBqMNElN/qF/OkfPuo6u/P74eFc6X7iSIggDzqw19jW62daHQM+loqdnBKRMsfX1BY1naHndfFOyQaZDuv40MUBKYeWW+0h/gc7x5Yv0EZIBQSX/Rhe6V3Td243YsUlvzO7z1ziN6fuZs8d2P5td7gDG2lboS0Mjd5iVvmQZS3uOpe1mTHZpK/i6S1saQV3ajkZGl7Z9A++I72hXw7BtrKKh5X3tsjQVWJmJw6KxuGom0qS8lqFqG7MsTZUpuCqN89lv0+m7aDOnwbAwIfH9pVjCyE1k43TybjKlJNXG+YoHvvWj5Xyz2Yx2oq097an82g2V/9/2/ottryeqxx8+rRWXQYOBBG1PwZthB2QJy7Z2tSzuVVlfuGx7dcmGTWKeMOIQIbXtLXd4bVXX0evvDdo1y27mCVtxK/kt0emmZUI6ehYsW3DlcA8nDj/3Kj6C5y4ziFVTrCuump6yd7jeXj6J/m/omZL3xi5Dod7Y55gUb+x6IGAYPSVygTbQK379UBRY+9G5nUlJve6xK5+fzVjX/QPUHf61
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get preview clips for specific hour"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/preview/{year_month}/{day}/{hour}/{camera_name}/{tz_name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets all preview clips for a specific hour in a given timezone.
+    Converts the provided date/time from the specified timezone to UTC and retrieves
+    all preview clips for that hour. Use camera_name='all' to get previews from all cameras.
+    The tz_name should be a timezone like 'America/New_York' (use commas instead of slashes).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"year_month","in":"path","required":true,"schema":{"type":"string","title":"Year Month"}},{"name":"day","in":"path","required":true,"schema":{"type":"integer","title":"Day"}},{"name":"hour","in":"path","required":true,"schema":{"type":"integer","title":"Hour"}},{"name":"camera_name","in":"path","required":true,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera Name"}},{"name":"tz_name","in":"path","required":true,"schema":{"type":"string","title":"Tz Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"properties":{"camera":{"type":"string","title":"Camera","description":"Camera name for this preview"},"src":{"type":"string","title":"Src","description":"Path to the preview video file"},"type":{"type":"string","title":"Type","description":"MIME type of the preview video (video/mp4)"},"start":{"type":"number","title":"Start","description":"Unix timestamp when the preview starts"},"end":{"type":"number","title":"End","description":"Unix timestamp when the preview ends"}},"type":"object","required":["camera","src","type","start","end"],"title":"PreviewModel","description":"Model representing a single preview clip."},"title":"Response Preview Hour Preview  Year Month   Day   Hour Camera Name   Tz Name  Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,72 @@
+---
+id: false-positive-events-event-id-false-positive-put
+title: "Submit false positive to SecureVu+"
+description: "Submit an event as a false positive to SecureVu+."
+sidebar_label: "Submit false positive to SecureVu+"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU2P0zAQ/SvWnEBETXcFl9yQWAkkECu2u5dSVdNk2ph1bONxKqoo/x2Nk35sly0SR06x7Ddfb95MOoi4YSjmcLMlGxkWGVTEZdA+amehgLt21eio0CoShEJWqNZomJR3rKPekopO3VHZBnpo30y+W6WUmtWaFdnKO22j0qxiTYqxIXGQzhFthaE6WiqWUMza2YNlNnhbtckHeyr1WpdozE6tXVANhkdtNxezm0AGzlNAKehTBQWk9+X+fZkseTl8l7paLs8Avo2QgceADUUKQlcHFhuCAvZGkIEWujzGGjII9LPVgSooYmgpAy5rahCKDuLOix3HoO0GMog6GrlI/KtPFfT9QuzZO8vEYnI9ncrnvC9lSczr1qhvIxgyKJ2NZKPA0Xujy1R1/oPFpjtJwwfhJOohAg/OTvJbOWcI7UmCY0DoM/CmZan5Qjm3puWhmmyPcasfVMYn5MwPkY9OF2ec3HvjsBJ/hzr7Xty+vb5+TssDGl2lotVNCC78OycVRdRGTjpSw88BxpVPXtHuvq6TNp6S0meHG20jbShAvzjSgiHg7oS5z25IUIhueHOJ5C/EjBuCg7ML8hIy1Exe/9YSqWsIPeJOOnKkd2D35TI+DPT9Kdge8nE2u33mcOhtQ7F2Mqv72Ys1FJAPo5p3+6nr86ejChkwhe1+RttgoIA6Rs9FnlfUuAmnbbNtJ9rl6HVqzhFW5LlxJZracSzeTadXA2Yhw712id8xd8hAwgyim06uJtM0GI5jg0lW434Y1+eFhQlnG7c7Cvb/WL5j+yP9irk3qJOyE+fd2Nj5sEZlCxQnC/Wst4sMpC8C77oVMt0H0/dy/bOlsINivshgi0HjSlo076DSLOcKiuTqAtGvvo0D8Fq9lPFe51ZUvkXTjjJ4pN3pfyCNdk1YUUg5DM/vy5J8PDF8tolEZAfV397PoO9/AzTSoiU=
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Submit false positive to SecureVu+"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/events/{event_id}/false_positive"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Submit an event as a false positive to SecureVu+.
+    This endpoint is the same as the standard SecureVu+ submission endpoint,
+    but is specifically for marking an event as a false positive.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"plus_id":{"type":"string","title":"Plus Id"}},"type":"object","required":["success","plus_id"],"title":"EventUploadPlusResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

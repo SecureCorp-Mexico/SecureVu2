@@ -1,0 +1,71 @@
+---
+id: send-to-plus-events-event-id-plus-post
+title: "Send event to SecureVu+"
+description: "Sends an event to SecureVu+."
+sidebar_label: "Send event to SecureVu+"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu4zYQ/RViTi2qWk7QXnTbtgEaoMUGSXYvrmHQ4tjmliK55NC7hqB/L4aUbSVuXGAP9UUyOUPOvPfmqQeS2wjNAu72aCnCsgKFsQ3ak3YWGnhCq6KQViAHCHLiCdsU8GP6YfaXFUKIR6QUbBRSxNS2GKPoMEa5ReFCTgzBBaE3gnY4nqKjsI7ExiWrZlCB8xgkX3ivoIGIVq3IrbxJcZUT4qo8V1qtyrJ3kaACL4PskDBwDz1Y2SE0cIyFCjT34CXtoIKAn5MOqKChkLCC2O6wk9D0QAfPeZGCtluogDQZXsigiHsFw7As+RjpF6cOnNQ6S2iJX6X3Rre5g/pTZNz6yek+cH+kMfI/bVuTFK6ktY5kQflUgbaEWwyTEu5LuHh3DmeKNjIZguZmGKpjrlt/wpYmqU9p3Wl6MCnmkoeBgwNG72wstdzO5/x4xXhhcZOMeByDofrWbkdJTFpcO2dQ2hd1lpihgsytVtc44X4KJZednxlenG4+H7p8RewHb5xUfN6pz4LRT7e3l7B8lEar3LS4Y0V/OyYKSWqTtUDYxcsA49oXu9Ie3m+ywF+CMlQXwhmWZ1hkCPIwQe4PVwpkoLu4vQbyn2WC4XTYlRnJ4/3Mu/9FCfdVrh7jJoyc4S3ovt3GbwW+a8r//fn54eLAwm2HtHPsMicHoR00UBefqfujdww1ywYqiBj2R39JwUADOyIfm7pW2LlZzG64TzPtaul15uQc1tS1ca00Oxep+Xk+vykxywpYJI9nQ7n7Kjtv8C2DuBnYyjYuEzE2CRVwYUWd89nNbJ4nyEXqZNbf6Ibs4P/i3vDK6SeG9v+Y/kge4VeqvZE66zJD14+sLIqTMwvNxNMzMcsKGFQO6vu1jPghmGHg5c8JwwGaxbKCvQxarhmtRQ9KR35X0GykiXil/e8eR9F+L96q86hNy8rcS5NGRv7Gw/QDlMdxh1JhyDWU7V/LTT/moTmnX3gIa6lkvGtb9HQ1djnR9sP7p2eoYD1+qTqnOCfILzyQ8ksp1eXOs8HktR6MtNvEY99AOZN//wAfns1K
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send event to SecureVu+"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/plus"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sends an event to SecureVu+.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"include_annotation":{"type":"integer","title":"Include Annotation","default":1}},"type":"object","title":"SubmitPlusBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"plus_id":{"type":"string","title":"Plus Id"}},"type":"object","required":["success","plus_id"],"title":"EventUploadPlusResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

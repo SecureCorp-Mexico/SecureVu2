@@ -1,0 +1,73 @@
+---
+id: preview-ts-preview-camera-name-start-start-ts-end-end-ts-get
+title: "Get preview clips for time range"
+description: "Gets all preview clips for a specified camera and time range."
+sidebar_label: "Get preview clips for time range"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SuDuSQBBMtZpBcBPRTtYhug2y52nV62hsGVRhZTilRIyhtD0H8vhqT82f0ICuTUiyVTwzfDmfdmOKAXa4fFPd5Y2kh6xGWGFbnSys5Lo7HAK/IOhFLQRQsolewc1MaCANdRKWtJFZSiJStA6Aq8bAms0Gua/aUBAG7J91Y7EKCk82DqHdZGVmQSom+EB7Mhq0QHj9I34BsCS196cp4SbEdWmiqLuMZWZKmChy04L6wPJjP45CiFs9KipR/fCKXegDewJj95dlBb04ZzRVN3GqsGstZYkDVos98mLEFtel3NMEPTkRWcp48VFphsVt6tptfVQRyrVQhyeni3WpGu4g//WZPHDDthRUueLFdlQN6IBR7AYIaS69IJ32CGnB9pqcLC254ydGVDrcBiQKG3f9QBxG87BnHeSr3GMdut6F4pHJcZeukVL/wcq/g7+xnZMPmfQn61852D9oEs7h3chTot3BF6zMB/xr7UVURe8m7XGe3I8YaL+Zwfx7y+68uSnKt7BbfJGDMsjfakfchf1ylZhvLmnx3vGc6DENaKLUfuqQ2+Osuk8DJ6jnU7sE81OM04nqouFYITFKTmG+kmEuKYobPlc6h3tjyDvBEsKRNUday/Wipi0Ij2NOqC109hrz9eXwLvYF2fY78Nj7ztPrwLcXP9XyTImZNPWn4N6nZetB08NqSPfAVYxw5IVy9w5JvBSVeBrxOoefhMpT+i6P1U6ViZZDodN0Z1ILPUbK9NReo8obwKljpLjrSXes2NVuq1oqMePAslS4gThSFBw8LtXuFA1QBRgTAJEVg1EKUDcEUex5HP+uHi4lwzfwolq6AIuOTm+C2CORZGRV5IxW9PKEeZ8ujrK7qZ1J7WZHFc7ms16XPK028mBsi5a936ObZfk3Ni/SphhGRAkMdLPOFzRdfJ7oAW+/TG7D59jF9i+v7N2WTy62JxcwYYa9uSbwxPrGnk+AYLzBO58uFg2ox5oHA+TBNgzElX+RBb9sgUJ7uZplVvFRbYeN+5Is8ras3MUdlb2vQzaXLRyVCvvVmR58qUQjXG+eKH+fx9tFnyKKhNSHk6DmbIbiIP57P3szmnpzPOtyIwLc2Sq/2MP7ip7K8kp3Ib9gz+/6rzzFUn0czTV593SsigoFDIIRHofroAYYbF8YVlaoPFwT2CQicu0uxfZsgcYJRheBCOPlk1jrz8pSe7xeJ+meFGWCkemA73A1bS8XuFRS2Uo2fK+vY26e8dPHWQSWaaRbYRqk+U+5u2J7cv5u93dL1L2Hf2m8oSWmlDoiIbkh4//lSW1PmDbWednxW86zJXlwscx38AXvpERA==
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get preview clips for time range"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/preview/{camera_name}/start/{start_ts}/end/{end_ts}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets all preview clips for a specified camera and time range.
+    Returns a list of preview video clips that overlap with the requested time period,
+    ordered by start time. Use camera_name='all' to get previews from all cameras.
+    Returns an error if no previews are found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera Name"}},{"name":"start_ts","in":"path","required":true,"schema":{"type":"number","title":"Start Ts"}},{"name":"end_ts","in":"path","required":true,"schema":{"type":"number","title":"End Ts"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"properties":{"camera":{"type":"string","title":"Camera","description":"Camera name for this preview"},"src":{"type":"string","title":"Src","description":"Path to the preview video file"},"type":{"type":"string","title":"Type","description":"MIME type of the preview video (video/mp4)"},"start":{"type":"number","title":"Start","description":"Unix timestamp when the preview starts"},"end":{"type":"number","title":"End","description":"Unix timestamp when the preview ends"}},"type":"object","required":["camera","src","type","start","end"],"title":"PreviewModel","description":"Model representing a single preview clip."},"title":"Response Preview Ts Preview  Camera Name  Start  Start Ts End  End Ts  Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

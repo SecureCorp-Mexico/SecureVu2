@@ -1,0 +1,70 @@
+---
+id: vod-hour-vod-year-month-day-hour-camera-name-tz-name-get
+title: "Vod Hour"
+description: "Returns an HLS playlist for the specified date-time (with timezone) on the specified camera. Append /master.m3u8 or /index.m3u8 for HLS playback."
+sidebar_label: "Vod Hour"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVWGL3DYQ/StiPiXgrjeXFoq+hST0Arm2XLaBsCxmzppdK7EtRZK38Rn99zKyfbvu9UJC4Ogny9LoPenNm9EAAQ8e5BauSGmEXQaKfOm0Ddq0IOGaQudaL7AVl2/fCVtjX2sfxN44ESoS3lKp95qUUBjop6AbEk/+1qESPLw1LT0Vpv1XaIkNOVyJF9ZSq0TeoA/kVs3z7ldhnMh1q+jL+Ms8M/ENlp9WkIGx5JDP90aBhKNRRWU6V/Cg6Ald0Zg2VEVRKOyLYlwsipG0aLGhoijC7TQ6UIAMLDpsKJBjLQbgJZBwAoMMNMthMY0dfe60IwUyuI4y8GVFDYIcIPSWd/rgdHuADIIONU98IHTiKkHFmN0xKOy/F1q3gQ7kzrBfYb8A5Qv/OOolo5zDngn4zejY9n/sk6RLYRh2mmm7uoa4OxG/TDzid+Y5559S9sOp2NzO2Dve7q1pPXnecbFe82dZAe+6siTv910trqdgyKA0baA2pDtaW+syGTL/6HnPcDpFjDFm8PPFxX3g91hrlbaJ184Z9x2oYB0XQdDjuRUF1DWPdKDG3w+oTblY/Ya0zIaIu5jNc+hc8uus5FszHhBiBo0/fE30K/IeDwR3YA+HJjHEhlfjidvcfKQyLBK+Tfcaqae4Mxud5B3Vffgar0b5/ovsrhg2mz/vAY65bShUhhvR3ElCBRLyo1H5cGogMR8U9jEfuDhjPpwVU8yHydoRMvDkjnMb6lzN5RyC9TLPFTVm5ansHB27lTY5Wp0ydgqTeV6bEuvK+CB/Wa+fjTE7Lpm9SaJPF4IMmGZ04nr1bLVmgazxocHktano3hslLsd+snDvcPLq//KNmBIZ6EvIbY06eTQJNUwp2vLLARnIRZeXY0eWUw+Vy6Yn5x60y4A1ZpRhuEFPf7k6Rp7+3JHrQW53GRzRabxhubcDKO15rEDusfb0FTmfXE8Ofyoeushs5JbPesS6m1L6ifrls8X2eERmFu+RKVOiHpnz3BSPTD0bMLXlilCRS/YaV1+UJdlwtu/eK8K94K5j/fZ6AzH+A/oCZxE=
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Vod Hour"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/vod/{year_month}/{day}/{hour}/{camera_name}/{tz_name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns an HLS playlist for the specified date-time (with timezone) on the specified camera. Append /master.m3u8 or /index.m3u8 for HLS playback.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"year_month","in":"path","required":true,"schema":{"type":"string","title":"Year Month"}},{"name":"day","in":"path","required":true,"schema":{"type":"integer","title":"Day"}},{"name":"hour","in":"path","required":true,"schema":{"type":"integer","title":"Hour"}},{"name":"camera_name","in":"path","required":true,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera Name"}},{"name":"tz_name","in":"path","required":true,"schema":{"type":"string","title":"Tz Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

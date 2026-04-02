@@ -1,0 +1,72 @@
+---
+id: end-event-events-event-id-end-put
+title: "End manual event"
+description: "Ends a manual event."
+sidebar_label: "End manual event"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO2zYQ/RViTi2gWs6ivejWNkYboG2CrdOLayxocWwxpUiFQzoxBP17MCS91q4Tt8ipPsgSOUPOe/P4OEKQB4JmA6sj2kCwrUAhtV4PQTsLDaysIiFFL22URiBHLf62QghxjyF6y5MU2xaJRI9E8oDCeSGtQO+dF3ovQoc5UWgS1gWxd9Gqssofr9erRqw7TYI6F40SzpqT2KGIhErsnX+yNy2gAjegl1zfKwUNoFUPaS4/6aF8afXwwHNDDFDBIL3sMaBntCNY2SPnlkioQDPaQYYOKvD4PmqPCprgI1ZAbYe9hGaEcBo4j4LX9gAVBB0MDyT6xCsF07TN+UjhJ6dOnPR8udbZgDbwlBwGo9sEpn5HzPg4223wDDVoJP5iMEFz3SNIe3q9T0hKRTb2O/QwVbMRY4CreazRKrHm/GmqzkFu9w7b8BwIraxKxU8Tx3qkwVnKVdwtl/z3VCV/ZgXsoxH3JRi+GmeR04zunXMGpZ2VWTaEqYKiulvd+b2EfA74pTmbx50vi87o+wUtet0+4svcfH93d03HX9JolcCKFZ+Cr+dCYZDa8JsO2NN1gHHtk9krYRQyZsLQNuCBtbK90CG9l6cZY7+5XGAimA7/idzzYjdOSbKENc/+WysYV966xM06caE3s/tlGC8zfbcE/+t6/eZqwdzbHkPn2GLOFhI6aKDONlOPZ/OYarTsIIT+ePaX6A000IUwUFPXCnu3IGyjx2NcaFfLQaeOXMKaujaulaZzFJoflssXOWZbAUvk/mIoq4+yHww+NYTlxAa2d4n8Agwq4HKyIpeLF4slEzU4Cr1MmiseyLYwt1h4dgWMF+3+L2+D0tiAH0M9GKmTZhOxY2nZJvs8n+tm5vjctW0FzDjHjONOEr71Zpp4+H1Ef4Jms63gKL2WOyZ1M4LSxO8Kmr00hDfI+ua+6Plb8aUyz7K1LNqjNLE07h88zW+ndFI7lAp9qiFP/5x3+i6dp0v6lb2w0HLGj22LQ7gZu53J/s3bNVSwK7dY7xSnePmBj6r8kCt1CXiynjQ2gpH2EJMhQ16Sf58Ao8/hfA==
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"End manual event"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/events/{event_id}/end"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Ends a manual event.
+    Returns a success message or an error if the event is not found.
+    NOTE: This should only be used for manual events.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"end_time":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"End Time"}},"type":"object","title":"EventsEndBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

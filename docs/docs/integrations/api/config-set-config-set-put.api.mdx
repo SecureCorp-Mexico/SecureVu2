@@ -1,0 +1,70 @@
+---
+id: config-set-config-set-put
+title: "Config Set"
+description: "Config Set"
+sidebar_label: "Config Set"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVMtu2zAQ/BVjz6plB+2Ft7QJ0AItGiROL4ZhrKW1zJQSGXKVxDD078WSimU7D6S+mCJnh+TMLHfAWAVQczh3DhYZWEceWdvmRwkKCtusdbUMxMuDoWsZMvB031Lgr7bcgtrFT+2pBMW+pUxKmRqWJXTO6CKy5nfBNjIXig3VKCPnZU/WFA5owtJTYPSxnreOQIFumCrykAFrNjJz3YNH1z04g5LW2BoGNe0yaF2JTEu2ThfxIM329xrUfE8Z2Oumgi7bzzStMdAthj1uI8doFjm67FmSEhlfpbSrOyr4XcpvkWJ0IRRdl51UDrhz5xL0hpLMXSdwT8HZJiS9ziYT+SspFF47kRgU3LRFQSGsWyPKRDB83JG0y+ezs5fEf9DoMpaNLr23/j9YT3wuiVEbGWmmOrwEGFscrX7Au+eAdItBVPQetwea/rTpgGJlHaqDePV8A/QXhYAVwZ7sbWgUYzST1dcMHXpjHu+Vtu5xB8EY5E3qvn2NiyTfe+n5PptdvSBM3h6b2sfxhqS6Jt5Yaf3U5A55AwrylPo8REwg/0A+RDNab0DBhtkFlecl1XYcqGg9PbRjbXN0Ojo0wFSeG1ug2djA6stkMk2YRQYSmevhUbl8wtoZev1RmJ429+DJcYPKdXWzttG9XhnIQM6fbj8ZT8cTUdrZwDXG0DZY06kwR5rtk8D0xLkzqGOg4i13vWjz/iRRMBab5coyv9utMNCtN10n0/ct+S2o+SKDB/QaV3LIuWR4Q1iSjzr/pW06kTTbp5g0gZs2puO08UTyVHFeFOT4XeziwPWr2xlksOrf9NqWUuLxUUKMj0k7G0VIr7XM7cBgU7XSKgoSpfz+ATPcLy8=
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Config Set"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/config/set"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Config Set
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"requires_restart":{"type":"integer","title":"Requires Restart","default":1},"update_topic":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Update Topic"},"config_data":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Config Data"}},"type":"object","title":"AppConfigSetBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

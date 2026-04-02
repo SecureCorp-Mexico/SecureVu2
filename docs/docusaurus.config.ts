@@ -5,7 +5,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "SecureVu",
-  tagline: "NVR With Realtime Object Detection for IP Cameras",
+  tagline: "VMS With Realtime Object Detection for IP Cameras",
   url: "https://docs.secure.vu",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -27,8 +27,9 @@ const config: Config = {
     locales: ['en'],
     localeConfigs: {
       en: {
-        label: 'English',
-      }
+        label: 'Español',
+        htmlLang: 'es',
+      },
     },
   },
   themeConfig: {
@@ -143,20 +144,11 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "https://secure.vu",
+          href: "https://securecorp.secure.vu:8971/",
           label: "Demo",
           position: "right",
         },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-          dropdownItemsAfter: [
-            {
-              label: '简体中文（社区翻译）',
-              href: 'https://docs.securevu-cn.video',
-            }
-          ]
-        },
+
         {
           href: 'https://github.com/SecureCorp-Mexico/SecureVu2',
           label: 'GitHub',

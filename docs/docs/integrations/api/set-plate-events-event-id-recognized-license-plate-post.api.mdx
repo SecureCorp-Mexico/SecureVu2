@@ -1,0 +1,71 @@
+---
+id: set-plate-events-event-id-recognized-license-plate-post
+title: "Set event license plate"
+description: "Sets an event's license plate."
+sidebar_label: "Set event license plate"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zgQ/SvEXNoCqqUEuxfduttgt0CKBk7ai2sYNDW22VKkSlJuXEH/vRiSipQ4dhc9rC8yyPngvDfzpgPPtw7KBVztUXsHywwqdMLKxkujoYRb9I5xzZDuXzimpEDtkDWKe5x91owxNkffWu0YZ64VAp1jNTrHt8iMDb7WGsvkhvkdxkBMOqaNZxvT6moGGZgGLaeU7yoowaFfhQSrYO1W8buS1WplUZitlj+wWqW3JNPGOA8ZNNzyGj1aKqsDzWuEEgZ/yEBSWQ33O8jA4rdWWqyg9LbFDJzYYc2h7MAfGvJz3kq9hQy89IoOAk7sXQV9v4z+6PxfpjqQ09NwwmiP2tMVbxolRSgx/+II2m6SrbEEgJfoYpihxOtY4Q0V+Nyran5/jXrrd1BeFMX4yvlDBJZCsBijz05EvxXGhhRcHz5sAnQpmW7rNdqYTNZtDeVFBngvVOvkHt9LHQ+LPpu4KAWEz/CeEJ1tjGVj9setBH2fDe5m/QWFf0TP4hQoyyfUuOubeaCj7/tQrGuMdhHXy6Kgz5MGjy27aRWbJ2P4beZS/0+oWhujkOtJB6WEREUak3P99j6Z/AqeIfMYdILMP6jRSvFQX8Tmj8vLYzg+cSWrUCy7orH9fSwq9Fwq+ic91u7YQBnx6Pao8xIYk8aS2uMWLfTLEQ5uLT9MELs28YEBYLf9T+AOwc7MfdCwO7r9FRVUV0yd7CZMjPBGdE+X8TbC91yyweTfu7ubo4CR2xr9zpCUPqgiaQTkUU/zbtDDPj+lp5CBQ7sfdLS1CkrYed+4Ms8rrM3MoWgt7tuZNDlvZOBpNCvzXBnB1c44X/5ZFBfRZpkBNc58FM6re143Cs8J30jHWfEqelL3jQk8JowgA6ohNncxu5gVhDmhUvPQvmlB3KJPq+mxLD3Zh904Df/Xakzse7z3eaO4DI0dcO4SrYu43mj4y8miO8nsMgNihRy7bs0dfrSq7+n4W4v2AOVimcGeW8nXhOGig0o6+l9BueHK4RlQXs7TJLxip94+NLymdt9z1SaevuJhuqnDjO+QV2jDG+L13zHT6zCJo/uRMFEzRo83QmDjz9ouJwNz8+H2DjJYp5Vem4p8LP9OiPLv8akmVB6XNZ11oLjetkHLIcak309TI0EN
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set event license plate"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/recognized_license_plate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets an event's license plate.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"recognizedLicensePlate":{"type":"string","maxLength":100,"title":"Recognized License Plate"},"recognizedLicensePlateScore":{"anyOf":[{"type":"number","maximum":1,"exclusiveMinimum":0},{"type":"null"}],"title":"Score for recognized license plate"}},"type":"object","required":["recognizedLicensePlate"],"title":"EventsLPRBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

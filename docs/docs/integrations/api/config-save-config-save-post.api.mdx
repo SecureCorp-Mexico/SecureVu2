@@ -1,0 +1,70 @@
+---
+id: config-save-config-save-post
+title: "Config Save"
+description: "Config Save"
+sidebar_label: "Config Save"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1vEzEQ/SvRnEAy2TSCi2+lIIEEStUGLlFUTXYniYt37drelGjl/47G3nwsaZE47cp+896bL3cQcONBLuDaWlgKMJYcBmWarxVIKE2zVpsHjzt6OP+3xgcQYNFhTYEcM3TQYE0gISGMZRIQoBqQ8NSS24MAR0+tclSBDK4lAb7cUo0gOwh7m2KDU80GBAQVNB/c445Gs0wW4zJTkA8fTbXnuL8ZS9MEakKipN+hsBrZQXcu1VMnihhjZFJvTePJ8/10MuFPRb50KitLuG/Lkrxft3p014NhoIbWalWm0hWP3gw1s8r76fSS+CdqVaWw0WfnjPsPVrCO2xVU9l1RQKX5TwWq/SVAm3Jwi81+tk6dG1Y/iuOJagJtyEFcRnE4Q+dwf9aibyYbhCig9pt/dfM7eY8bgiPZ69BUjNGcb+NJ26weqQyDSVqkvLJ0j1ueaE7lzdV9PY1PuXwviR0gX+bz2wvC3NthU2/Srox4eNkZha3hdTquTdiChCJvVOEzypPbHTapdRokbEOwXhZFRbUZeypbR7t2rEyBVqUmnWCyKLQpUW+ND/LDZHKVMUvev7U5n3oQwDLZ52R8NZ5wTdhZjWm8+i0epjBI79i0sw2LIrvp+uwW/dvBiTHFUgB744uuW6GnH07HyMf5beCsK+Vxpbmna9SeLlSPewFv7vr2vx2BeNnNL9pfvEU71G2qARdmh06xHMgFD/eWsCKXfOTQm6z2Lo3gKXagcsBelyXZcIa62FtWPM7B7ex+DgJW/RtWm4pjHD7zYONzchjjH/mV6Yk=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Config Save"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/config/save"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Config Save
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"save_option","in":"query","required":true,"schema":{"type":"string","title":"Save Option"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"text/plain":{"schema":{"title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

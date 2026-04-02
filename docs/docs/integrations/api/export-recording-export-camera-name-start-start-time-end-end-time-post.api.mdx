@@ -1,0 +1,73 @@
+---
+id: export-recording-export-camera-name-start-start-time-end-end-time-post
+title: "Start recording export"
+description: "Starts an export of a recording for the specified time range."
+sidebar_label: "Start recording export"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv4zYQ/ivEnFpAtbxB04Nu7W6KBth2g6y3PaSGQUsjmbsUqSUpJ4ag/14MST3sJG6QAntqDrFNznu++YYdOF5ZyO7g6qHRxsE6gQJtbkTjhFaQwUfHjbOMK4ZegumScWYw16YQqmKlNsztkNkGc1EKLJgTNTLDVYWLvxVjjK12OCjnXLEtstLoerJhmTasMbgXeM9KrR2vcMFu0bVGWW88al+/Y6IMNm2b52ht2cqEtCk8Y7RhNVrLK2Si9Io5r9FwJiwTas+lKEhY6ZnvNDq2wS43yErdqmJMbJYOJKAbNJxKc11ABiGuzWhtEw82we9G8Ro3G0slHD7I3GaDqgj/ws9GWwcJNNzwGh0a6kgHpA0ZzGxBAoKa0nC3gwQMfm2FwQIyZ1pMwOY7rDlkHXB1+FB6I+7QkBHrjFAV9Ml4olopoV8n4ISTdPA21OoP8tOTYPQ/xf1i96OLeosGJhceTGwlTjwMhfjP9q9UMVhfB3207hddHEjp1FyulUPlfLmaRorc9zX9bAn33cxbY6jrTqD1vyQ/bHn+xccR/d7EM1by3GmKqMCSt9JBBga5jMkd9yIBVG1NszcXETVK3ljcXFw+wLpPwOrW5Pikt3h17G0A9ll/M6GIf+8r9OMUNAnU/OE9qsrtILu4/Gmq969GoCrkgXnFPgFR8wo3vn9PmBnUrkmK3ZBU349h6u1nzN28m36YbsdgfSP7nlQM2kYrGzpysVzSxwlvjQTBbqMwvLrnkW1mOW21lsjVHNtR5pRA/9qh26GZ89g9t8xPFRYzIpMHqmAksHPl+z2KPEHVrvVkesSFZDXykiheSw5XkYGLR15XJ/x8lNGQ5pN9ngbybqzwVID1CW0MaBh7eRzGcMFqXaD07O19044al9ciwufHi4vHiPmT9oPHA7ui+r0eLgU6LiR9Ew5r+1hA6vzo9gUdEcphhQb69VRJbgw/zIDxXocAPY5s9RIMjcaeF/XFYCu6/bcuUl7BdZSbNXEqb6ju82m8C+U7Rw2/rVY3jwyG3tbodpqW87hUiYwgDQhIu9k67VMPkbSbVlyfoirSbthIPSRg0eyHldwaCRnsnGtslqYF1nphMW8N7tuF0ClvhO/ZJJalqdQ5lzttXXa5XL4JMusECES304a6euB1I/F4w8w3w7AHjtl73NGxaXMCnlAEQpV6vkIgAcopAH+5eLNYkhRVrOYe2tFuWNjTay8U8XT4umlQ/n8vHr8XI4AdPri0kVz42fTw6CIy72Asanb81POopOOjFxgq4uBsfDOtEyBwkaGu23KLn4zsezr+2qI5QHa3TmDPjeBbav1dB4Ww9L2ArOTS4plmfncbh/t79lwuwwwrmuA9l22E1xc8nLxdaTC+oetZ0b6x57E1nqt3yAs0vvDh+m3w9INn1En90YKhqIPGz3mOjTsru54R382HjytIYBvfvbQQiTb4PbE1vw+hap+53z7+rAPJVdX6pwcEm/T3Dzsk45k=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start recording export"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/export/{camera_name}/start/{start_time}/end/{end_time}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts an export of a recording for the specified time range.
+    The export can be from recordings or preview footage. Returns the export ID if
+    successful, or an error message if the camera is invalid or no recordings/previews
+    are found for the time range.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera Name"}},{"name":"start_time","in":"path","required":true,"schema":{"type":"number","title":"Start Time"}},{"name":"end_time","in":"path","required":true,"schema":{"type":"number","title":"End Time"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"playback":{"title":"Playback factor","default":"realtime","type":"string","enum":["realtime","timelapse_25x"]},"source":{"title":"Playback source","default":"recordings","type":"string","enum":["recordings","preview"]},"name":{"type":"string","maxLength":256,"title":"Friendly name"},"image_path":{"type":"string","title":"Image Path"}},"type":"object","title":"ExportRecordingsBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success","description":"Whether the export was started successfully"},"message":{"type":"string","title":"Message","description":"Status or error message"},"export_id":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Export Id","description":"The export ID if successfully started"}},"type":"object","required":["success","message"],"title":"StartExportResponse","description":"Response model for starting an export."}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

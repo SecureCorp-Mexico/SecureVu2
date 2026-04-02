@@ -1,0 +1,70 @@
+---
+id: get-labels-labels-get
+title: "Get Labels"
+description: "Get Labels"
+sidebar_label: "Get Labels"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVU01v2zAM/SsBz0LsBttFt2IrugEdNmzZLoExMDLjqJMtVaKDBYb++yDZzgfSHnayIT4+Pj6SAzA2AeQG7p2DSoB15JG17T7XIKEh/m1wSybMn4YYBDj02BKTT6kDdNgSSFDYkkcQoDuQ8NKTP4IATy+99lSD3KEJJCCoPbUIcgA+upQX2OuuAQE17bA3DBJAAGs2KfphZI2xSlzB2S5QSNmrskyfmoLy2iXNIOFHrxSFsOvN4vsEBgHKdkwdJzg6Z7TKLRbPIeUMZ0Uxxijg3Wp1S/wLja5z2uLBe+v/gxWcT7ayHnXXxKhN+tNMbbgFGKuuotgdv+6y0deGRXF60R1TQx5iFcX8ht7j8cLIJzsKhCigDc1rA5ihXygEbAhOZG9DsxmLdYrGc227fSbFV9Pf5L7G0hOuOtOc7R3dfbuNj6N9rxWbIZ/W6283hONsr4f6SLx4youdhBHv7bT1ecd5DxIKM8cD+cO88b03IGHP7IIsippauwykek+HfqltgU7n6ZxhsiiMVWj2NrB8X5Z3I6ZKx7Kz2eBJPAhIZUaB5fJuWSYznA3cYt6r6dqutF+1dRoW018unEGdZ57FDFNfG5j6qgQkTellGLYY6Kc3Mabn8YBTt7UOuDUXJ/yHjpf3fkDTZ+mpnwN6ndAgN2kZ94Q1+UwzZt0rRY4vsm5uJ7GchvH4sIYY/wFAW5OS
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Labels"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/labels"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get Labels
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera","in":"query","required":false,"schema":{"type":"string","default":"","title":"Camera"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

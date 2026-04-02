@@ -1,0 +1,73 @@
+---
+id: create-face-faces-name-create-post
+title: "Create a new face name"
+description: "Creates a new folder for a face name in the faces directory."
+sidebar_label: "Create a new face name"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU2P20YM/SsDnlpAsJxFe9GtSIu0QNsEG7eXjWFwR5Q0qTSjkKNNHUH/veBo/LHdblL03Itlj97wkY989AwRW4HqDl72KOIaZzG64GFfQE1i2Y3pZwUvmTCSGDSePpom9DWxaQIbNA1aMh4HMs6b2FE6EFM7JhsDHzfvvDHG7DonxomZhGoTgwnconefVriJjM473xo3YEuyMbscKEcWI+hddJ+oNujrNaSMiQmZDNPYo6XafHSxM5OvicUG1ki3FCf2mrpM1pKIGUgEWzKavjfEHNi4Zo2ZOJlsaJUueKX2IRryeN9TvYECwkicZPqphgpsUuag99KHHA6a8uGQX4xBIhQwIuNAkVjlnkEhUK2PApxKPGLsoACmD5NjqqGKPFEBYjsaEKoZ4nHUOxLZ+RYKiC72evCrBlmWvd6VMXghUfjNdquPx318u0rQTL25zWAowAYfyUeF4zj2eQrK96J35qsURtbio1sZsp5Xud2H0BP6q+QyISwFZNk/V8ovGbIsxQkT7t+TjY+EuTszX4LuL0FekSd29lzfsmi4b25unsrxO/auTsWaH3QM/rsWNUV0vX5zkQZ5CuiDffQW/fF1k2bhsRhLcT5xPlJLDMv+Igcy4/FKsZ9DtqwKLO2/EvcU7HloEsPs9O2XWqF1rdQZd9WJi7yrus+X8f0q3z+RnSA/7nZvngRceztQ7IKa8Wy22EEFZfJjOavLlnL1IxQgxA8nH07cQwVdjKNUZVnTEDZCdmJ6mDYulDi61JALrCrLPljsuyCx+na7fbFi9mriJiRNc75QgNKsg7bdvNhstX7NcMA0SnkHrKv1tFlPKw/+toHny2D+v4yvlnGelkh/xnLs0SUjpHbNeQzuIGkABVRZ2DwJ+wK0i4qY53sU+o37ZdHjDxPxEaq7fQEPyE7J0rTUThIxVA32Qp9p0Ve32SJfm+eSPDnBqw8esJ/y0PxBx9M/QzJ+R1gTJ/711XfW0hivLj3ZUzqOZ0+8ef12B8vyF39JuG4=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new face name"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/faces/{name}/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new folder for a face name in the faces directory.
+    This is used to organize face training images. The face name is sanitized and
+    spaces are replaced with underscores. Returns a success message or an error if
+    face recognition is not enabled.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

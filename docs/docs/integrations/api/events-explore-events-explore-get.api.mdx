@@ -1,0 +1,71 @@
+---
+id: events-explore-events-explore-get
+title: "Get summary of objects"
+description: "Gets a summary of objects from the database."
+sidebar_label: "Get summary of objects"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVk1v4zYQ/SvEnAXbCdqLbsUmmw2QRYPE7aFp4B1LY4tbitSSIzeuof9eDPVh2U68bXroybD45nH4Zvg4O2BcB0if4HpDlgM8J5BTyLyuWDsLKdwQB4Uq1GWJfqvcSrnlV8o4qJV3peKCVI6MSww0+d0qpdQDce2tBBkdeBzxp+ZCoSrxRb5+MbrU/GXP57wizAplcElmAgm4ijxKHrc5pEAxwwW9VMZ5Whz9XRNDAhV6LInJy5l2YLEkSCFuBAloOdC3mvwWEvD0rdaeckhXaAIlELKCSoR0B7ytJExbpjV5EElWWBuG9GKWAGs2snwXWZvmWbhC5WygINGXs5n8HMr4WGcZhbCqjXrowJBA5iyTZYFjVRmdxdNOvwaJ2Z1mhN6j5K6ZyrhX5UUj1u3OOh9hA3tt17DP9zaHJoEo7jnYXQQ0CYR6uRjQaLc/r6Kmh3FNMnyxtTEgavRMj/VSDWwZluTx3MYfWoTszOh5wVqKN6Ivl7EYA72g1FxQTQJk8yHiJNku9lyy1zYfuGJDLCoXNOvN64xL5wyhPUv5UWjUfU/TJPCXs12l+gIeq3lc6Z7rtxgp60VdLi3qd1dlPhA0CRQYFpnR1SiV/mT7iE8Y1AcBdQHBYhUKx98NeuyBjVwRRm0X2ua00lYzme3Z+IeIV7djfJNAZeqwaPv8PYe/N3VQ7UUoXU5mUWAo3kv2WRjUJ2FoxCOYMnZ+0cLfR3nVkai5AIYs/wtlm2XPJ1490r313pHsV7Le7PtwAOzt8kl8pjeSsU0Ml/zgBo+u5snN6m/EuK1HTXnUbq830b4nDmp6XJADKTsdxtdfXpPBmZtxH7bfVPtAquv2vTn+e0PyFIhwP1xentr/r2h0Hs1dXXvv/L/x/kOPz0UCc+AhhwDjsoPVf9Az/UPXPL9tQHeuTTA2ZVifM/LPFAKuae9mb0OjGF1zfqfp5Fzt1h1uVL29vK26bx/jqpXvtc0G55rP708I29qWxIWTWaSfNriAFKbtKDLtRhFpf/KbfgapvYEUCuYqpNNpTqWbBMpqT5t6ot0UKx1LsYel06lxGZrCBU5/nM0uWsyzzC8rF9XsMoUEZJu2xWaTi8ksWqQLXGJsom7+uSF+ZYCDo1Fvt2/J/3Xq6+rC9MLTyqCOLRfl2XWKP3WzoHhLp/lzAqKXrO12ktYv3jSNfG7nPalErgMuzWji+4O2o+lwg6aOqorUG/RawJA+yaUoCHPykaUN+inLqBpHndxhYRn65eZ6Dk3zN6xe5+Y=
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get summary of objects"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/events/explore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets a summary of objects from the database.
+    Returns a list of objects with a max of `limit` objects for each label.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","default":10,"title":"Limit"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"properties":{"id":{"type":"string","title":"Id"},"label":{"type":"string","title":"Label"},"sub_label":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Label"},"camera":{"type":"string","title":"Camera"},"start_time":{"type":"number","title":"Start Time"},"end_time":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"End Time"},"false_positive":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"False Positive"},"zones":{"items":{"type":"string"},"type":"array","title":"Zones"},"thumbnail":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Thumbnail"},"has_clip":{"type":"boolean","title":"Has Clip"},"has_snapshot":{"type":"boolean","title":"Has Snapshot"},"retain_indefinitely":{"type":"boolean","title":"Retain Indefinitely"},"plus_id":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Plus Id"},"model_hash":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Model Hash"},"detector_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Detector Type"},"model_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Model Type"},"data":{"type":"object","title":"Data"}},"type":"object","required":["id","label","sub_label","camera","start_time","end_time","false_positive","zones","thumbnail","has_clip","has_snapshot","retain_indefinitely","plus_id","model_hash","detector_type","model_type","data"],"title":"EventResponse"},"title":"Response Events Explore Events Explore Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,72 @@
+---
+id: deregister-faces-faces-name-delete-post
+title: "Delete face images"
+description: "Deletes specific face images for a given face name. The image IDs must belong"
+sidebar_label: "Delete face images"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU2P2zYQ/SvEnBpAtZxFe9GtyabtAkkTbNxcXMOgpZHEhCIVDuXEEPTfiyGptbzb3QQ51wcTIufzzZuZEbxsCIotvNSSSNWqlF5ZA7sMKqTSqT58FnCNGj2SoB5LFhO1LFGoTjZIorZOSNGoI5p4b2SHK7Fpk4S4uSbRDeTFAbU1zT9GCCG8Fb7F2SJWUbW2ukK3EhsrquBTSCPQeOVwKZAJqfXCujLCt9JHy1Fk9igIjV+JW/SDMySkoKEskUh0SMT6HL0R6Jx1QtXRi8PSNkZx9kKRMNYLNPKgsVpBBrZHF4C6qaCACh02ijy6PetS+t8zCvt9zGLfW/KQQS+d7NCjY9RHYBEo4pGBYqR76VvIwOHnQTmsoPBuwAyobLGTUIzgTz3rkHfKNJCBV17zxV9sZJp2URfJv7DViRXumyqt8Wg8P8m+16nm+UfiSo8LT73jRL1C4i9VxcNjRw/jmLL5QjonT4u4biqC+3R6rcgLW6cC1kojQ0DMiVT12tku8GNRdJjOXuzhI5b+AqhtCHF39hxJ+7ss8SYQNQAyTWzFIfXWUMzsar3m4zLE95El9aDFbRKGH8YuUW4B28FajdIscEoOGcnEzKeq/SaJfAuS2fPZ6AKgP9CgU+VdfhGbX66uHsLxQWpVhWTFK+6UH8eiQi+VvqDSpYC25cWrNKe3dWiX+5S7u1HGY8ME2T3Ow9c2DTcGmJrvAnc29rhoAENs+PVbpeC8ouskt6jEGd6I7uNpXEf4/svZLPLnZvPugcFY2w59a3lo3c0j30IBeRhZ+chdOOWxBSEDQnecR9XgNBTQet9TkecVdnZFWA4Oj8NK2Vz2KhTkLFbkubal1K0lX/y6Xj+PMrsMmCG35xn16qvseo13M2Y7o8zFVKa2Af+UG2TAIUVSrlfPV2vGirPpZKBdGqnXaYyc19T9ITSeCfz/ertYb4lXHr/6vNdShZYJhR0TYbYQCAMZFGl3Jc7sMuB6s8Q4HiTh305PE19/HtCdoNjuMjhKp9hZ4FWlKDiGopaa8Iki/XSbmumZeCzIuWcMd8xR6iFR5hOe5jUbRkSLkvcJ+49PL6OXn0Mjn1UfzDWmeNT4rSyx90/K7hb99u7t+w1kcEg7ubMV6zj5hYeE/BLDtCHrMPTC3QhammYIqwCiTf79C8DhVo4=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete face images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/faces/{name}/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes specific face images for a given face name. The image IDs must belong
+    to the specified face folder. To delete an entire face folder, all image IDs in that
+    folder must be sent. Returns a success message or an error if face recognition is not enabled.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"ids":{"items":{"type":"string"},"type":"array","title":"Ids","description":"List of image filenames to delete from the face folder"}},"type":"object","required":["ids"],"title":"DeleteFaceImagesBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

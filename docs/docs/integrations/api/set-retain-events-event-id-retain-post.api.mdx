@@ -1,0 +1,72 @@
+---
+id: set-retain-events-event-id-retain-post
+title: "Set event retain indefinitely"
+description: "Sets an event to retain indefinitely."
+sidebar_label: "Set event retain indefinitely"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVE1v00AQ/SurOYFkxaGCi29IVFAJaNUGLiGKtt5JvGW9u90dR0SW/zsar524TVsQN062dt58vTczLZDcRiiWcL5DSxFWGSiMZdCetLNQwA1SFNIKZLsgJwKS1FZoq3CjrSY0+9kPK4QQ10hNsFFIEZuyxBhFjTHKLQoX+hAhuCD0RlCFQzwdhXUkNq6xaojy9XJxXohFpSNbpTC4leVeoFXeaUtCWjW6xcZ7FwiV0LYPugnOElo1gwycxyC5iQsFBUSkdap83WeO6/Rda7UeDd5Fggy8DLJGwsC8tGBljVDAiIYMNPPiJVWQQcD7RgdUUFBoMINYVlhLKFqgvWe/SEHbLWRAmgw/9ESLCwVdt2L/6J2NGNnlbD7nzyMBEpebxojrAQwZlH2jxHDpvdFl32p+F9mnnZThAxNBOmUYhJnUd+ucQWknBQ4Joctg0O+ldr4MkK7LRoy7vcOSHpCzPGQ+Bl0dg3xEi0GXh/66jsO9PTs7peO7NFr1zYpznqd/50Kx6ob/NGEdTwHGlQ+s0u4vN/1MPCSjyw4v2hJuMUC3OtIhQ5D7CWOfXSqwJzhu/4rcMdgLY9Uv14Ktf5KC+0qpB9xEiSO9id3n2/iQ6Hsq2Qj5tFhcnQRM2tZIlePFPCwdVVBAnpYzb8d16/K0nJBBxLAbl7IJBgqoiHws8lxh7WYRyybgrplpl0uve1WOsCLPjSulqVyk4t18/iZhVrzNG9cTOxQNGXCaNG3z2ZvZnEngMmvZz9NwEG6QhiP2xEWER2e0PQ7p/3tRB5kJf1HuDYvSZYnidtBvmc4kb3kxOZiDhKsMmH6Gte2tjPgtmK7j5/sGwx6K5SqDnQxa3rISyxaUjvyvoNhIE/EFUl9dDwP+WjxX6TjHltXZSdMMav/E/fS+96tboVQY+hqS+X1ZoqeJ48ml4Vk6TPXV5c0Cuu43XdiJDA==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set event retain indefinitely"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/retain"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets an event to retain indefinitely.
+    Returns a success message or an error if the event is not found.
+    NOTE: This is a legacy endpoint and is not supported in the frontend.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

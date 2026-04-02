@@ -1,0 +1,70 @@
+---
+id: event-preview-events-event-id-preview-gif-get
+title: "Event Preview"
+description: "Event Preview"
+sidebar_label: "Event Preview"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVMGO0zAQ/ZVqTiBZTXcFF9+QqGAlVqyWwqWKKjeZJl6c2GtPClXkf0cTp2lLl5U42bFnxm/evJceSFUB5BrusdQKcgHWoVekbXtXggTcY0sb53Gv8ddm+AqbtG50uZluKr3bVEggwCmvGiT0XLaHVjU41dElCNAtSHCKahDg8bnTHkuQ5DsUEIoaGwWyBzo4zgvkdVuBANJk+GDJhWZ3JcSYc35wtg0YOOV2seClxFB47bgFkPCtKwoMYdeZ2eMYDAIK2xK2xOHKOaOLoePsKXBOf4IRY4wC3t3eXhf+oYwuh7TZ0nvr/6MqOM8sk064SySlDe80YROuA4wtLm5Ve/i6G9i9ZCmK6US3hBV6iHkUxzPlvTqcUfnFJoAQBTSheo31ewxBVQhTsVcGxGTMVnwbT2/b7RMWdDHx9dBXenqMy09lTvQmdv/dxsdE30uPHUM+r1YPVwXTbC+HmtT1kETN2JBqyz44aptqkJAlH2T9UdUxG30wr/QOBAT0+6MBOm9AQk3kgsyyEhs7D1h0HvfdXNtMOT3M7RQms8zYQpnaBpLvF4ubFJOzc3Z2oH5sCwTwMwn6Yn4zXzBNzgZq1KC40Xx/d3XR8zRJwt+UOaP0IIgBTz92vE7+DSBAnjn5vOlcAAPm2L7fqoDfvYmRj5879AeQ61zAXnmttox93UOpA+9LkDtlAl7BmtwEbx5H0bydgXgZ7lEbLStjr0w38vMTD+d/n8EONaoS/YAhXX8oCnR0lnjlXmZ/0sKn5Qpi/APLYcpR
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Event Preview"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/events/{event_id}/preview.gif"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Event Preview
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

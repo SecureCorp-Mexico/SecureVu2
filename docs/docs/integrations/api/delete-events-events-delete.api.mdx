@@ -1,0 +1,71 @@
+---
+id: delete-events-events-delete
+title: "Delete events"
+description: "Deletes a list of events from the database."
+sidebar_label: "Delete events"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFlU1v2zAMhv+KwLMXp8V28W1bM6xAuw1dtksWBIrNxOpkyZXodIHh/z5QcuKk6QfQHZaLI5miyPd5JbdAcu0hm8Fkg4Y8zBMo0OdO1aSsgQwuUCOhF1Jo5UnYlcAQKVbOVoJKFIUkuZQeR7+MEELcIDXO8ALf5Dl6Lyr0Xq5RWCekEeicdUKtwto+l3QojCWxso0pRpCArdFJruCygAyKUMMiBu8eizgLCTi8a9DTB1tsIWvDUDksICPXYAK5NYSG+JWsa63ykDi99dxfCz4vsZL8r3a8LSn0PArbLFQRBoqwCn9oWyNk4Mkps4Yu2U1I5+QWEiBFmsfTXXPi8sILsqKvthuW2OUt5tTXHwueHew6H5JFNpFE6LLrOI9DX1vjY7nn4zE/juF9jwRWjRY3fTC8WpAe54EKS2s1SnPQdr8hCxMbLnpcrxIxdlyI3ptdAsbSIpjkX9J+sSQ+cZJ94heg7Do/aeqRgh5iu240qdjIHkHE9/b8/JTYT6lVEXiICR+U1+MqkKTSRwIdB2ibH72VZvt1BdnsVMj9jDKEa3TQzZ9W98rGAhlA5denYIbQ63gxDKieDg1iiCm/fYkW9xW37uMOkAzyRnWf816Q77HNdiGfp9NvJwkj2wqptMPVBQnUkkrIII02SSEBj26DzgfFG6chg5Ko9lmaFljZkce8cbhpRsqmslYBwxCWpam2udSl9ZS9G4/PYsw8AfbFzXAjTv7Iqtb44Eab7RRmkMqsbNC+7wsS4MKiIcejs9GYdaqtp0oGyxlZDcdT7M/CkZPbwbf/6RvSYyP8Q2mtpQqODAq2PY3+uuXa2SSsJU+2LZfyw+mu4+m7Bt0Wstk8gY10Si5ZpBkLV6Is0AWAv3ELGXyMLb8JPuVw3QRvPTy2zDKueJ/nWNOzsfMDO11MribTCSSw7D92lS14lZP3fArkfcRnA4RwqsNcC1qadcNnLYOYlX9/AcA3wqI=
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete events"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/events/"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a list of events from the database.
+    Returns a success message or an error if the events are not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"event_ids":{"items":{"type":"string"},"type":"array","title":"The event IDs to delete"}},"type":"object","required":["event_ids"],"title":"EventsDeleteBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"deleted_events":{"items":{"type":"string"},"type":"array","title":"Deleted Events"},"not_found_events":{"items":{"type":"string"},"type":"array","title":"Not Found Events"}},"type":"object","required":["success","deleted_events","not_found_events"],"title":"EventMultiDeleteResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

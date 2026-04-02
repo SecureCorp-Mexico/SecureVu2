@@ -1,0 +1,71 @@
+---
+id: delete-classification-dataset-images-classification-name-dataset-category-delete-post
+title: "Delete classification dataset images"
+description: "Deletes specific dataset images for a given classification model and category."
+sidebar_label: "Delete classification dataset images"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVVGP2zYM/isCn1bAi9PD9uK37a5YC7Rrcc32kgUBYzO2WllyJTltYPi/F5TkxLnsrsUG7GF5sSOTH8mPn8gBPNYOijXcKnRO7mWJXhoNmwwqcqWVXfhbwB0p8uSE66hkM1GhR0deyBZrcmJvrEBRywNpUV5gidZUpATqSpToqTb2uPhLCyHEqqHoLl7dOdH2zosdKaNr4Y3wDU3BaOYp7sn3VjuBwvVlSc6JlpxjEM5AC7LWWCH3AUBjG84ndyGdkPqASlYLyMB0ZEOOryoooAolbi+z36Y6t7HOh1+3HGF7MtpOgbbbhNYZ5yGDDi225Mky2QOwFxTxkYFkgjv0DWRg6VMvLVVQeNtTBq5sqEUoBvDHjn2ct1LXkIGXXvHB7wwyjtkJdcrhXyPfTkDjuIn+5PyvpjqyU2m0J+35FbtOJULyD47lMlyjm90HKv0MPQCN4zgytOuMduTY/ma55Mel/N7HXu97Je6TMWTfn0NnudVexghJOLPkdsYoQj3LLgWEMYOkr6eYepNMuJiH9Z55X58in0E3Z5DfSJOV5am+yM1PNzfXdPzJCo636wXr/Z9zUZFHqfhNemrdtYEy5cVX1Me3+yDiSzJYgOlEak81WRg3ZzrQWjzOGHtt0qRhgl39XeROYI+bBjLEir9+qxVcVwyd7GadONMb2X28jLtI398Fm0xerlbvrgBjb1vyjeHRc5oSvoEC8sshkw98scc8DZl8mC74mMchAxk4sodpuPRWQQGN950r8ryi1iwclb2lQ7+QJsdOhmadzYo8V6ZE1Rjni5+Xy+fRZpMBq+f+fO9ffMG246KGkWfL3oRepDohA04hCnS5eL5YMm9cWYtBgmk8xU3ycElcrhN4sH5m4+b/uYmSeDx98XmnUIZ7ETo0JFWs4bIYyKBI+yMRwCez2Z+0scmA+8oAw7BDR39YNY58/Kkne4RivcnggFbijtu4HqCSjt8rKPaoHD3Rih/u04V6Jh6rYbo3mlM6oOqTVD7ScVqALMb/MOaJojCeGsKKbKg7fr6NkX4MQ+TsfjVTOevo8UtZUueftN3M7vq7t+9XkMEu7VHWJBRg8TMPKPwcUzWh8jBww9kACnXdhzUEEZN/XwGdT2FU
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete classification dataset images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/classification/{name}/dataset/{category}/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes specific dataset images for a given classification model and category.
+    The image IDs must belong to the specified category. Returns a success message or an error if the name or category is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}},{"name":"category","in":"path","required":true,"schema":{"type":"string","title":"Category"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

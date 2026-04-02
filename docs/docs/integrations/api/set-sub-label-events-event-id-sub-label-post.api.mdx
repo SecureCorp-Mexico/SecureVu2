@@ -1,0 +1,71 @@
+---
+id: set-sub-label-events-event-id-sub-label-post
+title: "Set event sub label"
+description: "Sets an event's sub label."
+sidebar_label: "Set event sub label"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SvEXJoArKVdpBfd2mTRBNggwXrbi2sYlDS2mFCkwg9nDUH/PRhStrTejRO0QH2RQc4H573Hxx682DkoVnCzR+0drDnU6CorOy+NhgKW6B0TmiHt/+KYCyVTokS1+Eczxtgd+mC1Y4K5UFXoHGvRObFDZmzMs9ZYJrfMN5iKMOmYNp5tTdD1AjiYDq2gdu9qKMCh37hQbmKTTcxwm/TdyHoz2+uM88ChE1a06NHSHD1o0SIUcEwADpLm6IRvgIPFL0FarKHwNiAHVzXYCih68IeO8py3Uu+Ag5de0UIEhr2rYRjWKR+d/8PUB0o6L1cZ7VF72hJdp2QV58o+OcKyn3XrLE3tJbq4HspbGum5c7Ti4Rb1zjdQXOX5dK7lkQgY+KnAsjIWY3d9+LCNeIz1dGhLtKmebEMLxRUHfKhUcHKP76VOi/nAZylKAQ19aknV2dbYSQXUvBItWvFs13GKS0Vfx2zmG+mYKT9hFQVSo8fKY82MXsAw8GN6inhE5GqCb31Gm1uOO5GvYaBCFl1ntEvAX+c5fc4kn4S8DYrdjcHwH6iNxWbMlsYoFBrmVKaYgcN4eS4J8v0Y8mNUUtWp6AyeP1GjldVpvoTNq+vrp3D8LZSs47Dshi7zv8eiRi9kFLn02LqnAcpUj3Z/Qk9Se9yhhWE9wSGsFYcZYrcmHTAC7HY/Be6x2AVjiM52T7s/ooLmSq3HuBkTE7wJ3e+P8SbB91yzY8jb+/uPTwomblv0jSGDPdkmWQpkyWGz/miYQ3ZyWODg0O6PzhqsggIa7ztXZFmNrVk4rILFfVhIk4lORmKmsCLLlKmEaozzxW95fpVi1hxIKXeTld48iLZT+NgKJ8TP3C2fLGcSBEi9NZGuEQrgQCdPGs4XV4ucomj4VkSVjg/FEv34Lk2mdvYI9pPg/4/3cCTX44PPOiVk1G1EtR9ZW6Xnje52MXvoJuLWHAh0iuz7Ujj8y6phoOUvAe0BitWaw15YKUoCa9VDLR39r6HYCuXwAgIv7kZlv2TfO+xRwJrkuxcqjIR8xsP8aY53tkFRo41nSNuvU6df482a0p8YDWktZfxeVdj5i7Hr2QX4+GF5DxzK8Q1vTU05VnylWyu+pqOaOHl0objWgxJ6F6I3Q6pJv2/tJiyr
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set event sub label"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/sub_label"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets an event's sub label.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"subLabel":{"type":"string","maxLength":100,"title":"Sub label"},"subLabelScore":{"anyOf":[{"type":"number","maximum":1,"exclusiveMinimum":0},{"type":"null"}],"title":"Score for sub label"},"camera":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera this object is detected on."}},"type":"object","required":["subLabel"],"title":"EventsSubLabelBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

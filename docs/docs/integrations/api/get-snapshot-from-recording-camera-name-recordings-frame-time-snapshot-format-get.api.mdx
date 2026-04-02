@@ -1,0 +1,70 @@
+---
+id: get-snapshot-from-recording-camera-name-recordings-frame-time-snapshot-format-get
+title: "Get Snapshot From Recording"
+description: "Get Snapshot From Recording"
+sidebar_label: "Get Snapshot From Recording"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1vm0AQ/StozitDrPbCtW3aSk1bJVYvkYU2MMBasLuZHSJZaP97tXzasSMlJ2B4895898CycpA+wh0WSsJegLFIkpXRPwtIoULOnJbW1YazkkybEeaGCqWrLMtliyQzLVvMVrvLspKCiVWwL95ZaaiVnGUVMgiwMoAYKcj3EEgghRNKEKA0pGAl1yCA8LlThAWkTB0KcHmNrYS0B6mPf8qBhI82kDgmpSvwYrHormnA7wWw4iYYvgw60e+g4wNw0l8jf7f8ItE+IcEqcRuoop16rTBU4aPsU0oCUHdt6Jcdvg62gpOsbkfuU7kaVVUvcs8d0vFMr5SNuyaoNGN1ls+PkcmHMhI6a7RDFzy2SRIeBbqclA2jAyk8dHmOzpVdE91PYBCQG82oeeiatY3Kh0mLDy749GsU3nsv4NN2e0n8TzaqGNyib0SGPsAKlsJ0sxrjLpClasKbYmzdJaAx+dnfdwzaXDa/92K2SSJ5PCnkLzMGCF5A66prXZ6hd+icrBAWsrehQzGiXfjrV23zdMCczzr+OOQ1Sk+4kxFayztW9+00vo7luya2jMxu9/eCcOzteVO/I0cP06GIbsm00f18TkKkyLWZrtFwObiGFOL+5Fj4eL0/cb9usY/n+7Ppx83zIMAhvcyHp6MmrAmzdWkcF9iajcO8I3zpNsrE0qqhvyssjePG5LKpjeP0c5LcjJh9WLHSDC2a0gcBQWZMMdncbBLw/j+aZ+Bx
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Snapshot From Recording"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/{camera_name}/recordings/{frame_time}/snapshot.{format}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get Snapshot From Recording
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Camera Name"}},{"name":"frame_time","in":"path","required":true,"schema":{"type":"number","title":"Frame Time"}},{"name":"format","in":"path","required":true,"schema":{"type":"string","enum":["png","jpg"],"title":"Format"}},{"name":"height","in":"query","required":false,"schema":{"type":"integer","title":"Height"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

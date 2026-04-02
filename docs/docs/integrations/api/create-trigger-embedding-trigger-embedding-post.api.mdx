@@ -1,0 +1,71 @@
+---
+id: create-trigger-embedding-trigger-embedding-post
+title: "Create trigger embedding"
+description: "Creates a trigger embedding for a specific trigger."
+sidebar_label: "Create trigger embedding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVdtu4zYQ/RVinlpAtZyg+6K3NhugBfYSZN2+pEZASyOJu7xoyVE2hqB/L4aUZTtKUizQon6xTc7lzMyZwwFINgGKO7h+QEsBthlUGEqvOlLOQgFXHiVhEFKQV02DXqDZYVUp24jaeSFF6LBUtSoPBqu/rBBC3CL13rJj6MsSQxAGQ5ANCvayAr13XqhaUItzbBWEdSRq19tqBRm4Dr1kJL9XUEAZsdxPxvczkGdOOhcIMuiklwYJPdc4gJUGOY406OV9/JeB4jK/9uj3kIHHr73yWEFBvscMQtmikVAMQPuOfQN5ZRvIgBRpPriKwcQHDjaO2Zzk34k+hd0mXwz0q6v27PA0VOksoSW+kl2nVRnbln8OPMXhJFPnuamkMBzzLvOj7Q3Tgtre7KxUGs6JsT1C3KTmbzjCmEEl6dWK3vL9mAG1HkPrdHVibHuzQw8ZGPmoDCO4yMAom36vT3LOzgyrlr0mKNarNyMHTrHc7jOWdNb0u3Q3YVyWcH2gT2zyOHI0j6FzNqRuXa7X/HW+IZ8Svetei9vJGL5jHk/hHjAdYom0gWLCKGaQz5zcMOsT7p8vL5dQ/5RaVRGIuOb1+x6c57ypkJgUxQCK0ISlgXbl2a20+491XMJzYvDGTCfKEjboYdwepyi9l/uTrrxzCSAzyITmNaK9T3IDc7CXTWMzRGLwPzCI60qpJ7sTGh3bm7r7chlvU/ueS3Yw+W2zuVkETLM1SK1jQZxVjlooIJ9kMJ9lEDII6B8O8td7DQW0RF0o8rxC41YBy97jQ79SLpediuM4mhV5rl0pdesCFW/W64tks82A+XF7VKTrR2k6fdrjM+GIknDS9uPq886ySNYu+k61QwYMOpF2vbpYrbmXXK2RkZaTxk6rsXiZnohVMRxp/j8/aIfu4CPlnZYqEjk2fJjGeAeTL6vwXNA2Ax4CXw/DTgb8w+tx5OP0tvB4KxXkTjNNa6kDvtKDH24nRv8oXsL0BfeLl/JB6j6Oh1nyH2RbpNnyH684DxR3LAstygp9LDf5XKU0P22Ssh98F1rGkJPHL2WJHb1quz3ZsZuPnzaQwW56d42r2MfLbywM8ltiq4tlR6GLZwNoaZue5aeAFJM/fwOMgzzB
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create trigger embedding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/trigger/embedding"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a trigger embedding for a specific trigger.
+    Returns a success message or an error if the trigger is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"query","required":true,"schema":{"type":"string","title":"Camera Name"}},{"name":"name","in":"query","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"type":{"type":"string","enum":["thumbnail","description"],"title":"TriggerType"},"data":{"type":"string","title":"Data"},"threshold":{"type":"number","maximum":1,"minimum":0,"title":"Threshold","default":0.5}},"type":"object","required":["type","data"],"title":"TriggerEmbeddingBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","title":"Response Create Trigger Embedding Trigger Embedding Post"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

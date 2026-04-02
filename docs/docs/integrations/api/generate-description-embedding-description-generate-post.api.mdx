@@ -1,0 +1,71 @@
+---
+id: generate-description-embedding-description-generate-post
+title: "Generate description embedding"
+description: "Generates an embedding for an event's description."
+sidebar_label: "Generate description embedding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v1DAQ/SvWXLiEzbaCS25AK0ACtWoXLsuq8iaziYtjp7az7SrKf0dje5Nsl9KqF3Jy7Of5eO9l0oHjpYVsCedbVM7CKoECbW5E44RWkMFnVGi4Q8u4YlivsSiEKtlGG79Bt95YNrkz+6UYY+wKXWuUZZzZNs/RWlajtbxEFm8aow0TG+YqDGGYsExpxza6VcUMEtANZRZafS0ggzIWcjPJdTMUdLA7QBttHSRg8K5F6z7qYgdZ51+FwQIyZ1pMINfKoXJ0xJtGitwnTW8tEdCBzSusOa0aQyU5gZbeDnjqgKvdxQayZQdu1yBkYJ0RqoQ+GXZUKyX0qwSccJI2FhVOqWN6Qgf0fbK/qNe3mO87CaUvD/JPYgYhz8ZD33bfUziDttHKhvpP5/OjNuA6iLVpJbuKYHg1Q1F5WsZG1lpL5ArGcmNC6BOIBpnAI4Uj+nuEPMfNPvMYdMKQt7TIh/4CN+9OT4/p+MmlKHyz7JwM+3ouCnRcSFoJh7U9BkidH5y+wE9COSzRQL8a6eDG8N2EsW86FOgJtuWLyN0HexrqyWALOn1OCuorpI64iRIjvYHdp9s4C/T9Ldke8mWxuDwKGLSt0VWahkgcCA13FWSQTsRO90MDErBotmisJ781EjKonGtslqYF1npmMW8NbtuZ0ClvhFdkhGVpKnXOZaWty97P5ycBs0qALHI1jqLzB143Eo9NNwgNQm20lyG2CAlQYQE2n53M5oSipmru3ad4jZOhfTBchlkJyePZNXj6f477qKvDB5c2kgtvWc9rFwU7nHnJ8EsgSxHdhOi6Nbf4w8i+p+27Fs0OsuUqgS03gq+JxyV9LxXyAo3X+DfuIINPgYS33tUEl6134uOPnOQONz7kOTbun9jVxHyXF9cLSGAdf0O1LuiO4ff0xfD7oK/2zfkJ4Pc6kFyVrZ+LEGLS8we2za/2
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate description embedding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/description/generate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates an embedding for an event's description.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"description":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"The description of the event"}},"type":"object","required":["description"],"title":"EventsDescriptionBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

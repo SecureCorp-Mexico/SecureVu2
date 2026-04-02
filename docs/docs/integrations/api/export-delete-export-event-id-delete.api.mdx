@@ -1,0 +1,70 @@
+---
+id: export-delete-export-event-id-delete
+title: "Delete export"
+description: "Delete export"
+sidebar_label: "Delete export"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVMFu2zAM/ZWApw0Q4jTYLroNaLAV6LChy3YJgkCxmVidbKkSHTQw9O8DZcdxlq4bdoojPZLvPZJqgdQ+gFzB4tlZT7AWYB16RdrWdwVIwHS+KdAg4ab/t8ED1rTRxaa/AAFOeVUhoed0LdSqQg7vgSBA1yDBKSpBgMenRnssQJJvUEDIS6wUyBbo6DgukNf1HgSQJsMHC040uSsgxjXHB2frgIFD5rMZ/xQYcq8dMwcJ35o8xxB2jZk89GAQkNuasCaGK+eMzpPQ7DFwTDui4TzbQLqrELpkI35baw2qekSwLwhRQIUhqD2+JudzD4lRnDB2+4g5XZizGiqfk67PST5ijV7ng74YOd27+fzajh/K6CKJnSy8t/7/vSiQlDb8pQmrcA0wNr+4VfXxyy7NxKUZUQwnuibco4e4PtuhvFfHkWP3tiOYDA77fzL3lOyVsWIzJku+/VsrWFdXuseNOnG2t3P3zzJuO/teKnaCfFouv14l7Hp72dTbtHuTbinTiFBpeWlHS0klSMg6SNae1jGCgID+cNrWxhuQUBK5ILOswMpOA+aNx0Mz1TZTTqd2nWEyy4zNlSltIPl+NrvpMGte851NjvdqQACX6RjPpjfTGbvjbKBKpUHrX4rfxVxIHRpI+EyZM0qnOUh82l7lCoZYOTw7awFMkW/bdqsCfvcmRj5+atAfQa7WAg7Ka7VltqsWCh34uwC5UybgFZFhbeDNQz8dbycgXiZ4GoKaR+CgTNM78hOP48cxzX2JqkCfOHTXH/IcHY0Cr9aU/R6afru4XywXEOMvGBn+kw==
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete export"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/export/{event_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete export
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

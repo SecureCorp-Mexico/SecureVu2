@@ -1,0 +1,71 @@
+---
+id: export-rename-export-event-id-rename-patch
+title: "Rename export"
+description: "Renames an export."
+sidebar_label: "Rename export"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VV2v0zgQ/SvWPIGUbcrVsg9546O7IPGlS3dfSlVNk2lj1rGN7ZRbRfnvaOzkJpfCBSHRlyb2mfGcM+OTDgIePRQbWN1Y4wJsM6jIl07aII2GAq5JY0NeoBYUIYsPWggh3rxdrwqxrqUXZY36SF6EmsTBSdKVOguOEuYQF1NgJrQJCSRVzLqADIwlh3zWywoKSMidi9u74W1HJ9JhJ6vduGExlDVkYNFhQ4EcU+iA9zjJAIcMJFOwGBjs6FMrHVVQBNdSBr6sqUEoOghny3E+OKmPkEGQQfHCihOJlxX0/TbFkw9PTXXmoK/TlUYH0oG30Foly8gq/+hZxm52mnXMOUjy/JZqvqyhwZtXpI+hhuLq8V9TTX/PBYa+z8ZIs/9IZbjDc5Oyb2eMoqKpp5FI33MKR94a7VNFV8sl/90dg/dtWZL3h1aJ6wEMv8zZp2Qz2ntjFKGeaT8cCH0GDXmPx2+qNKJfD5Af6TGePCWdifMPaXKyvOWXtPnz6upSjv9QySqSFSvnjPt1LSoKKBU/yUCNvwQoU97ZRX1+e4jjfleMPrtdkTrQkRz020kOdA7PM8VemVRgFNgff0rcMdk9N4bFEGve/VErmFc6esDNOjHJm9T9Po3nSb5vHTZCXqzX7y4Spt42FGpTJYsYDIUvHOTJefJutJI+T84DGXhyp9FwWqeggDoE64s8r6gxC09l6+jULqTJ0crYlglW5LkyJara+FA8Xi4fJcw2A56T68lhVjfYWEWTQ0xtBqkPJjZhIAgZcEVpMpeLR4slo6zxoUE9y5Cu/eDG8JXRd9MA/3bPHzoV6CbkVqGMQxhF6oYObOC2ymJm50MTthmwgAzruj16+tepvuflTy25MxSbbQYndBL3LNCmg0p6fq6gOKDydA/3B9fDjD4U36t0HEXNg3hC1Q5N+J/O869PvH01YUUu1pC2n6WT/oh3ZAq/sAyemxTxpCzJhnux29kov3uyfvYCMtgP36nGVBzk8DMLiJ9TrSZSj4YS1zpQqI9ttFlISfn3BdYSyXg=
+sidebar_class_name: "patch api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename export"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/export/{event_id}/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renames an export.
+    NOTE: This changes the friendly name of the export, not the filename.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"name":{"type":"string","maxLength":256,"title":"Friendly name"}},"type":"object","required":["name"],"title":"ExportRenameBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,72 @@
+---
+id: set-attributes-events-event-id-attributes-post
+title: "Set custom classification attributes"
+description: "Sets an event's custom classification attributes for all attribute-type"
+sidebar_label: "Set custom classification attributes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v4zYQ/SvEXNoCWssbtBfdtm3QLtAiQZL24jWMsTS2uEuRWnKUrCHovxdDypZid5Nib/VFBjmcj/fezPTAuA9QrOD6kSwHWGdQUSi9blk7CwXcEweFVpHcfxdU2QV2jSoNhqB3ukSxU8js9bZjCmrnvEJjpqM3fGjpg21cRSYorpEVtq05KHaKazp5dtuPVLIS68UHq5RSd8Sdt0GhCl1ZUgiqoRBwT0piWEXeO6/0bnKjdFDWsdq5zlYLyMC15GOK7ysoIBBvplQ38UnYpO9GV5v5ZesCQwYtemyIyQtKPVhsCAo4voAMtKDUIteQgafPnfZUQcG+owxCWVODUPQgVUkC7LXdQwas2chBhF29r2AY1uk9Bf7ZVQd5dO6udJbJslwJgiP4+ccgTPWzaK2XullTiLanomaZJLRnmbybrM41cJOYedJcq0ijEhiCwqA+0UHkUU10q0c0XXSCVaXFA5rbZ/k8x2IYhuwiqany1Tz99RlwYUo6YjZEZ55C62xIwa6WS/mciTrJadcZdTcawzfDO2pzVtnWOUNoZ+COAWHIYJTwS6L4czR5DZlj5MnpDKDfyJLX5am+hM2PV1eXcPyNRlepka+lpb4di4oYtZF/mqkJlwbGlc9u0R5udrGzzlSRnU60ZdqTh2E9wYHe42GG2B8uJRgBDvv/BO7R2QvNGefLg9y+RoXUlUKPdjMmJngTul8v49cE378FO5r8/vBwe+EwcdsQ107G3Gl0cQ0F5GnM5f1xaA05zns9kH88jrfOGyigZm5DkecVNW4RqOw8PXYL7XJsdWRmMivy3LgSTe0CFz8tl2+TzToDkcrdNM+uv2DTGrqYR5K4tjsXeRhrhAwkoyTO5eLtYimYSVUNRvmNU/ie+NV9dD7M+kna//fdNkqE6QvnrUEd1R+p6UfuV2lRCQjFbGU9n6hCnZj2/RYD/eXNMMjx5478AYrVOoNH9Bq3Qs2qh0oH+V9BsUMT6AV4v78bG+QH9bVsj31gpQvi4kj0f6LDfMvG1q8JK/Ixh3T9S4r0Jjbo9PxiXoli04t3ZUktv2i7nvXR7c39A2SwHdexsAwFeHyS5senlKqLlcdhFs96MGj3XRzxkHzK7x+AJEqU
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set custom classification attributes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/attributes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets an event's custom classification attributes for all attribute-type
+models that apply to the event's object type.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"attributes":{"type":"object","title":"Attributes","description":"Object with model names as keys and attribute values","additionalProperties":{"type":"string"}}},"type":"object","required":["attributes"],"title":"EventsAttributesBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

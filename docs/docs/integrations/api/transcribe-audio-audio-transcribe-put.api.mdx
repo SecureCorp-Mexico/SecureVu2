@@ -1,0 +1,72 @@
+---
+id: transcribe-audio-audio-transcribe-put
+title: "Transcribe audio"
+description: "Transcribes audio from a specific event."
+sidebar_label: "Transcribe audio"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVd9P2zAQ/lese86agraXvDGGNqRNQ13ZS1chN7k2Zo4d7EuhqvK/T2cnTQoMJp7HQ4ntz/fju+/OeyC58ZAt4FxL79Va5ZKUNbBMoECfO1WHZQZzJw2vV+iFbAplxdrZSkjha8z5nsAtGpr8MkIIMcO7RrkDlLrLwZggK1Yo0MiVxkIoI6hEkVuzVpvGBfcTMS8xGrxRRTRZNZ4EPihP/ZVCklxJjxMxQ2qc8RxNk+fovajQe7lBYZ2QRqBz1gm1fjYc5YWxdIjHumC8d87HymylVsUEErA1xhAvC8iADqTcBMvd72i7bggScHjXoKePtthBtg9L5bCAjFyDCeTWEBriI1nXuqtBeuuZ+T34vMRK8lft2D8p9LzqQ+Rv2tUIGXhyymwgAVKkeeOCMeKygLZNepBd3WLehxXjWAzGlsPlM85mPiYrZNC2bMyhr63xMZTT6ZT/HUvmR6zFutFi1oHhzcl2hR3lurJWozSjZDuH0CbQ1f8lar51kNeY6T0PRkcUfUaDTuWH/CI3709Pn9LxkzUUkhUXrMe3c1EgSaX5SxFW/ilA2/zoVJrd9zVki8dktMlhRxnCDTpolwMd0jm5GzH21XbTgQn2m38itzf2gkRDc8759LVScF7RdYcbVWKgN7L79zQ+Rfqec9ZDvsznV08MxtpWSKXl5o+tXUsqIYM0dH46dD4k4NFt0fnAe+M0ZFAS1T5L0wIrO/GYNw63zUTZVNYqFGOAZWmqbS51aT1lH6bTk4hZJsDqmA0D5eJBVrXG44EwFBiUWdtAf5caJMBRRU1OJyeTKaNq66mSQXVGVng08OPUhEcvwn5Q7//HIT4OnZoIHyittVShUUJJ951OFtBzOVLKMgGuMp/u9xzztdNty9t3DbodZItlAlvpFMfAqzaBEmWBLkjrN+4gg/NYjHehjxium6D9x2OFVRZvnOU51vQidjmS+9X1HBJYdU9YZQu+4uQ9t6i8j8KygbQwcsLeHrQ0myYMYogm+e8P8arzvg==
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Transcribe audio"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/audio/transcribe"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Transcribes audio from a specific event.
+    Requires audio transcription to be enabled in the configuration. The event_id
+    must exist in the database. Returns a success message or an error if audio transcription is not enabled or the event_id is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"event_id":{"type":"string","title":"Event Id"}},"type":"object","required":["event_id"],"title":"AudioTranscriptionBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

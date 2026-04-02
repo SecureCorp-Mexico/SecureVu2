@@ -1,0 +1,63 @@
+---
+id: reindex-embeddings-reindex-put
+title: "Reindex embeddings"
+description: "Reindexes the embeddings for all tracked objects."
+sidebar_label: "Reindex embeddings"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVUsFunDAQ/ZXRnC0glXrhVvVQ9VAp2jan7SoyZlicGNvxDKtEiH+vDGzYNl9QLrZHjzcz770JRZ8Z6yN+dZrZdtZoscHjSWFLbJKNy7PGA1nf0isxSE9AQ0Nta/2ZoQsJtHMgSZtnaiE0T2SEi98eAOBAL6NNxMA0aC/WAJNOpgcJ0BCQ142jFqxfaE3wnT2PaZmhgAPJmDyDBh6NIWYYiFmfCXJPD5RSSGC7D+SWwQe5sheoMERaWb+3WGNal3nc13i8luIoqDARx+CZGOsJP1VVPv7W4+c6UTc6OGxgVGiCF/KS4TpGt6lZPnH+Z0I2PQ0632LKE4ldO2zr5au8RcIamxAcaY8KxYqjvSHOCjcVbuAsyfrzDfrHBplndcWsxizLLZ602fZr5530tJN8I0/Jmvf95vxlpPQhy7hqFbX0WGO5KYgKmdKFUo7VhGNyWGMvErkuy5aGUDCZMdFlLGwodbQ4q1tYXZYuGO36wFJ/rqq7FXNSaH0Xlp238VBhbrP6URV3RZXFiYFl0IvcXg+0R/cmtPhPuqfduP896JvZQq9SRqetz5os6k6bU8dr/LPVWeVcmqZGMz0kN8+5/DJSesP6eFJ40clm9vyaFfakW0qLtc/0hjV+MYZizsFFuzG3/hD87N17Zu4ffuE8/wFWyI+4
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reindex embeddings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/reindex"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reindexes the embeddings for all tracked objects.
+    Requires semantic search to be enabled in the configuration. Returns a success message or an error if semantic search is not enabled.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

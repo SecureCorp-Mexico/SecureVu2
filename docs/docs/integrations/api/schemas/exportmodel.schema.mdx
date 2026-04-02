@@ -1,0 +1,33 @@
+---
+id: exportmodel
+title: "ExportModel"
+description: "Model representing a single export."
+sidebar_label: "ExportModel"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","camera":"string","name":"string","date":0,"video_path":"string","thumb_path":"string","in_progress":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ExportModel"}
+>
+</Heading>
+
+
+
+Model representing a single export.
+
+<Schema
+  schema={{"properties":{"id":{"type":"string","title":"Id","description":"Unique identifier for the export"},"camera":{"type":"string","title":"Camera","description":"Camera name associated with this export"},"name":{"type":"string","title":"Name","description":"Friendly name of the export"},"date":{"type":"number","title":"Date","description":"Unix timestamp when the export was created"},"video_path":{"type":"string","title":"Video Path","description":"File path to the exported video"},"thumb_path":{"type":"string","title":"Thumb Path","description":"File path to the export thumbnail"},"in_progress":{"type":"boolean","title":"In Progress","description":"Whether the export is currently being processed"}},"type":"object","required":["id","camera","name","date","video_path","thumb_path","in_progress"],"title":"ExportModel","description":"Model representing a single export."}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

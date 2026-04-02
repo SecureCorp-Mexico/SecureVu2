@@ -1,0 +1,73 @@
+---
+id: register-face-faces-name-register-post
+title: "Register a face image"
+description: "Registers a face image for a specific face name by uploading an image file."
+sidebar_label: "Register a face image"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVUuP20YM/isDnlpAsZxFe9GtSZ9A2gQbNxfXMGiJkiYZzSgz1LaGof9ecEay7Hi3CXLuxbLE98eP5AkYmwDFFl4aDEHXukTWzsIug4pC6XUfXwu4p0YHJh8UqhpLUrrDhlTtvEIVeirFNkksdqQORzX0xmGlbaPQzura0Oovq5RSm5YmDaomqQ6q966kEKhSaCuFlQjZKW4p+fZUusZqSUqFY2DqVuqeePA2KEyOw1CKC+Up9M4GUn9rblVFjNoEhQc3cPTnY0U+1pspqcMq8t55peubYMm1Dso6VmTxYKgSG3GUki/RiuxASw0ryMD1lEL8VkEBfkJxL/7jT9jvBa/9/izqXWDIoEePHQniUGxPIEpQpEcGWlrSI7eQgaePg/ZUQcF+oAxC2VKHUJyAj73YBPbaNpABazby4Q9xMo67ZEuBX7jqKAafuiqdZbIsom4wrHv0nNfOd88q5BhiCdZ7KZU1BXmTRj+WghgjQwEHbdEfL5L6WSzGMZtN3OE9lXxV3za53S1Gkvj+i0EdR/E/8yLmebdey+Oa628Tg+rBqPtJGa7AwL4306Tk74PYPI3ERMcLMA7OGUJ7UfsUEMYMOgoBm0exm7V/n1Q+B9YceXF6gdwvZMnr8lxfwua7u7tbON6h0VUsVv0k8/H1WKQhlH+aqQu3CsaVV1K0x9d15P81GGN2/qItU0Mext0CB3qPl9x65aa1JgCH5ovAnZ09rRrBUBuRfq4VUlcKPelddGKBN6H7dBk/JvgeCzar/LrZvLlxmHrbEbdOltB5wXALBeRxYPKTDMyYzwMDGQTyD/P2GbyBAlrmPhR5XlHnVoHKwdPDsNIux17HlixqRZ4bV6JpXeDi+/X6edLZyeqqXUR1yhgykDCJauvV89VaEJAcO4xkmjbffICu7g98cqZOCzP/v1hfebEmajH9w3lvUMepiZ09TZzZQuQMZFBM9+hMm10G0nLROZ0OGOhPb8ZRPn8cyB+h2O4yeECvJZ9IrUqHmBsUNZpA/9HQb+6nifpWPZXmPDhWxuYBzTAx7AMd5+MZ90RLWJGP8ZPoZYryLE7zYvrY1ROiJ6MfypJ6vlC/2YVC+PPcvXn9dgMZHKZj27lKbMRx9Jstf4vtbhzHfwHhzFSN
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Register a face image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/faces/{name}/register"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Registers a face image for a specific face name by uploading an image file.
+    The uploaded image is processed and added to the face recognition system. Returns a
+    success response with details about the registration, or an error if face recognition
+    is not enabled or the image cannot be processed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"properties":{"file":{"type":"string","format":"binary","title":"File"}},"type":"object","required":["file"],"title":"Body_register_face_faces__name__register_post"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

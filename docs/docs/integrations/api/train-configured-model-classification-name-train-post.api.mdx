@@ -1,0 +1,71 @@
+---
+id: train-configured-model-classification-name-train-post
+title: "Train a classification model"
+description: "Trains a specific classification model."
+sidebar_label: "Train a classification model"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlFtv0zAUx7+KdZ5Asppugpe8IUCABGzaCi+lqlzntPFw7Mx2qlWRvzs6sXsJ3Qbiiackzv9c/DuXHoLYeCjn8FYL79VaSRGUNbDgUKGXTrXDZwkzJ5TxTDDfoiQdkyML1tgK9eSHYYyxWY3MiAZZ0/nA8EH5wJRhocZHrfyE3WDoXPLfSYneswa9Fxtk1jFhGDpnHVPrwcfgWnmmzFZoVU2Ag23RDR4/VVBCoGSX0pq12nQOq+UQZjmOvVySn+UyiVvrA3BohRMNBnQEpQdSQJkeHBSBaEWogYPD+045rKAMrkMOXtbYCCh7CLuWbHxwymyAQ1BB08FXchLjgmx9a41HT/LL6ZQeY9q3CcK60+wmi4GDtCagCSQXbavzPYo7Tzb9SQqtIx5BpQiZ6EluK2s1CnOSXA4IkUMG/9xVvmRJjHyvsas7lGEEZn6IfHS6ODr5gAadkof7xUjuXl1enuP4TmVODfOeGuHfWVQYhNL0pgI2/lygrRz9FWZ3tR56YQwj8sOJMgE36CAujjiEc2J3QuyzzYNFgP3mr+DunT0tHWCwGf39UynoXil01p1U4og30X36Gu8SvseC7SUfZ7PrM4eptg2G2tJ8HoYt1FBCMZ7Loqdxi8Uwl8DBo9vu57FzGkqoQ2h9WRQVNnbiUXYOt91E2UK0aijMUVYWhbZS6Nr6UL6eTi+SZkHDvLYD25w3cKAwqeGmk4vJlDhQpo0YWirvgmERMvHoIoPftmZ/bNP/fYHmcgZ8CEWriXzkiWOf6zSHcWjgUObFmEq14ECYSdn3K+Hxm9Mx0vF9h24H5XzBYSucEisiPu+hUp7eKyjXQnt8ht6Lm9zLL9lTye5b1lDDboXuclV/4m6/wocJrVFU6Ib46dcbKbENJ0ZnC4X65dC811e3M4jxF3VOf7g=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Train a classification model"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/classification/{name}/train"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Trains a specific classification model.
+    The name must exist in the classification models. Returns a success message or an error if the name is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

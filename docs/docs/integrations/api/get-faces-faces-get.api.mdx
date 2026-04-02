@@ -1,0 +1,65 @@
+---
+id: get-faces-faces-get
+title: "Get all registered faces"
+description: "Returns a dictionary mapping face names to lists of image filenames."
+sidebar_label: "Get all registered faces"
+hide_title: true
+hide_table_of_contents: true
+api: eJztlM2O2zgMx1+F4FlwMl304luxmC32tmi3pzgYcGTGVipLWomeNjD87gXlZL5OfYD1wbYoiqT+/EkLCg0F2wP+6akUd3KWxMWAR4M9F5tdqsMWv7DMORQg6J1VG+ULTJSSCwOcyDIEmriARPCuSIF4AjfRwHBynutc0wUAgHuyI3znC2ROmQsH0aiZB1eEM/cv0QxQ6EFGhifyM4NTR43+HHyLqBkKUCnROhLu4YeTEWQkqbEa+DqnFLPOXEuKeSIp4IL1c8/Q/ODHZKBJYTBbyOachi19c048NGgwJs5VnL97bHFgedDg5foeWNBg5pJiKFywXfDDfq+ftzp+na3lUk6zhy9XZzRoYxAOou6Ukr92YXcuumbBYkeeqM72vavq+3+yFiRuy+WEp/ojl8TYYpHswoCruRkoZ7q8GsfHM1stWZx4Nfyl23hV0vv2bxMwxZ69Clj78qwCcOhTdEGaLnThBZYbIfH0+5BUQJ69wca8ydrXhQpgZisxX8CFWsVWwSn6nrPpwg2aSooqSy6Uatmyv0larnu5saLl3/+kKXluNxSW7aNPh+c4hoc+coctHDrUJXeVng4NbOMPyk6HR/NmHQV+KJOT8dXKPxS4Do+b44qrPgYnljFeGUODiWTEFnd1l2iwcH7irId2wTl7bHEUSaXd7XqeYlPYzpmf5sbFHSWHq3nt1u52PlryYyzSftzv7zafo0EXTrECdOUBDWqarf375q7ZKz0pFpmoQqliYoufWYC8f3+Ay3uElhfI/79MbqdQ+KfskicXVNzapuXa8ANuMh4NarPUsCyPVPhb9uuq5v9mzhdsD0eDT5QdPWrfDsfV4MjUc66EfOcLtvjJWk4KU927XgfvbxlF4Bm8z/f/4rr+AoEWGek=
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get all registered faces"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/faces"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a dictionary mapping face names to lists of image filenames.
+    Each key represents a registered face name, and the value is a list of image
+    files associated with that face. Supported image formats include .webp, .png,
+    .jpg, and .jpeg.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"additionalProperties":{"items":{"type":"string"},"type":"array"},"type":"object","title":"FacesResponse","description":"Response model for the get_faces endpoint.\n\nReturns a mapping of face names to lists of image filenames.\nEach face name corresponds to a directory in the faces folder,\nand the list contains the names of image files for that face.\n\nExample:\n    {\n        \"john_doe\": [\"face1.webp\", \"face2.jpg\"],\n        \"jane_smith\": [\"face3.png\"]\n    }"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,74 @@
+---
+id: create-event-events-camera-name-label-create-post
+title: "Create manual event"
+description: "Creates a manual event in the database."
+sidebar_label: "Create manual event"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SvEnBqAsZxNe9Gt2SzQBZpsuuv2sjUEShzbTClSISknhqD/HgwpW1rbcRYN0FN9sSDNvJl589lBEGsP+SPcbNEED0sOEn3lVBOUNZDDtUMR0DPBamFaoRmSIFOGhQ0yKYIohcfZ34Yxxu4xtM6QsG+rCr1nNXov1sisY8IwdM46plZRdwDyzNjAVrY1ckB5f7e4ecjT80sWHVBmfeyBtJhUg1PrNUb8tpEiIAuWZVHIs3d/LBYs2EZVsz3g7YoJJlsnKEKy7zGQimm15hPPPiutmUGU9LFEhkaiHHzQO1buWCW0Js8GY1kX/wsl+wyNnAEH22CycyshhypyWSSppFMUlajRicKIGoui0KJEXRSDZGN9AA6NcKLGgI4y1QGJEtqoCBwUJasRYQMcHH5qlUMJeXAtcvDVBmsBeQdh15CqD06ZNXAIKmh6cR2x2HvC6nt+sBHd+WH03yNK3y+TMvrwxsodaVTWBDSBHkXTaFVFsrKPnmqvm0BLXIlWh/TSOoR8zmGfRMhfz8nHSrcSC4eVdZI8GByUTnyGvOt7Do2jjASFPiK1ZSI82je7u1Xk92kYxMbwhioEKIp9YA9tyYbg+N6vM0imrUt0l5GiMh/jnPfT+M6AKhNw/R3Ut3uACfBrQj7D1RkTpbUahblo4jYhsfsD0sQW8d8fEnBqwJYfsQqXQyDdCWTXUx6f6o/SaYqlmRVrrI/iDn1jjU9Zv5rPU0VNx9xDmlerVrP7QRj488vzuK4i2KQl9kxOSyfJ9ByGGXmpg94NIj2H/Yy5JB5pYLcSznE19u/jwdPRiYmB5RFgovVAT6L256urUzb/ElrJNF9vaOT/eyolBqFif6qAtT8V0LZ68vUZbXzonOXIjnBO7KYjyyYHY378+pm5SSIX8hL334K+fi8zFFcyPchNsjHSm9j9dhhvE32XWua3xeLDCWDKbY1hY2lxHfZQ2EAOh3U32UB91sVJ2mdpdQEHj267X1mt05DDJoTG51kmsbYzj1XrcNvOlM1Eo2KCRrE8y7SthN5YH/Jf5vNXSWbJgSrmftwiN19E3Wg8Gucj9ee2xTOXhTIrG7M5MAUcKKBU4vPZq9mcmCduahGLeFiaqU+eXCtwdFZNNt//F9YPXVhDWQf8ErJGCxU7NtZRN9TrY5poNOTypzdTvj9vhppdcqB6I5WuI9L/dLrv6fWnFt0O8sclh61wSpRUEI8dSOXpWUK+EtrjhSz/dD809wv2La/3PWyog7dCt0PR/YO7o3OPeuU/NJ1oiuNyg0Kii7Gnb9fJzMs41EbdkxlPLieNX6sKm3BRdjmZPR/uHhbAoRwuxtpK0klXQexViHc2accFMNwaWph1G7cqJEz6fQWkeGzQ
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create manual event"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{camera_name}/{label}/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a manual event in the database.
+    Returns a success message or an error if the event is not found.
+    NOTES:
+    - Creating a manual event does not trigger an update to /events MQTT topic.
+    - If a duration is set to null, the event will need to be ended manually by calling /events/\{event_id\}/end.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"type":"string","title":"Camera Name"}},{"name":"label","in":"path","required":true,"schema":{"type":"string","title":"Label"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"default":{"score":0,"duration":30,"include_recording":true,"draw":{}},"properties":{"sub_label":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Label"},"score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Score","default":0},"duration":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Duration","default":30},"include_recording":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"Include Recording","default":true},"draw":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Draw","default":{}}},"type":"object","title":"EventsCreateBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"},"event_id":{"type":"string","title":"Event Id"}},"type":"object","required":["success","message","event_id"],"title":"EventCreateResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

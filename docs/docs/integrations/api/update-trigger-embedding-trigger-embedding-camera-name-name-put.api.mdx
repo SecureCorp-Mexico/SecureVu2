@@ -1,0 +1,71 @@
+---
+id: update-trigger-embedding-trigger-embedding-camera-name-name-put
+title: "Update trigger embedding"
+description: "Updates a trigger embedding for a specific trigger."
+sidebar_label: "Update trigger embedding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVdtu4zYQ/RVinlpAtZyg+8K3djdAC/QSpE5fvIZBS2OJW5HU8uKNIejfiyEpW46TFAsUrV9kkHM5M3PmcAAvGgd8DXcH1N7BpoAaXWVl76XRwOGxr4VHxwTzVjYNWoZqh3UtdcP2xjLBXI+V3MtqMlh81Iwx9oA+WE2OLlQVOscUOicaZOSlGVprLJN75ls8xZaOaePZ3gRdL6AA06MVhOTnGjiEiGWbjbcnIC+cbCuh0IqtFgq32/zpg4cCemGFQo+W6h6AroDDzB4KkFR6L3wLBVj8HKTFGri3AQtwVYtKAB/AH3tydd5K3UABXvqODt7HWOw3ijWOxSnHvxI8R90kX3T+R1MfyeF5qMpoj9rTlej7TlaxkeUnR3MdZpl6S232Et0573V+1EERUXwb1E4L2cElVTZniKs0jhVFGAuohX+zog90PxbgW4uuNV09M9ZB7dBCAUo8SUUIbgpQUqf/y1nOkzPB2ovQeeDLxbuRAqdYZvcJK3/R9HW6yxivS7ibCBWbPI4UzaLrjXapW7fLJX0ud+aPRPh96NhDNoavmMdzuBOmKRZLO8kyRnYC+cIJm3GRsfy5Dz7X8v3t7TX8P0Un6wiO3dGSfg32Sy7V6IkofADpUblrg85UF7dCH3/fx7W8JAstUT6R2mODFsbNebLCWnGcdeoXkwASq5Rr3iLfr0mU4BTsddPYDJZY/Q+sorpS6mw3o9a5vam7r5fxIbXvpWSTyU+r1f1VwDRbhb41JJuT7PkWOJRZK8uTVpbDTPvGcogfKMChPUwiGWwHHFrve8fLskZlFg6rYPEQFtKUopdxRGczXpadqUTXGuf5u+XyJtlsCiDOPJyV6+5JqL6b9/1CYKJ0zEZxlgjabdLSvYm+uR9QAIFORF4ubhZL6m9vnFciUjVLcV6hqzftmajx4Uz9//kpnLqDT77sOyEjuWPDhzzbNWRfUutZQfzybePxuymAZkNew7ATDh9tN450/DmgPQJfbwo4CCvFjhq7HqCWjv7XwPeic/hGo755yKvwLXsN+MR4TXw/iC7k4f2Fx2ePMfHqP0ydcpK2tChqtLH0dPU+ZflulZ6MyfVKEAlx8vihqrD3b9puZot6/7iCAnb5PVemJhcrvpC4iC8JpYlFR7GMZwN0QjeBJIxDCkm/vwFNlGB7
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update trigger embedding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/trigger/embedding/{camera_name}/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates a trigger embedding for a specific trigger.
+    Returns a success message or an error if the trigger is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"camera_name","in":"path","required":true,"schema":{"type":"string","title":"Camera Name"}},{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"type":{"type":"string","enum":["thumbnail","description"],"title":"TriggerType"},"data":{"type":"string","title":"Data"},"threshold":{"type":"number","maximum":1,"minimum":0,"title":"Threshold","default":0.5}},"type":"object","required":["type","data"],"title":"TriggerEmbeddingBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","title":"Response Update Trigger Embedding Trigger Embedding  Camera Name   Name  Put"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

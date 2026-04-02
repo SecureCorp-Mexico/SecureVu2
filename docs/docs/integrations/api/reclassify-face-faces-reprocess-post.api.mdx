@@ -1,0 +1,73 @@
+---
+id: reclassify-face-faces-reprocess-post
+title: "Reprocess a face training image"
+description: "Reprocesses a face training image to update the prediction."
+sidebar_label: "Reprocess a face training image"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVE1v2zAM/SsCz16cFtvFt60rsAEbWqTZLllQKDLjqLMllZLTGob/+0DJ+WjTDtvOy8GxJfKRfHxkD0FWHooFXNTSe73WSgZtDSwzKNEr0i5+FjBDR1ah9+iFFGupUASS2mhTCd3ICkWwonWlDCjCBoUjLLVi58kPI4QQM7xvNaFPvoTKVkbzPTuuUKCRqxpLoU30V9asddVSTGci5pujeGtdYwJtWh8EPmofdn6M7vNoKkpNqIKlbiJmGFoynLpvFZchCL2zxqOwJKQRSGRpBEXvuSC9Ps1Ve2Fs2CdrKQZ9khnbaLOVtS4nkIF1mIr4XEIBhCoR3d0ydnz4W9qRe+usD5AB4X2LPnywZQdFD8qagCbwq3SuHpuU33luTQ9ebbCR/BY6h1CAXd2hYpygQ80HEWgYhoGhU92e7c+nU/572uqbxNC6rcVsNIbsj3NIUd6en58Cf2dOopu4ZLr/AhUcMZFBp7xLDFLX/KYDNv7UoLbqya003dUaisWeIh9ImwqGbH+iTcAKCYblkO3OJJHsjnj8Ysf5GDJofHVE+Yh3MP2aVAR7sNdNIxlizrfDIfa+iZQmp+Qx5bpS6NFueYA50JvYfb2Mj4m+l4LtTD7N59cngKm3DYaNZTGPYnUybKCAPI3eXsuQgUfaIvnIe0s1FLAJwfkiz0ts7MSjagm37UTbXDodm3EwK/K8tkrWG+tD8W46PUs2ywxYHbPDhFw+ysZx0v2QgTZrG7ke64AMOIUkwOnkbDJlXjjzRkaJGdng8X57ebvBs314NJP/V+O/rsZRewEfQ+5qqeNYRQH0o6gWEJOOQ7CT1TIDlgRf9v1KevxG9TDw8X2L1EGxWGawlaQ5D/4aMtigLJGiDn9iBwVcpO69iUPH5nUbB+X5DmJJJo/3SqELv7VdHs3G9dXNHDJYjRu8sSX7kHzgWuRDUqaNaooLKp71UEtTtay3AhIm/34B9CSrIw==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reprocess a face training image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/faces/reprocess"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reprocesses a face training image to update the prediction.
+    Requires face recognition to be enabled in the configuration. The training file
+    must exist in the faces/train directory. Returns a success response or an error
+    message if face recognition is not enabled or the training file is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

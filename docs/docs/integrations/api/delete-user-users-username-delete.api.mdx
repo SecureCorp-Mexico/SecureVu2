@@ -1,0 +1,71 @@
+---
+id: delete-user-users-username-delete
+title: "Delete user"
+description: "Deletes a user by username. The built-in admin user cannot be deleted."
+sidebar_label: "Delete user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE2P0zAQ/SvWnEDyJt0FLrmt2CKQFoGWLpdSVW48bbw4dtaerKii/HdkO2layq7EjUs+POP5eO/NdEBi56FYwnVLFaw4SPSlUw0pa6CAG9RI6JlgrUfHNvv4NqLGjC0qZJtWabpQhglZK5OcSmGMJbZBJuNtmf0wd/jYKhcCRT9nNWbsDql1xjPfliV6z2r0XuyQWcfQOeuY2qaIIdzWtkZmwME26EQo75OEAlKKdXCLD79ejxWu18kIHBrhRI2ELrTaQbBCAaMjcFCh2UZQBRxcqlVCQa5FDr6ssBZQdED7Jtzz5JTZAQdSpMPB/RToFL4A0ZiF2S2j4Z+RHcCBvl+FlL6xxqMPWa5ms/A6jfQtYbRtNbsbnIFDaQ2hoeAumkarMgKTP/hwp5sq7/u+5/B29uY88AfrNkpKNOyCvU/MpcqOKbXuiDh2ACjEvLo6j/ldaCVjKWweiPyHSqFxgWBSCQuJJJQOX4qw9ucO2pYnVmH2X7aR5FOyen44UYZwhw76Vc/HM+Gc2B8xemtTgaHF2u9eIv9zUi0cgj3vGsFgi2Dtp9x284AlnQhvGftKqQe/1RRmgjeh+3wbNwm+vyUbXT4uFl/PAia91EiVnYYszhFVUEAeJy3vRmn3wMGjexrnq3UaCqiIGl/kucTaZh7L1uFTmymbi0ZFPia3Is+1LYWurKfi3Wx2mXxWYTC3NkI6lAscQpqks1l2mc1C+431VIuopGG20+KK6v1zKrtJjP/jfhuIIvxFeaOFihqMUHUD/su4uTxwKA4rbMUhgBeMXbcRHu+d7vtw/Nii20OxXHF4Ek6JTcBx2YFUPnxLKLZCe3wBpFdDd/I1e66+UX8mqO9J6Hbg6ifujxdtHLkKhUQXa0jm67LEho4unm2IoISDGm/mt/PFHPr+N+R5U6U=
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/{username}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a user by username. The built-in admin user cannot be deleted.
+Requires admin role. Returns success message or error if user not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"username","in":"path","required":true,"schema":{"type":"string","title":"Username","description":"The username of the user to delete"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"403":{"description":"Forbidden - Cannot delete admin user or admin role required"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

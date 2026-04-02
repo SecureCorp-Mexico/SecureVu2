@@ -1,0 +1,71 @@
+---
+id: event-ids-event-ids-get
+title: "Get events by ids"
+description: "Gets events by a list of ids."
+sidebar_label: "Get events by ids"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVk1vGzcQ/SvEnFpgISlGc9lbETuOgQQxbLWHOsaCuxxpmXLJDTkrVBX2vxfD/ZRlK6lzssB98zh882Y8ByC5DZA+wNUOLQV4TEBhKLyuSTsLKVwjBYHxo8j3QgqjAwm3EVqFxRcrhBB3SI23Yfatwy8gAVejl0x1oyCFeJ5pFbLp1xYJEqillxUSek7mAFZWCCloFSABzXl8a9DvIQGP3xrtUUFKvsEEQlFiJSE9AO1rjgnktd1CAqTJ8MGNCtC2jxwaamcDBkZfrFb85/ix901RYAibxoi7HgwJFM4SWmK4rGuji/ig5dfAMYfTDKT3klPVhFW8q/YsA+nuZq3OZwttAkbmaM7BPkZAm0Bo8mxES7v/vIkCHse1yXhiG2OA1RiY7ptcjGyFrNCfVfNdh+CbSXrKSHOlZvRVjn6Gv2eUWDOqTQCtGiNOku1jzyV7ZdXItZEmYFa7oEnvnmfMnTMo7VnK90wjbgeaNoF/ne0rNRTwqZpPKz1w/RUj+XvZVLmV+tVVWY8EbQKlDFlhdD1LZXjZFPFBBvGOQX1AsLIOpaPvBt0PwJZbhKS2mbYKN9pqQrM/G38X8eJmjm8TqE0Tss7nr3n8rWmC6BqhcgpNVspQvpbsEzOID8zQ8nAjLMj5rIO/jvKyJxFrBoxZ/gxll+XApyTNm9DlX7GgmeyX/L2dfDgCpun4wHNmGCTzMTE2+VEHz1rzpLOGjpjbembKJ3Z73kSTJ45q+rQgR1L2Oszbn/9rjJO5nfuwOxMRIW5UmP26RoK2Zbl+u7g4Hfp/SqNVHOniynvn/8/EP57sih9ujibHMcC44ujrDzhFW8ItT8XHl8fOR9clGK0YtufG9ycMQW5xmmEvQ6MYvSW/YzV+V3d1j5vVbJK3U/flZ1x28j132Tiv1uvbE8KuthVS6XjJGBYKKiGF5bhosN/R74YNo/EGUiiJ6pAulwortwhYNB53zUK7pax1rMIES5dL4wppShcofbtavekwj7yfbFwUsk8SEuBrOnetFm8WqzgTXaBKRv/028010myz6lI8suZhMuLP7mG9oIT/0LI2UkevxMcdeqkepu2My8fP5MPDIZcB//Cmbfm4W8NYQKWDzA3XP46LM6n/ctdb5VfxUiZ/435c93bSNFFG1nYnveZrIH3gBihRKvTx/i7k96LAmmZRJ/3KLKM3rq/W0Lb/AfuqubI=
+sidebar_class_name: "get api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get events by ids"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/event_ids"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets events by a list of ids.
+    Returns a list of events.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"ids","in":"query","required":true,"schema":{"type":"string","title":"Ids"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"properties":{"id":{"type":"string","title":"Id"},"label":{"type":"string","title":"Label"},"sub_label":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Label"},"camera":{"type":"string","title":"Camera"},"start_time":{"type":"number","title":"Start Time"},"end_time":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"End Time"},"false_positive":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"False Positive"},"zones":{"items":{"type":"string"},"type":"array","title":"Zones"},"thumbnail":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Thumbnail"},"has_clip":{"type":"boolean","title":"Has Clip"},"has_snapshot":{"type":"boolean","title":"Has Snapshot"},"retain_indefinitely":{"type":"boolean","title":"Retain Indefinitely"},"plus_id":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Plus Id"},"model_hash":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Model Hash"},"detector_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Detector Type"},"model_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Model Type"},"data":{"type":"object","title":"Data"}},"type":"object","required":["id","label","sub_label","camera","start_time","end_time","false_positive","zones","thumbnail","has_clip","has_snapshot","retain_indefinitely","plus_id","model_hash","detector_type","model_type","data"],"title":"EventResponse"},"title":"Response Event Ids Event Ids Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

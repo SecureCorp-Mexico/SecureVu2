@@ -1,0 +1,73 @@
+---
+id: reprocess-license-plate-lpr-reprocess-put
+title: "Reprocess a license plate"
+description: "Reprocesses a license plate image to update the plate."
+sidebar_label: "Reprocess a license plate"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVMtu2zAQ/BViTy0gSE7QXnQr2gAN0KKB6/SSGgYtrS2mFMmQKyOGwH8vlpLsOG6C9t6TLe5jhrPD7YHkNkB5Bx+1DEFtVCVJWQPLDGoMlVcufZYwR+dthSFgEFJoVaEJKJyWhEK1couCrOhczd/UjJH8pxFCiDk+dMpjeFbmsbJboxiAi9co0Mi1xlook3pU1mzUtvOJUi4WDQrcoaGVqofGbRdI4KMKNJXUkuRaBszFHKnzhsmGrmLiosUQmKj1QhqB3lsv1OaU1ND3KTMVhLF0oGZ9wpl4cFiZndSqziED63Bge11DCX7SbDVirBLGSju/OsZcR5CBk162SOh5Gj0Y2SKUMMFABoqn8NCh30MGflC0hpJ8hxmEqsFWQtkD7R0XBvLKbCEDUqT54Io7iesaYlxyfXDWBAxccjmb8c/pvL8Pom06LeZjMmRQWUNoiNOlc3p0S3EfuKY/0ogxxgzeXV6eN/7BWqUyccUj+Ieu4DwLTGrgXSNJpfmfImzDeYK21UlUmv23TZL3VKWYHU6UIdyih7iM2XQmvZf7J1J+seMjiRm0Yfua6l8Hy8Gh2SsDSn5ccDQese36His6mfhdutcAPeYtj22O8g7qvnyNT4N8fwKbUj4vFjdnDYfZtkiNZZNP9qUGSii088XB2pBBQL+bPN15DSU0RC6URVFja/OAVedx1+XKFtKpNIljWlkU2lZSNzZQ+X42uxhylvwYNjaJORKFDBhmcNgsv8hnfHFnA7UyeWh8T4ct9nyHwbN91x9N+X/1/dXqGz1E+EiF01Kl55Fm2Y/uuAPtfLLy5I9lBjxbDvU9c7/1OkY+HhYdu6ZWIcFDuZE64CtzejOKXb8VL/H5hfvTrbqTuksGYlftpFeMBeUdP/8GZY0+kRjqPlQVOnpSdbatuMvhZdzcLiDG3+8HkRM=
+sidebar_class_name: "put api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reprocess a license plate"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/lpr/reprocess"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reprocesses a license plate image to update the plate.
+    Requires license plate recognition to be enabled in the configuration. The event_id
+    must exist in the database. Returns a success message or an error if license plate
+    recognition is not enabled or the event_id is invalid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"query","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

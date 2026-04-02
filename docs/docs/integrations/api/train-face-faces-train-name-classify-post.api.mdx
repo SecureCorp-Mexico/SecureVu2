@@ -1,0 +1,75 @@
+---
+id: train-face-faces-train-name-classify-post
+title: "Classify and save a face training image"
+description: "Adds a training image to a specific face name for face recognition."
+sidebar_label: "Classify and save a face training image"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVVGP2zYM/isCX9YBXpwethe/dW2xDdjW4prt5RYEjEzH6mTJleTcBYb/+0BJiX3N7lbscVgeEkcmP5KfPpIjBDx4qO7gtUbvVaMkBmUNbAuoyUun+vi3gld17QWK4FAZZQ5CdXggEaxA4XuS7CkalCQMdiQa69I/R9IejGKQ1R9GCCFeSUl98IJUaMktIRulSTTOdiK0lI5FrRzJYN1JWCfQCDqSCTtVc2R6CA5lSLDsEiMywEpsWsopKi88Hil6nI2+8gtgNPXsLTMN5BKs8kJqQpf8lZHW9dZhoOhi6H5Ov8aAK3FLYXCGqfKDlOS96Mh7TuRehXbOlV254EhXrs0564RqrpjjLIwNggzuNdVFSldpKiMdl0yVOaJWdcF4c0Vo2HdPZ76oXkEBticXr/qnGiqIRezYPn75XTrYcXa7XSbltOutD1BAjw47CuRYOSOwEVTppwDFaukxtFCAo0+DclRDFdxABXjZUodQjRBOPfv44JQ5QAFBBc0HvzLING2TL/nwva1P7CCtCWQCP2Lf66zT8qNndY7XyHb/kWRYIEegaZomhva9NZ4829+s1/zzWO0f0t01gxa32RiKL8+hd0xvUClCFsIiub21mtAssssBYSog6+U5ln7JJlzM5/XOnN9dIs+g2xnkBzLklLzUl7j59ubmmo7fWVaxWPGWRfrvuagpoNL8pAJ1/tpAW/noLZrTuybK7DEZU3E5USbQgRxM25kOdA5PC8Z+tnmwMcH+8EXknsGeNo1kiA2//aer4LpS6Gy3uImZ3sTu02W8SfT9XbCzyY+bzfsrwHS3HYXWcrtf+ji0UEEZW76MLV+O3MZTeW55KMCTO55bfXAaKmhD6H1VljV1duVJDo6Ow0rZEnsVL2Y2q8pSW4m6tT5U363XL5PNtgBWyu3c428fsOu5gHHiGdLYyHuuCQrgFJIY16uXqzVzxFV0GOWWR1BeYmmm89QXmIbg47UFny23xXT5f8/9x/ZcbpNAD6HsNao4AaI+x6z/O4j6Z1suEQqo8iq7NMG2ABYw247jHj395vQ08fGngdwJqrttAUd0ivOOjVIrH2uAqkHt6RnBvbjNU+Jr8VS652FguB2PqIfcE3/S6bx34+xrCWtyMX569TpF+SZOqNn1amBzzyaPpNpnbbeLQfL+3YcNFLDPS7qzNfs4vOfph/cpTRurjtM8no2g0RyGuOMgYfLnL30opdM=
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Classify and save a face training image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/faces/train/{name}/classify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a training image to a specific face name for face recognition.
+    Accepts either a training file from the train directory or an event_id to extract
+    the face from. The image is saved to the face's directory and the face classifier
+    is cleared to incorporate the new training data. Returns a success message with
+    the new filename or an error if face recognition is not enabled, the file/event
+    is invalid, or the face cannot be extracted.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"path","required":true,"schema":{"type":"string","title":"Name"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","title":"Body"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

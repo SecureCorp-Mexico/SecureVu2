@@ -1,0 +1,35 @@
+---
+id: facerecognitionresponse
+title: "FaceRecognitionResponse"
+description: "Response model for face recognition endpoint."
+sidebar_label: "FaceRecognitionResponse"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"success":true,"score":0,"face_name":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"FaceRecognitionResponse"}
+>
+</Heading>
+
+
+
+Response model for face recognition endpoint.
+
+Returns the result of attempting to recognize a face from an uploaded image.
+
+<Schema
+  schema={{"properties":{"success":{"type":"boolean","title":"Success","description":"Whether the face recognition was successful"},"score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Score","description":"Confidence score of the recognition (0-1)"},"face_name":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Face Name","description":"The recognized face name if successful"}},"type":"object","required":["success"],"title":"FaceRecognitionResponse","description":"Response model for face recognition endpoint.\n\nReturns the result of attempting to recognize a face from an uploaded image."}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

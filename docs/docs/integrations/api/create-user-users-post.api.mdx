@@ -1,0 +1,75 @@
+---
+id: create-user-users-post
+title: "Create new user"
+description: "Creates a new user with the specified username, password, and role."
+sidebar_label: "Create new user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVVGPEzcQ/ivutEWA9pJwbSW0qmhDAYFUxCkcfUlS5OxOsqZe29izCdF2/3s19uY2JHClfSYPiTP+ZsbzzedxCyQ3AfI5TBuqYJlBiaHwypGyBnL4zaMkDEIKgzvRBPRip6gSVKEIDgu1VlhGu5E1ZsLJEHbWl5mQphTeahwtzAzfN8pzlLJWJlnFVY8UdRNI1IgkAnk0G6qETw41Ggr5wlyIl8qouqnFQ1FU0suC0Ae2T0lolIGENSga59AXMqDQSIT+DFCqjaIzayxD6iGyuPvNr99+9/2fd+7fvZeNfllA3naLxd8/P7oHGViHXjI5L0rIoYj0vOX641d462wgyIArwECPbbmHvIW+oBJy8g1mUFhDaIi3pHNaFTHk+F1g0lsIRYW15JXznJAUBv534JnXtHcIOQTyymwgA1Kk2fDmgOkyOHTjNvyhD4znzsQzmf2rNeTzU68uu7GYRmvolkOcGfuyfNay0QQ5bBXu0EPXZQcfu3qHxYGdRMd8qOnouEdhp85d2UBcVYhsdh1H9BicNSHRcjmZ8M/Hyn3dFAWGsG60mPVg+HLiU5YfPxX4sSzFLLVXXIgXZiu1Gq6AsD4K/H/k+uE81zPrV6os0YgLMb25POKGP/a7vDz3+4PPFNOJp95b/x9OcyK5EkkqzStFWIdzgLbFR7tfoB1lCDcsjeWgDem93B/J8nebDsgl1mFzm4JfYghyEwWfIJ+HRjLENe/+my65rpS6xx2JcqA3sfv5Mp4k+j6V7AB5fn19dRYwaaJGqizPmX6qOEkV5DCOowYyCOi3vGK2G68hh4rIhXw8LrG2o4BF43HbjJQdS6diCwZYPh5rW0hd2UD5T5PJg4RZZsCamA0D7OkHWbs0GIYBNHA7DJnBlgbJ0HpQZm1jY/qiIQM+eVLrZPRgNInzygaqZdRjnyW9PzePD5y8T+0g669P1elT1QuO8AONnZYq3qXY/7ZXUpq+gaXNKmBD265kwDdedx2b3zfo95DPlxlspVdyxd2b872tUJboo/T+wj3znzpxEW8Xw3UTb8TpsGEVJo9pUaCjW7HLo0tw9er1NWSw6t/U2pbs4+WOBSd3SVU2KiNOomhrQUuzaXg+5JBi8ucfx1EY2w==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create new user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new user with the specified username, password, and role.
+Requires admin role. Password must meet strength requirements:
+- Minimum 8 characters
+- At least one uppercase letter
+- At least one digit
+- At least one special character (!@#$%^&*(),.?":\{\}\|&lt;&gt;)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"username":{"type":"string","title":"Username"},"password":{"type":"string","title":"Password"},"role":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Role","default":"viewer"}},"type":"object","required":["username","password"],"title":"AppPostUsersBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"400":{"description":"Bad Request - Invalid username or role","content":{"application/json":{"schema":{}}}},"403":{"description":"Forbidden - Admin role required"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

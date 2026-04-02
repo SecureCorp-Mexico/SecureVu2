@@ -1,0 +1,77 @@
+---
+id: login-login-post
+title: "Login with credentials"
+description: "Authenticates a user with username and password."
+sidebar_label: "Login with credentials"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU1vGzcQ/SvEnNeSbLRoSxQFnDZFXKSI4CjNQRLs0e5Iy5hLMiRXjiLovxdD7nolO3GbUy/VQcuPx8f5eDPcQ8RNADmHyzbWsCygolB65aKyBmRaJRNViZGCQNEG8uJexTqNDDYk0FTCYQj31lejhbmm2HrD2D/ez0S0d2QE8jRQ2XoSr2az6Zk1eidKa+8UiVhjFCUasSImrcTaehHaVaCPLZkoLqdXwvM4xDBamFlNR8x8DnWwfNhT9Iq2zOBtI2LNS8FZE7KRiTyZ8oLQk+8olElQ9tR69RnZc1ETVuRHC7MwLz9h4zTbpszm5KhcmNvb24UpW6/F2SuxgBMS2YN/TuibLeqWflmAqGN0QY7HOSLb9kY5+eNPP5yP0amx83atNCVqKMA68ontqgIJ2m6Uucn/zoYIBXSheWGrHch9mipPFcjoWyqgtCaSibyFzmlOpLJm/CFwevcQypoa5JHzfFVUFHjG2eVv3DkCCSF6ZTZQQFRR88I73j8U0Cf+Oey0xxwORQ+yqw9U9uZne+f50iPO5cBx6dzUhviaPU+uHg7M1uc32XwxmfDnVMBv27KkENatFtcdGP59VPIt303OnxInU8TvqDRV4kxcmS1qVYnSU8UFgzp8+z0XF0/v+Ytpsyhfem/9N7A+ymlFEZXmkYrUhKcAbcuTXTS7N2uQ88epPRQPK8pE2rAUlkNu0XvcHeX/tc0Gsl6asHlOKn9SCLgheCD7OjQFQ8x49590xX7lqzvckbCG8Oboft2N33L4vnRZD+He9oQw57ahWFsu4a5sHcYaJIxTLUMBgfyWfEjRbr0GCX2XqKixo75VjJTlLpFSMMDkeKxtibq2IcrvJ5PzjFkWwJq4HjpE18uGCh/iOlTykGZQZm1TEjoHoQC2MitzMjofTVITsCE2mLTHL8JDcaR34rQgTrS9H5T8/0PzXz80naYjfYpjp1Glck0S23dinefnh6uHhcYL+/0KA73z+nDg5Y8t+R3I+bKALXqFKxbNnFtDdjOp+452IOHXnPmzVMAM120qusf9jIWeT1yWJbn4LHZ5VGfTN29nUMCqexcbW/EZj/fcHPA+i9kmJaZml9b2oNFsWm5BEjIn//4GhJQxoA==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Login with credentials"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Authenticates a user with username and password.
+Returns a JWT token as a secure HTTP-only cookie that can be used for subsequent API requests.
+The JWT token can also be retrieved from the response and used as a Bearer token in the Authorization header.
+
+Example using Bearer token:
+```
+curl -H "Authorization: Bearer <token_value>" https://securevu_ip:8971/api/profile
+```
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"user":{"type":"string","title":"User"},"password":{"type":"string","title":"Password"}},"type":"object","required":["user","password"],"title":"AppPostLoginBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"401":{"description":"Login Failed - Invalid credentials","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

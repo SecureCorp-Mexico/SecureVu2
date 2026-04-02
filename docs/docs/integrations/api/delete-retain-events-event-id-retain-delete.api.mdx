@@ -1,0 +1,72 @@
+---
+id: delete-retain-events-event-id-retain-delete
+title: "Stop event from being retained indefinitely"
+description: "Stops an event from being retained indefinitely."
+sidebar_label: "Stop event from being retained indefinitely"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVF1v0zAU/SvWfQIparoJXvKGtAomDYZG4aVUlRvfNB6O7dk3FVWU/45sJ222soF45CmRfXw/zjn3dkB856FYwWKPmjysMxDoSyctSaOhgC9krGdcMwwAVjnTsC1KvWMOiUuNgkktsJJaEqrD7LtmjLE7pNZpzzjzbVmi96xB7/kOmXExmHPGMVkxqnGILD3ThlhlWi2GKJ9ul4uCLWvpwy1nCne8PDDUwhqpiXEtxme+tdY4itXEoJUzmlCLGWRgLDoe+rkWUIBAhYSbVP4mJveb9N1IsRkvEgwysNzxBgld4KkDzRuEAkY8ZCADT5ZTDRk4fGilQwEFuRYz8GWNDYeiAzrY8M6Tk3oHGZAkFQ4i8exaQN+vw3tvjfbow5PL+Tx8ngiSCK1axe4GMGRQxm4pwLm1Spax3/zehzfdpAzrAhskU4ZBnUl9W2MUcj0pcEgIfQaDiC+183GA9H02Ysz2Hkt6RM7qmPkUdH0K8h41Olke++v7EO7N5eU5Hd+4kiI2yxbBVP/OhQi6q/AnCRt/DlCmfHTL9eG2ip54TEafHU+kJtyhg359ooM7xw8Txm5MKjAS7Hd/Re4Y7AVbxQlbhts/SRH6SqkH3ESJE72J3efbuEr0/S7ZCPmwXH4+C5i0bZBqc5rOOHZUQwF5GtC8Gweuz9OAQgYe3X4cy9YpKKAmsr7Ic4GNmXksW4f7diZNzq2MupxgRZ4rU3JVG0/F2/n8ImHWYZ4rE6kdyoYMQprkt/nsYjYPNFjjqeHRUcNKCKvyL9ckPFmz3cm0/8XGHRxA+JNyq4JafZa47wZhV2mDhgVQTHbpoO06g6BLgHXdlnv86lTfh+OHFt0BitU6gz13km+DRKsOhPThX0BRceXxBX5f3Q3ef82eq3S0uA5C7blqBxv8wMN09ceprpELdLGGdP2uLNHS5OHZEgomOxr+anGzWC6g738BrtCZqA==
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop event from being retained indefinitely"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/events/{event_id}/retain"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops an event from being retained indefinitely.
+    Returns a success message or an error if the event is not found.
+    NOTE: This is a legacy endpoint and is not supported in the frontend.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

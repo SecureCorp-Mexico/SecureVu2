@@ -1,0 +1,71 @@
+---
+id: set-description-events-event-id-description-post
+title: "Set event description"
+description: "Sets an event's description."
+sidebar_label: "Set event description"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v0zAQ/lesewGk0JQJXvIGbAIk0NBWeClV5SbXxsOxM/tSqKL87+jspE1XtqE90Je2vp/fd5/PLZDceMjmcLFFQx4WCRToc6dqUtZABtdIXkgjkO3PvBhZJz+MEEJcITXOeCGFb/IcvRcVei83KKwLkc5ZJ9RaUIkxjVBeGEtibRtTTCABW6OTnPJTARl4pOWozDLE+GX8XqpieWStrSdIoJZOVkjoGE0LRlYIGQwhkIBiNLWkEhJweNsohwVk5BpMwOclVhKyFmhXc5wnp8wGEiBFmg8CPeJTAV23iPHo6Z0tdhx0N11uDaEhNsm61ioP2NIbz4y2o2q1Y+Sk0PO/I+JbkGZ3uQ5gjpvqkv2JabQGbmhoc1bieELCjliHrkuGQLu6wZyOmJgf1V/cge7PD8YAu+s4nUNfW+Nj/2fT6QkMuI6aWDdaXPXO8GSGeoGNBrWyVqM0o0n1BaFLoNfhQ3P90rs8xs1Q+ZB0xNAHNOhUvscXuXl9dnZKx3epVRHAigu+F0/nokCSSvMvRVj5Uwdt8yPrP+hJGcINOugWBzqkc3I3YuyzjQ0Ggv3mn8gdkj1wv8KSmLH1sVEwrli69xtN4kBvZPd+GOeRvr8VG1w+zmZfTxLG2VZIpeVdtd8+VEIGaVxVaTvsnS4djz8Bj247rKjGacigJKp9lqYFVnbiMW8cbpuJsqmsVRjNwS1LU21zqUvrKXsznb6KPosEWCtXh5108VtWtcZT9e0nDsqsbZhHjxUS4Mai23TyajJlL0ZXySDDfqFeI/U7/BjYnd211/T/eT/6CRL+prTWUgVxBuLafjTz+BTwBc5Gj8KdlcfMsm/brqTHb053HR/fNuh2kM0XCWylU3LFlM1bKJTn3wVka6k9PsDC86tewC/Efe0OOjWs0q3UTT+Wn7gbP2ThapYoC3Shh2h+Hyu9DBfoEH6yT1hQMeJtnmNND/ouRjr/enk9gwRW/YtX2YJjnPzFl1P+iq3agDwsm3DWgpZm04QVDDEnf/4A0GztQg==
+sidebar_class_name: "post api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set event description"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/events/{event_id}/description"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets an event's description.
+    Returns a success message or an error if the event is not found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"event_id","in":"path","required":true,"schema":{"type":"string","title":"Event Id"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"properties":{"description":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"The description of the event"}},"type":"object","required":["description"],"title":"EventsDescriptionBody"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"success":{"type":"boolean","title":"Success"},"message":{"type":"string","title":"Message"}},"type":"object","required":["success","message"],"title":"GenericResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
