@@ -189,7 +189,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "integrations/api/review-review-get",
-          label: "Review",
+          label: "GET Review",
           className: "api-method get",
         },
         {
@@ -347,7 +347,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "integrations/api/logs-logs-service-get",
-          label: "Logs",
+          label: "GET Logs",
           className: "api-method get",
         },
         {
@@ -403,7 +403,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "integrations/api/logs-logs-service-get",
-          label: "Logs",
+          label: "GET Logs (svc)",
           className: "api-method get",
         },
       ],
@@ -797,25 +797,25 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "integrations/api/preview-thumbnail-preview-file-name-thumbnail-webp-get",
-          label: "Preview Thumbnail",
+          label: "Preview Thumbnail (webp)",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "integrations/api/preview-thumbnail-preview-file-name-thumbnail-jpg-get",
-          label: "Preview Thumbnail",
+          label: "Preview Thumbnail (jpg)",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "integrations/api/label-thumbnail-camera-name-label-thumbnail-jpg-get",
-          label: "Label Thumbnail",
+          label: "Label Thumbnail (jpg)",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "integrations/api/label-thumbnail-camera-name-label-best-jpg-get",
-          label: "Label Thumbnail",
+          label: "Label Thumbnail (best)",
           className: "api-method get",
         },
         {

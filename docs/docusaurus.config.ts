@@ -23,10 +23,10 @@ const config: Config = {
     mermaid: true,
   },
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'es',
+    locales: ['es'],
     localeConfigs: {
-      en: {
+      es: {
         label: 'Español',
         htmlLang: 'es',
       },
