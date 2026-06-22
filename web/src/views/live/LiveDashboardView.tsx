@@ -387,6 +387,7 @@ export default function LiveDashboardView({
 
   return (
     <div
+      id="liveCamerasGrid"
       className="scrollbar-container size-full select-none overflow-y-auto px-1 pt-2 md:p-2"
       ref={containerRef}
     >

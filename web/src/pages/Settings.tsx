@@ -436,7 +436,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="flex h-full flex-col">
+    <div id="settingsPage" className="flex h-full flex-col">
       <div className="flex min-h-16 items-center justify-between border-b border-secondary p-3">
         <Heading as="h3" className="mb-0">
           {t("menu.settings", { ns: "common" })}

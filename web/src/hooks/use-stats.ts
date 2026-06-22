@@ -89,10 +89,10 @@ export default function useStats(stats: SecureVuStats | undefined) {
     // check camera cpu usages
     Object.entries(memoizedStats["cameras"]).forEach(([name, cam]) => {
       const ffmpegAvg = parseFloat(
-        memoizedStats["cpu_usages"][cam["ffmpeg_pid"]]?.cpu_average,
+        memoizedStats["cpu_usages"]?.[cam["ffmpeg_pid"]]?.cpu_average,
       );
       const detectAvg = parseFloat(
-        memoizedStats["cpu_usages"][cam["pid"]]?.cpu_average,
+        memoizedStats["cpu_usages"]?.[cam["pid"]]?.cpu_average,
       );
 
       const cameraName = config?.cameras?.[name]?.friendly_name ?? name;

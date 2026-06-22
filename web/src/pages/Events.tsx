@@ -492,42 +492,46 @@ export default function Events() {
   if (recording) {
     if (selectedReviewData) {
       return (
-        <RecordingView
-          key={selectedTimeRange.before}
-          startCamera={selectedReviewData.camera}
-          startTime={selectedReviewData.start_time}
-          allCameras={selectedReviewData.allCameras}
-          reviewItems={reviews}
-          reviewSummary={reviewSummary}
-          allPreviews={allPreviews}
-          timeRange={selectedTimeRange}
-          filter={reviewFilter}
-          updateFilter={onUpdateFilter}
-          refreshData={reloadData}
-        />
+        <div id="reviewPage" className="size-full">
+          <RecordingView
+            key={selectedTimeRange.before}
+            startCamera={selectedReviewData.camera}
+            startTime={selectedReviewData.start_time}
+            allCameras={selectedReviewData.allCameras}
+            reviewItems={reviews}
+            reviewSummary={reviewSummary}
+            allPreviews={allPreviews}
+            timeRange={selectedTimeRange}
+            filter={reviewFilter}
+            updateFilter={onUpdateFilter}
+            refreshData={reloadData}
+          />
+        </div>
       );
     }
   } else {
     return (
-      <EventView
-        reviewItems={reviewItems}
-        currentReviewItems={currentItems}
-        reviewSummary={reviewSummary}
-        recordingsSummary={recordingsSummary}
-        relevantPreviews={allPreviews}
-        timeRange={selectedTimeRange}
-        filter={reviewFilter}
-        severity={severity ?? "alert"}
-        startTime={startTime}
-        showReviewed={showReviewed ?? false}
-        setShowReviewed={setShowReviewed}
-        setSeverity={setSeverity}
-        markItemAsReviewed={markItemAsReviewed}
-        markAllItemsAsReviewed={markAllItemsAsReviewed}
-        onOpenRecording={setRecording}
-        pullLatestData={reloadData}
-        updateFilter={onUpdateFilter}
-      />
+      <div id="reviewPage" className="size-full">
+        <EventView
+          reviewItems={reviewItems}
+          currentReviewItems={currentItems}
+          reviewSummary={reviewSummary}
+          recordingsSummary={recordingsSummary}
+          relevantPreviews={allPreviews}
+          timeRange={selectedTimeRange}
+          filter={reviewFilter}
+          severity={severity ?? "alert"}
+          startTime={startTime}
+          showReviewed={showReviewed ?? false}
+          setShowReviewed={setShowReviewed}
+          setSeverity={setSeverity}
+          markItemAsReviewed={markItemAsReviewed}
+          markAllItemsAsReviewed={markAllItemsAsReviewed}
+          onOpenRecording={setRecording}
+          pullLatestData={reloadData}
+          updateFilter={onUpdateFilter}
+        />
+      </div>
     );
   }
 }

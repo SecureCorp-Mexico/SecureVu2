@@ -22,7 +22,7 @@ export default function Statusbar() {
   const stats = useAutoSecureVuStats();
 
   const cpuPercent = useMemo(() => {
-    const systemCpu = stats?.cpu_usages["securevu.full_system"]?.cpu;
+    const systemCpu = stats?.cpu_usages?.["securevu.full_system"]?.cpu;
 
     if (!systemCpu || systemCpu == "0.0") {
       return null;
@@ -69,7 +69,7 @@ export default function Statusbar() {
   }, [reindexState, addMessage, clearMessages, t]);
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-10 flex h-8 w-full items-center justify-between border-t border-secondary-highlight bg-background_alt px-4 dark:text-secondary-foreground">
+    <div id="statusbar" className="absolute bottom-0 left-0 right-0 z-10 flex h-8 w-full items-center justify-between border-t border-secondary-highlight bg-background_alt px-4 dark:text-secondary-foreground">
       <div className="flex h-full items-center gap-2">
         {cpuPercent && (
           <Link to="/system#general">

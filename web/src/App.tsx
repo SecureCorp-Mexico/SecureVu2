@@ -2,6 +2,7 @@ import Providers from "@/context/providers";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Wrapper from "@/components/Wrapper";
 import Sidebar from "@/components/navigation/Sidebar";
+import TourGuide from "@/components/tour/TourGuide";
 
 import { isDesktop, isMobile } from "react-device-detect";
 import Statusbar from "./components/Statusbar";
@@ -74,6 +75,7 @@ function DefaultAppView() {
       {isDesktop && <Sidebar />}
       {isDesktop && <Statusbar />}
       {isMobile && <Bottombar />}
+      <TourGuide />
       <div
         id="pageRoot"
         className={cn(
