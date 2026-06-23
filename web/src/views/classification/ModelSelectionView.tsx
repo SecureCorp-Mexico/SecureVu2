@@ -144,6 +144,7 @@ export default function ModelSelectionView({
         </div>
         <div className="flex flex-row items-center">
           <Button
+            id="classification-add-btn"
             className="flex flex-row items-center gap-2"
             variant="select"
             onClick={() => setNewModel(true)}

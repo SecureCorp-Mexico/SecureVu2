@@ -45,6 +45,7 @@ import { LuCheck, LuSquareCheck, LuX } from "react-icons/lu";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 
 type SearchFilterDialogProps = {
+  id?: string;
   config?: SecureVuConfig;
   filter?: SearchFilter;
   filterValues: {
@@ -56,6 +57,7 @@ type SearchFilterDialogProps = {
   onUpdateFilter: (filter: SearchFilter) => void;
 };
 export default function SearchFilterDialog({
+  id,
   config,
   filter,
   filterValues,
@@ -106,6 +108,7 @@ export default function SearchFilterDialog({
 
   const trigger = (
     <Button
+      id={id}
       className="flex items-center gap-2"
       aria-label={t("more")}
       size="sm"

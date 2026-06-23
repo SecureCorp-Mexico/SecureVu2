@@ -227,33 +227,48 @@ export default function TourGuide() {
     };
 
     // ── Explore sub-steps ────────────────────────────────────────────────────
-    const exploreEventsGridStep: TourStep = {
-      target: "#explore-events-grid",
-      title: "Explorar — Objetos Recientes",
+    const exploreFilterCamerasStep: TourStep = {
+      target: "#explore-filter-cameras",
+      title: "Todas las cámaras",
       content:
-        "La vista resumen agrupa los objetos detectados más recientemente por etiqueta (personas, vehículos, etc.). " +
-        "Cada fila muestra miniaturas y la cantidad de eventos del objeto. " +
-        "Haz clic en la flecha de cualquier fila para buscar todos los eventos de esa categoría.",
+        "Filtra la búsqueda histórica seleccionando una o varias cámaras. " +
+        "Por defecto se muestran resultados de todas las cámaras activas a las que tienes acceso.",
       route: "/explore",
     };
 
-    const exploreSearchBarStep: TourStep = {
-      target: "#explore-search-bar",
-      title: "Explorar — Búsqueda Semántica",
+    const exploreFilterLabelsStep: TourStep = {
+      target: "#explore-filter-labels",
+      title: "Todas las etiquetas",
       content:
-        "Si el sistema tiene habilitada la búsqueda semántica, escribe aquí una descripción en lenguaje natural " +
-        "para encontrar eventos: por ejemplo 'persona con chaqueta roja' o 'vehículo rojo en zona norte'. " +
-        "El motor de IA buscará los clips más relevantes en todo el historial.",
+        "Filtra los eventos según el tipo de objeto detectado (personas, vehículos, etc.) " +
+        "para enfocar tu búsqueda en lo que realmente te interesa.",
       route: "/explore",
     };
 
-    const exploreResultsStep: TourStep = {
-      target: "#explore-results-grid",
-      title: "Explorar — Resultados",
+    const exploreFilterDatesStep: TourStep = {
+      target: "#explore-filter-dates",
+      title: "Todas las fechas",
       content:
-        "Aquí se muestran las miniaturas de todos los eventos que coinciden con tu búsqueda o filtros. " +
-        "Haz clic en cualquier miniatura para abrir el detalle completo con reproductor, " +
-        "información de la cámara, etiqueta, zona detectada y opciones de exportación.",
+        "Selecciona un rango de fechas o un día específico para explorar grabaciones pasadas. " +
+        "El calendario te mostrará los días que contienen grabaciones registradas.",
+      route: "/explore",
+    };
+
+    const exploreFilterMoreStep: TourStep = {
+      target: "#explore-filter-more",
+      title: "Más filtros",
+      content:
+        "El botón de más filtros abre opciones avanzadas para buscar por rango de horas, " +
+        "zonas de detección específicas, velocidad estimada, puntuación de confianza y más.",
+      route: "/explore",
+    };
+
+    const exploreFilterSettingsStep: TourStep = {
+      target: "#explore-filter-settings",
+      title: "Configuración",
+      content:
+        "Configura la visualización de la cuadrícula de búsqueda, cambia el tamaño " +
+        "de las columnas y ajusta las fuentes de búsqueda preferidas (imágenes o descripciones).",
       route: "/explore",
     };
 
@@ -270,7 +285,7 @@ export default function TourGuide() {
 
     const facesLibrarySelectorStep: TourStep = {
       target: "#faces-library-selector",
-      title: "Biblioteca de Rostros — Selector de Personas",
+      title: "Reconocimientos recientes",
       content:
         "En la parte superior izquierda verás el selector de personas. " +
         "Aquí se listan todos los nombres registrados en el sistema. " +
@@ -281,23 +296,12 @@ export default function TourGuide() {
 
     const facesToolbarStep: TourStep = {
       target: "#faces-toolbar",
-      title: "Biblioteca de Rostros — Acciones",
+      title: "Agregar Rostro",
       content:
         "Los botones de acción te permiten gestionar la biblioteca: " +
         "• Agregar Rostro — registra una nueva persona con sus imágenes de referencia. " +
         "• Subir Imagen — añade fotos adicionales para mejorar el reconocimiento de una persona existente. " +
         "Cuantas más imágenes de referencia tenga cada persona, mayor será la precisión del sistema.",
-      route: "/faces",
-    };
-
-    const facesContentStep: TourStep = {
-      target: "#faces-content",
-      title: "Biblioteca de Rostros — Galería de Imágenes",
-      content:
-        "En esta área se muestran las imágenes de la persona seleccionada o " +
-        "las capturas pendientes de clasificación en el modo Entrenamiento. " +
-        "Puedes seleccionar múltiples imágenes con Ctrl+clic para eliminarlas en bloque, " +
-        "o hacer clic individual para ver opciones de gestión de cada una.",
       route: "/faces",
     };
 
@@ -323,14 +327,13 @@ export default function TourGuide() {
       route: "/classification",
     };
 
-    const classificationModelsGridStep: TourStep = {
-      target: "#classification-models-grid",
-      title: "Clasificación — Tus Modelos",
+    const classificationAddBtnStep: TourStep = {
+      target: "#classification-add-btn",
+      title: "Añadir Clasificación",
       content:
-        "Aquí aparecen las tarjetas de todos tus modelos personalizados. " +
-        "Cada tarjeta muestra el nombre del modelo y una vista previa de sus categorías. " +
-        "Haz clic en una tarjeta para abrir el modo de entrenamiento, " +
-        "donde podrás agregar imágenes de ejemplo y mejorar su precisión.",
+        "Usa este botón para crear un nuevo modelo de clasificación personalizado. " +
+        "Podrás definir su nombre, tipo (objeto o estado) y empezar a registrar " +
+        "categorías y cargar imágenes para entrenarlo.",
       route: "/classification",
     };
 
@@ -476,20 +479,21 @@ export default function TourGuide() {
         reviewFilterGeneralStep,
         // Explore
         exploreStep,
-        exploreEventsGridStep,
-        exploreSearchBarStep,
-        exploreResultsStep,
+        exploreFilterCamerasStep,
+        exploreFilterLabelsStep,
+        exploreFilterDatesStep,
+        exploreFilterMoreStep,
+        exploreFilterSettingsStep,
         // Export
         exportStep,
         // Faces
         facesStep,
         facesLibrarySelectorStep,
         facesToolbarStep,
-        facesContentStep,
         // Classification
         classificationStep,
         classificationTypeTabsStep,
-        classificationModelsGridStep,
+        classificationAddBtnStep,
         // System
         statusbarStep,
         sidebarSettingsStep,
@@ -524,8 +528,11 @@ export default function TourGuide() {
       reviewFilterGeneralStep,
       // Explore
       exploreStep,
-      exploreEventsGridStep,
-      exploreResultsStep,
+      exploreFilterCamerasStep,
+      exploreFilterLabelsStep,
+      exploreFilterDatesStep,
+      exploreFilterMoreStep,
+      exploreFilterSettingsStep,
       // Export
       exportStep,
       statusbarStep,
@@ -602,8 +609,11 @@ export default function TourGuide() {
         if (bounds.width > 0 && bounds.height > 0) {
           setRect(bounds);
           setSpotlightVisible(true);
+          return;
         }
       }
+      setRect(null);
+      setSpotlightVisible(false);
     };
 
     updateRect();

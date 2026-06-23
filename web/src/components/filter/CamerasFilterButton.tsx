@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 
 type CameraFilterButtonProps = {
+  id?: string;
   allCameras: string[];
   groups: [string, CameraGroupConfig][];
   selectedCameras: string[] | undefined;
@@ -24,6 +25,7 @@ type CameraFilterButtonProps = {
   updateCameraFilter: (cameras: string[] | undefined) => void;
 };
 export function CamerasFilterButton({
+  id,
   allCameras,
   groups,
   selectedCameras,
@@ -48,16 +50,16 @@ export function CamerasFilterButton({
   const filteredGroups = useMemo(
     () =>
       groups
-        .map(([name, config]) => {
-          const allowedGroupCameras = config.cameras.filter((camera) =>
-            allowedCameras.includes(camera),
-          );
-          return [name, { ...config, cameras: allowedGroupCameras }] as [
-            string,
-            CameraGroupConfig,
-          ];
-        })
-        .filter(([, config]) => config.cameras.length > 0),
+          .map(([name, config]) => {
+            const allowedGroupCameras = config.cameras.filter((camera) =>
+              allowedCameras.includes(camera),
+            );
+            return [name, { ...config, cameras: allowedGroupCameras }] as [
+              string,
+              CameraGroupConfig,
+            ];
+          })
+          .filter(([, config]) => config.cameras.length > 0),
     [groups, allowedCameras],
   );
 
@@ -87,6 +89,7 @@ export function CamerasFilterButton({
 
   const trigger = (
     <Button
+      id={id}
       className="flex items-center gap-2 smart-capitalize"
       aria-label={t("cameras.label")}
       variant={selectedCameras?.length == undefined ? "default" : "select"}

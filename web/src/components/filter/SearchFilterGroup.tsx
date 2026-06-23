@@ -188,6 +188,7 @@ export default function SearchFilterGroup({
     >
       {filters.includes("cameras") && (
         <CamerasFilterButton
+          id="explore-filter-cameras"
           allCameras={filterValues.cameras}
           groups={groups}
           selectedCameras={filter?.cameras}
@@ -208,6 +209,7 @@ export default function SearchFilterGroup({
       )}
       {filters.includes("date") && (
         <CalendarRangeFilterButton
+          id="explore-filter-dates"
           range={
             filter?.after == undefined || filter?.before == undefined
               ? undefined
@@ -221,6 +223,7 @@ export default function SearchFilterGroup({
         />
       )}
       <SearchFilterDialog
+        id="explore-filter-more"
         config={config}
         filter={filter}
         filterValues={filterValues}
@@ -307,6 +310,7 @@ function GeneralFilterButton({
 
   const trigger = (
     <Button
+      id="explore-filter-labels"
       size="sm"
       variant={selectedLabels?.length ? "select" : "default"}
       className="flex items-center gap-2 smart-capitalize"

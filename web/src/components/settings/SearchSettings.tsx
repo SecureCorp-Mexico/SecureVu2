@@ -47,6 +47,7 @@ export default function ExploreSettings({
 
   const trigger = (
     <Button
+      id="explore-filter-settings"
       className="flex items-center gap-2"
       aria-label={t("explore.settings.title")}
       size="sm"

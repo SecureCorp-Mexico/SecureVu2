@@ -94,11 +94,13 @@ export default function CalendarFilterButton({
 }
 
 type CalendarRangeFilterButtonProps = {
+  id?: string;
   range?: DateRange;
   defaultText: string;
   updateSelectedRange: (range?: DateRange) => void;
 };
 export function CalendarRangeFilterButton({
+  id,
   range,
   defaultText,
   updateSelectedRange,
@@ -118,6 +120,7 @@ export function CalendarRangeFilterButton({
 
   const trigger = (
     <Button
+      id={id}
       className="flex items-center gap-2"
       aria-label={t("explore.date.selectDateBy.label")}
       variant={range == undefined ? "default" : "select"}
