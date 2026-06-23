@@ -5,6 +5,7 @@ import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { AuthContext } from "@/context/auth-context";
 import useSWR from "swr";
 import { SecureVuConfig } from "@/types/securevuConfig";
+import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 
 interface TourStep {
   target: string | null; // CSS selector or null for centered modal
@@ -19,6 +20,7 @@ export default function TourGuide() {
   const location = useLocation();
   const { auth } = useContext(AuthContext);
   const { data: config } = useSWR<SecureVuConfig>("config");
+  const allowedCameras = useAllowedCameras();
 
   const [tourCompleted, setTourCompleted, tourPersistenceLoaded] =
     useUserPersistence<boolean>("tour-completed", false);
@@ -48,7 +50,7 @@ export default function TourGuide() {
     // Resolve the first camera name so the tour can navigate directly to it.
     const firstCamera = config
       ? Object.values(config.cameras)
-          .filter((c) => c.enabled_in_config && c.ui.dashboard)
+          .filter((c) => c.enabled_in_config && c.ui.dashboard && allowedCameras.includes(c.name))
           .sort((a, b) => a.ui.order - b.ui.order)[0]?.name
       : undefined;
 
@@ -540,7 +542,7 @@ export default function TourGuide() {
       viewerSettings,
       done,
     ];
-  }, [auth?.user?.role, config]);
+  }, [auth?.user?.role, config, allowedCameras]);
 
   // Listen for the restart-tour custom event dispatched by AccountSettings
   const handleRestartTour = useCallback(() => {
