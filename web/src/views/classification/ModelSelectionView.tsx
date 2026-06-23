@@ -114,7 +114,7 @@ export default function ModelSelectionView({
       />
 
       <div className="flex h-12 w-full items-center justify-between">
-        <div className="flex flex-row items-center">
+        <div id="classification-type-tabs" className="flex flex-row items-center">
           <ToggleGroup
             className="*:rounded-md *:px-3 *:py-4"
             type="single"
@@ -159,7 +159,7 @@ export default function ModelSelectionView({
           modelType={pageToggle}
         />
       ) : (
-        <div className="grid auto-rows-max grid-cols-2 gap-2 overflow-y-auto p-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10">
+        <div id="classification-models-grid" className="grid auto-rows-max grid-cols-2 gap-2 overflow-y-auto p-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10">
           {selectedClassificationConfigs.map((config) => (
             <ModelCard
               key={config.name}

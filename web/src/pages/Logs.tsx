@@ -471,7 +471,7 @@ function Logs() {
       <Toaster position="top-center" closeButton={true} />
       <LogInfoDialog logLine={selectedLog} setLogLine={setSelectedLog} />
 
-      <div className="relative flex h-11 w-full items-center justify-between">
+      <div id="logs-service-tabs" className="relative flex h-11 w-full items-center justify-between">
         <ScrollArea className="w-full whitespace-nowrap">
           <div ref={tabsRef} className="flex flex-row">
             <ToggleGroup
@@ -501,7 +501,7 @@ function Logs() {
             <ScrollBar orientation="horizontal" className="h-0" />
           </div>
         </ScrollArea>
-        <div className="flex items-center gap-2">
+        <div id="logs-toolbar" className="flex items-center gap-2">
           <Button
             className="flex items-center justify-between gap-2"
             aria-label={t("logs.copy.label")}

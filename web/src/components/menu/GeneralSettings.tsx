@@ -586,6 +586,7 @@ export default function GeneralSettings({ className }: GeneralSettingsProps) {
                   className={isDesktop ? "mt-3" : "mt-1"}
                 />
                 <MenuItem
+                  id="settings-restart-btn"
                   className={
                     isDesktop
                       ? "cursor-pointer"

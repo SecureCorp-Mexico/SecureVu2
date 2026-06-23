@@ -71,6 +71,7 @@ function System() {
           <Logo className="absolute inset-x-1/2 h-8 -translate-x-1/2" />
         )}
         <ToggleGroup
+          id="system-metrics-tabs"
           className="*:rounded-md *:px-3 *:py-4"
           type="single"
           size="sm"

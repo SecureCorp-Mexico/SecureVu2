@@ -536,7 +536,7 @@ export default function SearchView({
         )}
       >
         {config?.semantic_search?.enabled && (
-          <div className={cn("z-[41] w-full lg:absolute lg:top-0 lg:w-1/3")}>
+          <div id="explore-search-bar" className={cn("z-[41] w-full lg:absolute lg:top-0 lg:w-1/3")}>
             <InputWithTags
               inputFocused={inputFocused}
               setInputFocused={setInputFocused}
@@ -551,7 +551,7 @@ export default function SearchView({
 
         {hasExistingSearch && (
           <ScrollArea className="w-full whitespace-nowrap lg:ml-[35%]">
-            <div className="flex flex-row gap-2">
+            <div id="explore-filter-group" className="flex flex-row gap-2">
               {selectedObjects.length == 0 ? (
                 <>
                   <SearchFilterGroup
@@ -593,6 +593,7 @@ export default function SearchView({
       </div>
 
       <div
+        id="explore-results-grid"
         ref={contentRef}
         className="no-scrollbar flex flex-1 flex-wrap content-start gap-2 overflow-y-auto"
       >

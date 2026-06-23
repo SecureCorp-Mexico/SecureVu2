@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useContext } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
@@ -53,11 +53,12 @@ export default function TourGuide() {
       : undefined;
 
     const adminNavDesc =
-      "La barra lateral te da acceso a todas las secciones: " +
+      "La barra lateral te da acceso a todas las secciones del administrador: " +
       "Directo (cámaras en vivo), Revisar (grabaciones clasificadas), " +
       "Explorar (búsqueda histórica de eventos), Exportar (descarga de clips), " +
-      "Clasificación (entrenamiento de modelos de detección) y la Zona de Pruebas de UI. " +
-      "Los íconos inferiores abren Ajustes y la gestión de usuarios.";
+      "Clasificación (modelos de detección), Biblioteca de Rostros (reconocimiento facial) " +
+      "y Ajustes completos de la plataforma. " +
+      "Los íconos inferiores abren la configuración global y la gestión de cuentas.";
 
     const viewerNavDesc =
       "La barra lateral te da acceso a las secciones disponibles para tu rol: " +
@@ -225,25 +226,115 @@ export default function TourGuide() {
       route: "/export",
     };
 
+    // ── Explore sub-steps ────────────────────────────────────────────────────
+    const exploreEventsGridStep: TourStep = {
+      target: "#explore-events-grid",
+      title: "Explorar — Objetos Recientes",
+      content:
+        "La vista resumen agrupa los objetos detectados más recientemente por etiqueta (personas, vehículos, etc.). " +
+        "Cada fila muestra miniaturas y la cantidad de eventos del objeto. " +
+        "Haz clic en la flecha de cualquier fila para buscar todos los eventos de esa categoría.",
+      route: "/explore",
+    };
+
+    const exploreSearchBarStep: TourStep = {
+      target: "#explore-search-bar",
+      title: "Explorar — Búsqueda Semántica",
+      content:
+        "Si el sistema tiene habilitada la búsqueda semántica, escribe aquí una descripción en lenguaje natural " +
+        "para encontrar eventos: por ejemplo 'persona con chaqueta roja' o 'vehículo rojo en zona norte'. " +
+        "El motor de IA buscará los clips más relevantes en todo el historial.",
+      route: "/explore",
+    };
+
+    const exploreResultsStep: TourStep = {
+      target: "#explore-results-grid",
+      title: "Explorar — Resultados",
+      content:
+        "Aquí se muestran las miniaturas de todos los eventos que coinciden con tu búsqueda o filtros. " +
+        "Haz clic en cualquier miniatura para abrir el detalle completo con reproductor, " +
+        "información de la cámara, etiqueta, zona detectada y opciones de exportación.",
+      route: "/explore",
+    };
+
+    // ── Faces (Biblioteca de Rostros) sub-steps ─────────────────────────────
+    const facesStep: TourStep = {
+      target: "#pageRoot",
+      title: "Biblioteca de Rostros",
+      content:
+        "La Biblioteca de Rostros te permite entrenar al sistema para reconocer personas específicas. " +
+        "Una vez entrenado, el sistema puede identificar y etiquetar automáticamente a esas personas " +
+        "en las grabaciones y alertas, mejorando la calidad de las notificaciones.",
+      route: "/faces",
+    };
+
+    const facesLibrarySelectorStep: TourStep = {
+      target: "#faces-library-selector",
+      title: "Biblioteca de Rostros — Selector de Personas",
+      content:
+        "En la parte superior izquierda verás el selector de personas. " +
+        "Aquí se listan todos los nombres registrados en el sistema. " +
+        "Selecciona un nombre para ver sus imágenes de referencia, " +
+        "o selecciona 'Entrenamiento' para ver las imágenes pendientes de clasificar.",
+      route: "/faces",
+    };
+
+    const facesToolbarStep: TourStep = {
+      target: "#faces-toolbar",
+      title: "Biblioteca de Rostros — Acciones",
+      content:
+        "Los botones de acción te permiten gestionar la biblioteca: " +
+        "• Agregar Rostro — registra una nueva persona con sus imágenes de referencia. " +
+        "• Subir Imagen — añade fotos adicionales para mejorar el reconocimiento de una persona existente. " +
+        "Cuantas más imágenes de referencia tenga cada persona, mayor será la precisión del sistema.",
+      route: "/faces",
+    };
+
+    const facesContentStep: TourStep = {
+      target: "#faces-content",
+      title: "Biblioteca de Rostros — Galería de Imágenes",
+      content:
+        "En esta área se muestran las imágenes de la persona seleccionada o " +
+        "las capturas pendientes de clasificación en el modo Entrenamiento. " +
+        "Puedes seleccionar múltiples imágenes con Ctrl+clic para eliminarlas en bloque, " +
+        "o hacer clic individual para ver opciones de gestión de cada una.",
+      route: "/faces",
+    };
+
+    // ── Classification (Clasificación) sub-steps ─────────────────────────────
     const classificationStep: TourStep = {
       target: "#pageRoot",
-      title: "Clasificación de Objetos",
+      title: "Clasificación de Modelos",
       content:
-        "En Clasificación puedes revisar y corregir las etiquetas de detección del sistema. " +
-        "Al confirmar o rechazar predicciones contribuyes al entrenamiento del modelo, " +
-        "mejorando progresivamente la precisión de las alertas.",
+        "En Clasificación puedes crear y gestionar modelos de detección personalizados. " +
+        "Estos modelos extienden las capacidades del sistema para reconocer objetos o estados " +
+        "específicos de tu entorno: uniformes, vehículos de empresa, situaciones de riesgo, etc.",
       route: "/classification",
     };
 
-    const playgroundStep: TourStep = {
-      target: "#pageRoot",
-      title: "Zona de Pruebas de UI",
+    const classificationTypeTabsStep: TourStep = {
+      target: "#classification-type-tabs",
+      title: "Clasificación — Tipo de Modelo",
       content:
-        "Esta sección (solo para administradores) te permite experimentar con componentes de la " +
-        "interfaz, verificar que los controles visuales funcionan correctamente y depurar estilos " +
-        "antes de aplicar cambios en producción.",
-      route: "/playground",
+        "Selecciona el tipo de modelo que deseas gestionar: " +
+        "• Objetos — para detectar tipos específicos de elementos (casco, chaleco, herramienta). " +
+        "• Estados — para detectar situaciones o condiciones (zona llena, área despejada, postura incorrecta). " +
+        "Cada tipo tiene su propio conjunto de modelos entrenados.",
+      route: "/classification",
     };
+
+    const classificationModelsGridStep: TourStep = {
+      target: "#classification-models-grid",
+      title: "Clasificación — Tus Modelos",
+      content:
+        "Aquí aparecen las tarjetas de todos tus modelos personalizados. " +
+        "Cada tarjeta muestra el nombre del modelo y una vista previa de sus categorías. " +
+        "Haz clic en una tarjeta para abrir el modo de entrenamiento, " +
+        "donde podrás agregar imágenes de ejemplo y mejorar su precisión.",
+      route: "/classification",
+    };
+
+    // (removed playgroundStep — section does not exist in production)
 
     // ── Back on / — status bar and sidebar buttons ─────────────────────────
     const statusbarStep: TourStep = {
@@ -267,14 +358,60 @@ export default function TourGuide() {
       route: "/",
     };
 
-    // ── Settings page ───────────────────────────────────────────────────────
-    const adminSettings: TourStep = {
+    // ── System Metrics sub-steps ─────────────────────────────────────────────
+    const systemMetricsStep: TourStep = {
       target: "#pageRoot",
-      title: "Ajustes de Administración",
+      title: "Métricas del Sistema",
       content:
-        "En Ajustes tienes el control total: añade o elimina cámaras, delimita zonas de detección, " +
-        "configura máscaras de movimiento, activa/desactiva grabación continua y administra " +
-        "los usuarios del sistema con sus roles de acceso.",
+        "La sección de Métricas del Sistema muestra el estado de salud de toda la plataforma en tiempo real. " +
+        "Monitorea el uso de CPU, memoria, almacenamiento disponible, estado de las cámaras y " +
+        "rendimiento de los modelos de IA. Ideal para diagnóstico rápido de problemas.",
+      route: "/system",
+    };
+
+    const systemMetricsTabsStep: TourStep = {
+      target: "#system-metrics-tabs",
+      title: "Métricas del Sistema — Pestañas",
+      content:
+        "Navega entre las diferentes vistas de métricas usando estas pestañas: " +
+        "• General — resumen de CPU, memoria y uptime del servicio. " +
+        "• Almacenamiento — espacio usado por grabaciones y configuración por cámara. " +
+        "• Cámaras — estado individual de cada cámara: FPS activos, estado de detección y calidad de stream. " +
+        "• Enrichments — métricas de los modelos de IA activos (si están habilitados).",
+      route: "/system",
+    };
+
+    // ── Logs sub-steps ───────────────────────────────────────────────────────
+    const logsStep: TourStep = {
+      target: "#pageRoot",
+      title: "Registros del Sistema",
+      content:
+        "Los Registros del Sistema muestran el historial de eventos internos de la plataforma: " +
+        "arranques, errores, detecciones, conexiones de cámaras y mensajes del servicio. " +
+        "Son esenciales para diagnosticar problemas y auditar el comportamiento del sistema.",
+      route: "/logs",
+    };
+
+    const logsServiceTabsStep: TourStep = {
+      target: "#logs-service-tabs",
+      title: "Registros — Servicio y Filtros",
+      content:
+        "En la barra superior puedes seleccionar el servicio cuyos logs quieres ver " +
+        "(SecureVu, Go2RTC, etc.) y aplicar filtros de severidad para mostrar solo " +
+        "Errores, Advertencias o mensajes Informativos. " +
+        "Los botones de la derecha te permiten copiar o descargar el log completo.",
+      route: "/logs",
+    };
+
+    // ── Admin Settings sub-steps ─────────────────────────────────────────────
+    const adminSettingsStep: TourStep = {
+      target: "#settingsPage",
+      title: "Ajustes — Panel de Administración",
+      content:
+        "El panel de Ajustes es el centro de control de la plataforma. " +
+        "Desde aquí puedes gestionar cámaras, zonas de detección, usuarios, notificaciones " +
+        "y la configuración completa del sistema. " +
+        "La barra lateral izquierda lista todas las secciones disponibles.",
       route: "/settings",
     };
 
@@ -288,13 +425,37 @@ export default function TourGuide() {
       route: "/settings",
     };
 
+    // ── Config Editor and Restart ─────────────────────────────────────────────
+    const configEditorStep: TourStep = {
+      target: "#pageRoot",
+      title: "Editor de Configuración",
+      content:
+        "El Editor de Configuración permite modificar directamente el archivo YAML de SecureVu. " +
+        "Es una herramienta avanzada para ajustes finos que no están disponibles en la interfaz gráfica: " +
+        "parámetros de detección, umbrales de confianza, configuración de integraciones y más. " +
+        "¡Úsalo con precaución, ya que cambios incorrectos pueden afectar el sistema!",
+      route: "/config",
+    };
+
+    const restartStep: TourStep = {
+      target: "#settings-restart-btn",
+      title: "Reiniciar SecureVu",
+      content:
+        "El botón 'Reiniciar SecureVu' reinicia el servicio principal de la plataforma. " +
+        "Esto es necesario cuando realizas cambios en la configuración que requieren que el sistema " +
+        "se reinicie para aplicarse, como cambios en cámaras o modelos de IA. " +
+        "Durante el reinicio (unos segundos) la interfaz estará temporalmente no disponible.",
+      route: "/",
+    };
+
     const done: TourStep = {
       target: null,
       title: "¡Recorrido Finalizado!",
       content:
         "Has completado el tour por SecureVu. Ahora conoces todas las secciones y estás listo para " +
-        "comenzar a explorar y configurar el sistema a tu propio ritmo. ¡Disfruta la experiencia!",
-      route: "/settings",
+        "comenzar a explorar y configurar el sistema a tu propio ritmo. " +
+        "Puedes volver a ver esta guía en cualquier momento desde el menú de Cuenta → Guía interactiva.",
+      route: "/",
     };
 
     // ── Assemble in order ────────────────────────────────────────────────────
@@ -313,13 +474,37 @@ export default function TourGuide() {
         reviewFilterReviewedStep,
         reviewFilterDateStep,
         reviewFilterGeneralStep,
+        // Explore
         exploreStep,
+        exploreEventsGridStep,
+        exploreSearchBarStep,
+        exploreResultsStep,
+        // Export
         exportStep,
+        // Faces
+        facesStep,
+        facesLibrarySelectorStep,
+        facesToolbarStep,
+        facesContentStep,
+        // Classification
         classificationStep,
-        playgroundStep,
+        classificationTypeTabsStep,
+        classificationModelsGridStep,
+        // System
         statusbarStep,
         sidebarSettingsStep,
-        adminSettings,
+        // System Metrics
+        systemMetricsStep,
+        systemMetricsTabsStep,
+        // Logs
+        logsStep,
+        logsServiceTabsStep,
+        // Settings
+        adminSettingsStep,
+        // Config
+        configEditorStep,
+        // Restart
+        restartStep,
         done,
       ];
     }
@@ -337,7 +522,11 @@ export default function TourGuide() {
       reviewFilterReviewedStep,
       reviewFilterDateStep,
       reviewFilterGeneralStep,
+      // Explore
       exploreStep,
+      exploreEventsGridStep,
+      exploreResultsStep,
+      // Export
       exportStep,
       statusbarStep,
       sidebarSettingsStep,
@@ -345,6 +534,18 @@ export default function TourGuide() {
       done,
     ];
   }, [auth?.user?.role, config]);
+
+  // Listen for the restart-tour custom event dispatched by AccountSettings
+  const handleRestartTour = useCallback(() => {
+    setTourCompleted(false);
+    setCurrentStep(0);
+    navigate("/");
+  }, [setTourCompleted, navigate]);
+
+  useEffect(() => {
+    window.addEventListener("securevu:restart-tour", handleRestartTour);
+    return () => window.removeEventListener("securevu:restart-tour", handleRestartTour);
+  }, [handleRestartTour]);
 
   // Handle step transitions and routes (including URL hash for camera view)
   useEffect(() => {

@@ -22,7 +22,7 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@/components/ui/drawer";
-import { LuLogOut, LuSquarePen } from "react-icons/lu";
+import { LuLogOut, LuMapPin, LuSquarePen } from "react-icons/lu";
 import useSWR from "swr";
 
 import { useState } from "react";
@@ -125,6 +125,20 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
           </DropdownMenuLabel>
 
           <DropdownMenuSeparator className={isDesktop ? "my-2" : "my-2"} />
+
+          <MenuItem
+            className={cn(
+              "flex w-full items-center gap-2",
+              isDesktop ? "cursor-pointer" : "p-2 text-sm",
+            )}
+            aria-label="Guía interactiva"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("securevu:restart-tour"));
+            }}
+          >
+            <LuMapPin className="mr-2 size-4" />
+            <span>Guía interactiva</span>
+          </MenuItem>
 
           {config?.auth?.enabled !== false &&
             profile?.username &&

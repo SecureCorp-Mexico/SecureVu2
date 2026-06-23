@@ -362,15 +362,17 @@ export default function FaceLibrary() {
       />
 
       <div className="relative mb-2 flex h-11 w-full items-center justify-between">
-        <LibrarySelector
-          pageToggle={pageToggle}
-          faceData={faceData}
-          faces={faces}
-          trainImages={trainImages}
-          setPageToggle={setPageToggle}
-          onDelete={onDelete}
-          onRename={onRename}
-        />
+        <div id="faces-library-selector">
+          <LibrarySelector
+            pageToggle={pageToggle}
+            faceData={faceData}
+            faces={faces}
+            trainImages={trainImages}
+            setPageToggle={setPageToggle}
+            onDelete={onDelete}
+            onRename={onRename}
+          />
+        </div>
         {selectedFaces?.length > 0 ? (
           <div className="flex items-center justify-center gap-2">
             <div className="mx-1 flex w-auto items-center justify-center text-sm text-muted-foreground">
@@ -417,7 +419,7 @@ export default function FaceLibrary() {
             </Button>
           </div>
         ) : (
-          <div className="flex items-center justify-center gap-2">
+          <div id="faces-toolbar" className="flex items-center justify-center gap-2">
             <Button className="flex gap-2" onClick={() => setAddFace(true)}>
               <LuScanFace className="size-7 rounded-md p-1 text-secondary-foreground" />
               {isDesktop && t("button.addFace")}
@@ -439,24 +441,28 @@ export default function FaceLibrary() {
       ) : (
         pageToggle &&
         (pageToggle == "train" ? (
-          <TrainingGrid
-            config={config}
-            contentRef={contentRef}
-            attemptImages={trainImages}
-            faceNames={faces}
-            selectedFaces={selectedFaces}
-            onClickFaces={onClickFaces}
-            onRefresh={refreshFaces}
-          />
+          <div id="faces-content">
+            <TrainingGrid
+              config={config}
+              contentRef={contentRef}
+              attemptImages={trainImages}
+              faceNames={faces}
+              selectedFaces={selectedFaces}
+              onClickFaces={onClickFaces}
+              onRefresh={refreshFaces}
+            />
+          </div>
         ) : (
-          <FaceGrid
-            contentRef={contentRef}
-            faceImages={faceImages}
-            pageToggle={pageToggle}
-            selectedFaces={selectedFaces}
-            onClickFaces={onClickFaces}
-            onDelete={onDelete}
-          />
+          <div id="faces-content">
+            <FaceGrid
+              contentRef={contentRef}
+              faceImages={faceImages}
+              pageToggle={pageToggle}
+              selectedFaces={selectedFaces}
+              onClickFaces={onClickFaces}
+              onDelete={onDelete}
+            />
+          </div>
         ))
       )}
     </div>

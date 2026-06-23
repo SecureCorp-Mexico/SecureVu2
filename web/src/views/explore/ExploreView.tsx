@@ -97,7 +97,7 @@ export default function ExploreView({
   }
 
   return (
-    <div className="mx-2 space-y-4">
+    <div id="explore-events-grid" className="mx-2 space-y-4">
       {Object.entries(eventsByLabel).map(([label, filteredEvents]) => (
         <ThumbnailRow
           key={label}
