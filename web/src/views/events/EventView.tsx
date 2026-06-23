@@ -316,6 +316,7 @@ export default function EventView({
           } // don't allow the severity to be unselected
         >
           <ToggleGroupItem
+            id="review-tab-alert"
             className={cn(severityToggle != "alert" && "text-muted-foreground")}
             value="alert"
             aria-label={t("alerts")}
@@ -345,6 +346,7 @@ export default function EventView({
             </div>
           </ToggleGroupItem>
           <ToggleGroupItem
+            id="review-tab-detection"
             className={cn(
               severityToggle != "detection" && "text-muted-foreground",
             )}
@@ -376,6 +378,7 @@ export default function EventView({
             </div>
           </ToggleGroupItem>
           <ToggleGroupItem
+            id="review-tab-motion"
             className={cn(
               "rounded-lg px-3 py-4",
               severityToggle != "significant_motion" && "text-muted-foreground",

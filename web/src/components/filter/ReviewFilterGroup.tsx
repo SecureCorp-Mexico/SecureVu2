@@ -195,33 +195,39 @@ export default function ReviewFilterGroup({
   return (
     <div className="flex justify-center gap-2">
       {filters.includes("cameras") && (
-        <CamerasFilterButton
-          allCameras={filterValues.cameras}
-          groups={groups}
-          selectedCameras={filter?.cameras}
-          mainCamera={mainCamera}
-          updateCameraFilter={(newCameras) => {
-            onUpdateFilter({ ...filter, cameras: newCameras });
-          }}
-        />
+        <div id="review-filter-cameras">
+          <CamerasFilterButton
+            allCameras={filterValues.cameras}
+            groups={groups}
+            selectedCameras={filter?.cameras}
+            mainCamera={mainCamera}
+            updateCameraFilter={(newCameras) => {
+              onUpdateFilter({ ...filter, cameras: newCameras });
+            }}
+          />
+        </div>
       )}
       {filters.includes("reviewed") && (
-        <ShowReviewFilter
-          showReviewed={showReviewed}
-          setShowReviewed={setShowReviewed}
-        />
+        <div id="review-filter-reviewed">
+          <ShowReviewFilter
+            showReviewed={showReviewed}
+            setShowReviewed={setShowReviewed}
+          />
+        </div>
       )}
       {isDesktop && filters.includes("date") && (
-        <CalendarFilterButton
-          reviewSummary={reviewSummary}
-          recordingsSummary={recordingsSummary}
-          day={
-            filter?.after == undefined
-              ? undefined
-              : new Date(filter.after * 1000)
-          }
-          updateSelectedDay={onUpdateSelectedDay}
-        />
+        <div id="review-filter-date">
+          <CalendarFilterButton
+            reviewSummary={reviewSummary}
+            recordingsSummary={recordingsSummary}
+            day={
+              filter?.after == undefined
+                ? undefined
+                : new Date(filter.after * 1000)
+            }
+            updateSelectedDay={onUpdateSelectedDay}
+          />
+        </div>
       )}
       {filters.includes("motionOnly") && (
         <ShowMotionOnlyButton
@@ -230,17 +236,19 @@ export default function ReviewFilterGroup({
         />
       )}
       {isDesktop && filters.includes("general") && (
-        <GeneralFilterButton
-          allLabels={filterValues.labels}
-          selectedLabels={filter?.labels}
-          currentSeverity={currentSeverity}
-          showAll={filter?.showAll == true}
-          allZones={filterValues.zones}
-          selectedZones={filter?.zones}
-          onUpdateFilter={(general) => {
-            onUpdateFilter({ ...filter, ...general });
-          }}
-        />
+        <div id="review-filter-general">
+          <GeneralFilterButton
+            allLabels={filterValues.labels}
+            selectedLabels={filter?.labels}
+            currentSeverity={currentSeverity}
+            showAll={filter?.showAll == true}
+            allZones={filterValues.zones}
+            selectedZones={filter?.zones}
+            onUpdateFilter={(general) => {
+              onUpdateFilter({ ...filter, ...general });
+            }}
+          />
+        </div>
       )}
       {isMobile && mobileSettingsFeatures.length > 0 && (
         <MobileReviewSettingsDrawer

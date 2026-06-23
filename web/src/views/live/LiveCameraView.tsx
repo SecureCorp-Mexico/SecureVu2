@@ -505,6 +505,7 @@ export default function LiveCameraView({
             <div />
           )}
           <div
+            id="camera-feature-controls"
             className={`flex flex-row items-center gap-2 *:rounded-lg ${isMobile ? "landscape:flex-col" : ""}`}
           >
             {fullscreen && (

@@ -3,18 +3,22 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { AuthContext } from "@/context/auth-context";
+import useSWR from "swr";
+import { SecureVuConfig } from "@/types/securevuConfig";
 
 interface TourStep {
   target: string | null; // CSS selector or null for centered modal
   title: string;
   content: string;
   route: string;
+  hash?: string; // URL hash for camera navigation (without the '#' prefix)
 }
 
 export default function TourGuide() {
   const navigate = useNavigate();
   const location = useLocation();
   const { auth } = useContext(AuthContext);
+  const { data: config } = useSWR<SecureVuConfig>("config");
 
   const [tourCompleted, setTourCompleted, tourPersistenceLoaded] =
     useUserPersistence<boolean>("tour-completed", false);
@@ -40,6 +44,13 @@ export default function TourGuide() {
   // Build tour steps dynamically depending on user's role.
   const tourSteps = useMemo<TourStep[]>(() => {
     const isAdmin = auth?.user?.role === "admin";
+
+    // Resolve the first camera name so the tour can navigate directly to it.
+    const firstCamera = config
+      ? Object.values(config.cameras)
+          .filter((c) => c.enabled_in_config && c.ui.dashboard)
+          .sort((a, b) => a.ui.order - b.ui.order)[0]?.name
+      : undefined;
 
     const adminNavDesc =
       "La barra lateral te da acceso a todas las secciones: " +
@@ -82,6 +93,32 @@ export default function TourGuide() {
       route: "/",
     };
 
+    // ── Camera view sub-steps (navigate to the first camera) ──────────────────
+    const cameraNavStep: TourStep = {
+      target: "#camera-nav-buttons",
+      title: "Vista Individual de Cámara — Navegación",
+      content:
+        "Al hacer clic en cualquier cámara de la cuadrícula entras a su vista individual. " +
+        "Aquí encontrarás dos botones a la izquierda: " +
+        "• Atrás — regresa a la cuadrícula principal de cámaras en vivo. " +
+        "• Historial — abre las grabaciones recientes de esta cámara directamente en la sección Revisar.",
+      route: "/",
+      hash: firstCamera,
+    };
+
+    const cameraControlsStep: TourStep = {
+      target: "#camera-feature-controls",
+      title: "Vista Individual de Cámara — Controles",
+      content:
+        "En la parte superior derecha están los controles de la cámara: " +
+        "• Pantalla completa — expande la transmisión a todo el monitor. " +
+        "• Imagen en imagen — reproduce en una ventana flotante mientras navegas. " +
+        "• Audio — activa/desactiva el sonido de la cámara. " +
+        "• Configuración — opciones avanzadas de calidad de stream y estadísticas.",
+      route: "/",
+      hash: firstCamera,
+    };
+
     // ── Sections that navigate away from / ──────────────────────────────────
     const reviewStep: TourStep = {
       target: "#pageRoot",
@@ -93,27 +130,78 @@ export default function TourGuide() {
       route: "/review",
     };
 
-    const reviewTabsStep: TourStep = {
-      target: "#review-severity-tabs",
-      title: "Pestañas de Severidad",
+    // ── Severity tabs — one step per tab ─────────────────────────────────────
+    const reviewAlertTabStep: TourStep = {
+      target: "#review-tab-alert",
+      title: "Pestaña: Alertas",
       content:
-        "Estas tres pestañas te permiten cambiar entre los distintos niveles de evento: " +
-        "Alertas (eventos críticos con personas o vehículos detectados), " +
-        "Detecciones (actividad identificada de menor urgencia) y " +
-        "Movimiento (cambios de píxel que no clasificaron como objeto concreto). " +
-        "Haz clic en cada una para filtrar la lista de clips mostrados.",
+        "La pestaña Alertas muestra los eventos de mayor prioridad: " +
+        "detecciones de personas, vehículos u objetos configurados como críticos. " +
+        "Cada clip incluye un contador de cuántos quedan sin revisar. " +
+        "Haz clic aquí para ver únicamente estos eventos.",
       route: "/review",
     };
 
-    const reviewFiltersStep: TourStep = {
-      target: "#review-filter-group",
-      title: "Herramientas de Filtrado",
+    const reviewDetectionTabStep: TourStep = {
+      target: "#review-tab-detection",
+      title: "Pestaña: Detecciones",
       content:
-        "A la derecha de las pestañas encontrarás los controles de filtro: " +
-        "• Todas las cámaras — selecciona una o varias cámaras específicas. " +
-        "• Mostrar revisados — alterna entre solo pendientes o todos los clips. " +
-        "• Últimas 24 horas — abre el calendario para elegir otra fecha. " +
-        "• Filtro — opciones avanzadas por etiqueta de objeto o zona de detección.",
+        "La pestaña Detecciones agrupa actividad identificada de menor urgencia que las alertas: " +
+        "objetos reconocidos por el modelo que no alcanzaron el umbral de alerta. " +
+        "Son útiles para revisar eventos sin perder tiempo en los más críticos.",
+      route: "/review",
+    };
+
+    const reviewMotionTabStep: TourStep = {
+      target: "#review-tab-motion",
+      title: "Pestaña: Movimiento",
+      content:
+        "La pestaña Movimiento registra cambios de píxeles en la imagen que el sistema " +
+        "detectó pero no pudo clasificar como un objeto específico. " +
+        "Es útil para encontrar actividad sutil o calibrar zonas de detección.",
+      route: "/review",
+    };
+
+    // ── Filter buttons — one step per button ─────────────────────────────────
+    const reviewFilterCamerasStep: TourStep = {
+      target: "#review-filter-cameras",
+      title: "Filtro: Todas las Cámaras",
+      content:
+        "Con este botón puedes seleccionar una o varias cámaras específicas. " +
+        "Por defecto se muestran eventos de todas las cámaras a las que tienes acceso. " +
+        "Filtra por cámara para revisar únicamente la actividad de un punto vigilado.",
+      route: "/review",
+    };
+
+    const reviewFilterReviewedStep: TourStep = {
+      target: "#review-filter-reviewed",
+      title: "Filtro: Mostrar Revisados",
+      content:
+        "El interruptor 'Mostrar revisados' alterna entre dos modos: " +
+        "• Desactivado (por defecto) — muestra solo los clips pendientes de revisión. " +
+        "• Activado — incluye también los clips que ya fueron marcados como revisados. " +
+        "Útil para auditar eventos pasados sin perder el registro.",
+      route: "/review",
+    };
+
+    const reviewFilterDateStep: TourStep = {
+      target: "#review-filter-date",
+      title: "Filtro: Fecha",
+      content:
+        "El selector de fecha te permite navegar más allá de las últimas 24 horas. " +
+        "Haz clic para abrir el calendario y selecciona cualquier día con grabaciones. " +
+        "Los días resaltados indican que existen eventos registrados en esa fecha.",
+      route: "/review",
+    };
+
+    const reviewFilterGeneralStep: TourStep = {
+      target: "#review-filter-general",
+      title: "Filtro: Opciones Avanzadas",
+      content:
+        "El botón de filtro avanzado abre opciones adicionales de búsqueda: " +
+        "• Por etiqueta — filtra por tipo de objeto (persona, vehículo, animal, etc.). " +
+        "• Por zona — muestra solo eventos que ocurrieron en una zona de detección específica. " +
+        "• Mostrar todo — incluye eventos de menor confianza en el listado.",
       route: "/review",
     };
 
@@ -125,18 +213,6 @@ export default function TourGuide() {
         "un evento de alerta. Filtra por cámara, fecha y hora, y reproduce cualquier segmento directamente " +
         "desde la línea de tiempo.",
       route: "/explore",
-    };
-
-    const cameraViewStep: TourStep = {
-      target: null,
-      title: "Vista Individual de Cámara",
-      content:
-        "Al hacer clic en cualquier cámara en la cuadrícula de vivo, verás su transmisión en pantalla completa. " +
-        "• Atrás — regresa a la vista principal de cámaras en vivo. " +
-        "• Historial — abre directamente las grabaciones recientes de esa cámara en la sección Revisar, " +
-        "para que puedas consultar los últimos clips sin salir del contexto de la cámara. " +
-        "Además encontrarás controles de cámara como pantalla completa, imagen en imagen, audio y más.",
-      route: "/",
     };
 
     const exportStep: TourStep = {
@@ -222,16 +298,21 @@ export default function TourGuide() {
     };
 
     // ── Assemble in order ────────────────────────────────────────────────────
-    //  Welcome → Nav → Live → [sections] → Statusbar → Sidebar → Settings → Done
     if (isAdmin) {
       return [
         welcome,
         navStep,
         liveStep,
-        cameraViewStep,
+        cameraNavStep,
+        cameraControlsStep,
         reviewStep,
-        reviewTabsStep,
-        reviewFiltersStep,
+        reviewAlertTabStep,
+        reviewDetectionTabStep,
+        reviewMotionTabStep,
+        reviewFilterCamerasStep,
+        reviewFilterReviewedStep,
+        reviewFilterDateStep,
+        reviewFilterGeneralStep,
         exploreStep,
         exportStep,
         classificationStep,
@@ -246,10 +327,16 @@ export default function TourGuide() {
       welcome,
       navStep,
       liveStep,
-      cameraViewStep,
+      cameraNavStep,
+      cameraControlsStep,
       reviewStep,
-      reviewTabsStep,
-      reviewFiltersStep,
+      reviewAlertTabStep,
+      reviewDetectionTabStep,
+      reviewMotionTabStep,
+      reviewFilterCamerasStep,
+      reviewFilterReviewedStep,
+      reviewFilterDateStep,
+      reviewFilterGeneralStep,
       exploreStep,
       exportStep,
       statusbarStep,
@@ -257,25 +344,35 @@ export default function TourGuide() {
       viewerSettings,
       done,
     ];
-  }, [auth?.user?.role]);
+  }, [auth?.user?.role, config]);
 
-  // Handle step transitions and routes
+  // Handle step transitions and routes (including URL hash for camera view)
   useEffect(() => {
     if (!shouldShowTour) return;
     const step = tourSteps[currentStep];
-    if (step && location.pathname !== step.route) {
-      setIsNavigating(true);
-      navigate(step.route);
-    }
-  }, [currentStep, navigate, location.pathname, shouldShowTour, tourSteps]);
+    if (!step) return;
 
-  // Reset isNavigating after the page has mounted (triggered by pathname change)
+    const targetHash = step.hash ? `#${step.hash}` : "";
+    const pathMatches = location.pathname === step.route;
+    const hashMatches = location.hash === targetHash;
+
+    if (!pathMatches || !hashMatches) {
+      setIsNavigating(true);
+      if (step.hash) {
+        navigate({ pathname: step.route, hash: `#${step.hash}` });
+      } else {
+        navigate(step.route);
+      }
+    }
+  }, [currentStep, navigate, location.pathname, location.hash, shouldShowTour, tourSteps]);
+
+  // Reset isNavigating after the page has mounted (triggered by pathname OR hash change)
   useEffect(() => {
     if (isNavigating) {
       const timer = setTimeout(() => setIsNavigating(false), 400);
       return () => clearTimeout(timer);
     }
-  }, [location.pathname, isNavigating]);
+  }, [location.pathname, location.hash, isNavigating]);
 
   // Calculate bounding rect of the target element.
   // During navigation, keep the last known spotlight position so there's no
