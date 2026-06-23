@@ -460,6 +460,7 @@ export default function LiveCameraView({
         >
           {!fullscreen ? (
             <div
+              id="camera-nav-buttons"
               className={`flex items-center gap-2 ${isMobile ? "landscape:flex-col" : ""}`}
             >
               <Button

@@ -301,11 +301,12 @@ export default function EventView({
   return (
     <div className="flex size-full flex-col pt-2 md:py-2">
       <Toaster closeButton={true} />
-      <div className="relative mb-2 flex h-11 items-center justify-between pl-2 pr-2 md:pl-3">
+      <div id="review-toolbar" className="relative mb-2 flex h-11 items-center justify-between pl-2 pr-2 md:pl-3">
         {isMobile && (
           <Logo className="absolute inset-x-1/2 h-8 -translate-x-1/2" />
         )}
         <ToggleGroup
+          id="review-severity-tabs"
           className="*:rounded-md *:px-3 *:py-4"
           type="single"
           size="sm"
@@ -390,32 +391,34 @@ export default function EventView({
           </ToggleGroupItem>
         </ToggleGroup>
 
-        {selectedReviews.length <= 0 ? (
-          <ReviewFilterGroup
-            filters={
-              severity == "significant_motion"
-                ? ["cameras", "date", "motionOnly"]
-                : ["cameras", "reviewed", "date", "general"]
-            }
-            currentSeverity={severityToggle}
-            reviewSummary={reviewSummary}
-            recordingsSummary={recordingsSummary}
-            filter={filter}
-            motionOnly={motionOnly}
-            filterList={reviewFilterList}
-            showReviewed={showReviewed}
-            setShowReviewed={setShowReviewed}
-            onUpdateFilter={updateFilter}
-            setMotionOnly={setMotionOnly}
-          />
-        ) : (
-          <ReviewActionGroup
-            selectedReviews={selectedReviews}
-            setSelectedReviews={setSelectedReviews}
-            onExport={exportReview}
-            pullLatestData={pullLatestData}
-          />
-        )}
+        <div id="review-filter-group">
+          {selectedReviews.length <= 0 ? (
+            <ReviewFilterGroup
+              filters={
+                severity == "significant_motion"
+                  ? ["cameras", "date", "motionOnly"]
+                  : ["cameras", "reviewed", "date", "general"]
+              }
+              currentSeverity={severityToggle}
+              reviewSummary={reviewSummary}
+              recordingsSummary={recordingsSummary}
+              filter={filter}
+              motionOnly={motionOnly}
+              filterList={reviewFilterList}
+              showReviewed={showReviewed}
+              setShowReviewed={setShowReviewed}
+              onUpdateFilter={updateFilter}
+              setMotionOnly={setMotionOnly}
+            />
+          ) : (
+            <ReviewActionGroup
+              selectedReviews={selectedReviews}
+              setSelectedReviews={setSelectedReviews}
+              onExport={exportReview}
+              pullLatestData={pullLatestData}
+            />
+          )}
+        </div>
       </div>
 
       <div className="flex h-full overflow-hidden">

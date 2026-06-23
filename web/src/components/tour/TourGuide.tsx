@@ -93,6 +93,30 @@ export default function TourGuide() {
       route: "/review",
     };
 
+    const reviewTabsStep: TourStep = {
+      target: "#review-severity-tabs",
+      title: "Pestañas de Severidad",
+      content:
+        "Estas tres pestañas te permiten cambiar entre los distintos niveles de evento: " +
+        "Alertas (eventos críticos con personas o vehículos detectados), " +
+        "Detecciones (actividad identificada de menor urgencia) y " +
+        "Movimiento (cambios de píxel que no clasificaron como objeto concreto). " +
+        "Haz clic en cada una para filtrar la lista de clips mostrados.",
+      route: "/review",
+    };
+
+    const reviewFiltersStep: TourStep = {
+      target: "#review-filter-group",
+      title: "Herramientas de Filtrado",
+      content:
+        "A la derecha de las pestañas encontrarás los controles de filtro: " +
+        "• Todas las cámaras — selecciona una o varias cámaras específicas. " +
+        "• Mostrar revisados — alterna entre solo pendientes o todos los clips. " +
+        "• Últimas 24 horas — abre el calendario para elegir otra fecha. " +
+        "• Filtro — opciones avanzadas por etiqueta de objeto o zona de detección.",
+      route: "/review",
+    };
+
     const exploreStep: TourStep = {
       target: "#pageRoot",
       title: "Explorar Grabaciones",
@@ -101,6 +125,18 @@ export default function TourGuide() {
         "un evento de alerta. Filtra por cámara, fecha y hora, y reproduce cualquier segmento directamente " +
         "desde la línea de tiempo.",
       route: "/explore",
+    };
+
+    const cameraViewStep: TourStep = {
+      target: null,
+      title: "Vista Individual de Cámara",
+      content:
+        "Al hacer clic en cualquier cámara en la cuadrícula de vivo, verás su transmisión en pantalla completa. " +
+        "• Atrás — regresa a la vista principal de cámaras en vivo. " +
+        "• Historial — abre directamente las grabaciones recientes de esa cámara en la sección Revisar, " +
+        "para que puedas consultar los últimos clips sin salir del contexto de la cámara. " +
+        "Además encontrarás controles de cámara como pantalla completa, imagen en imagen, audio y más.",
+      route: "/",
     };
 
     const exportStep: TourStep = {
@@ -192,7 +228,10 @@ export default function TourGuide() {
         welcome,
         navStep,
         liveStep,
+        cameraViewStep,
         reviewStep,
+        reviewTabsStep,
+        reviewFiltersStep,
         exploreStep,
         exportStep,
         classificationStep,
@@ -207,7 +246,10 @@ export default function TourGuide() {
       welcome,
       navStep,
       liveStep,
+      cameraViewStep,
       reviewStep,
+      reviewTabsStep,
+      reviewFiltersStep,
       exploreStep,
       exportStep,
       statusbarStep,
