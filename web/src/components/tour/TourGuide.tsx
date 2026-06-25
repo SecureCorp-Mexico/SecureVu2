@@ -13,6 +13,7 @@ interface TourStep {
   content: string;
   route: string;
   hash?: string; // URL hash for camera navigation (without the '#' prefix)
+  imageSrc?: string; // URL path to overlay image
 }
 
 export default function TourGuide() {
@@ -174,6 +175,7 @@ export default function TourGuide() {
         "Por defecto se muestran eventos de todas las cámaras a las que tienes acceso. " +
         "Filtra por cámara para revisar únicamente la actividad de un punto vigilado.",
       route: "/review",
+      imageSrc: "/images/tour/rev-cameras.png",
     };
 
     const reviewFilterReviewedStep: TourStep = {
@@ -195,6 +197,7 @@ export default function TourGuide() {
         "Haz clic para abrir el calendario y selecciona cualquier día con grabaciones. " +
         "Los días resaltados indican que existen eventos registrados en esa fecha.",
       route: "/review",
+      imageSrc: "/images/tour/rev-date.png",
     };
 
     const reviewFilterGeneralStep: TourStep = {
@@ -206,6 +209,7 @@ export default function TourGuide() {
         "• Por zona — muestra solo eventos que ocurrieron en una zona de detección específica. " +
         "• Mostrar todo — incluye eventos de menor confianza en el listado.",
       route: "/review",
+      imageSrc: "/images/tour/rev-general.png",
     };
 
     const exploreStep: TourStep = {
@@ -236,6 +240,7 @@ export default function TourGuide() {
         "Filtra la búsqueda histórica seleccionando una o varias cámaras. " +
         "Por defecto se muestran resultados de todas las cámaras activas a las que tienes acceso.",
       route: "/explore",
+      imageSrc: "/images/tour/expl-cameras.png",
     };
 
     const exploreFilterLabelsStep: TourStep = {
@@ -245,6 +250,7 @@ export default function TourGuide() {
         "Filtra los eventos según el tipo de objeto detectado (personas, vehículos, etc.) " +
         "para enfocar tu búsqueda en lo que realmente te interesa.",
       route: "/explore",
+      imageSrc: "/images/tour/expl-labels.png",
     };
 
     const exploreFilterDatesStep: TourStep = {
@@ -254,6 +260,7 @@ export default function TourGuide() {
         "Selecciona un rango de fechas o un día específico para explorar grabaciones pasadas. " +
         "El calendario te mostrará los días que contienen grabaciones registradas.",
       route: "/explore",
+      imageSrc: "/images/tour/expl-dates.png",
     };
 
     const exploreFilterMoreStep: TourStep = {
@@ -263,6 +270,7 @@ export default function TourGuide() {
         "El botón de más filtros abre opciones avanzadas para buscar por rango de horas, " +
         "zonas de detección específicas, velocidad estimada, puntuación de confianza y más.",
       route: "/explore",
+      imageSrc: "/images/tour/expl-more.png",
     };
 
     const exploreFilterSettingsStep: TourStep = {
@@ -272,6 +280,7 @@ export default function TourGuide() {
         "Configura la visualización de la cuadrícula de búsqueda, cambia el tamaño " +
         "de las columnas y ajusta las fuentes de búsqueda preferidas (imágenes o descripciones).",
       route: "/explore",
+      imageSrc: "/images/tour/expl-settings.png",
     };
 
     // ── Faces (Biblioteca de Rostros) sub-steps ─────────────────────────────
@@ -294,6 +303,7 @@ export default function TourGuide() {
         "Selecciona un nombre para ver sus imágenes de referencia, " +
         "o selecciona 'Entrenamiento' para ver las imágenes pendientes de clasificar.",
       route: "/faces",
+      imageSrc: "/images/tour/faces-selector.png",
     };
 
     const facesToolbarStep: TourStep = {
@@ -305,6 +315,7 @@ export default function TourGuide() {
         "• Subir Imagen — añade fotos adicionales para mejorar el reconocimiento de una persona existente. " +
         "Cuantas más imágenes de referencia tenga cada persona, mayor será la precisión del sistema.",
       route: "/faces",
+      imageSrc: "/images/tour/faces-actions.png",
     };
 
     // ── Classification (Clasificación) sub-steps ─────────────────────────────
@@ -337,6 +348,7 @@ export default function TourGuide() {
         "Podrás definir su nombre, tipo (objeto o estado) y empezar a registrar " +
         "categorías y cargar imágenes para entrenarlo.",
       route: "/classification",
+      imageSrc: "/images/tour/clasi-clasificacion.png",
     };
 
     // (removed playgroundStep — section does not exist in production)
@@ -361,6 +373,7 @@ export default function TourGuide() {
         : "En la parte inferior de la barra lateral puedes acceder a tus preferencias de visualización, " +
           "cambiar tu contraseña y cerrar sesión.",
       route: "/",
+      imageSrc: "/images/tour/ajust-menu.png",
     };
 
     // ── System Metrics sub-steps ─────────────────────────────────────────────
@@ -442,17 +455,6 @@ export default function TourGuide() {
       route: "/config",
     };
 
-    const restartStep: TourStep = {
-      target: "#settings-restart-btn",
-      title: "Reiniciar SecureVu",
-      content:
-        "El botón 'Reiniciar SecureVu' reinicia el servicio principal de la plataforma. " +
-        "Esto es necesario cuando realizas cambios en la configuración que requieren que el sistema " +
-        "se reinicie para aplicarse, como cambios en cámaras o modelos de IA. " +
-        "Durante el reinicio (unos segundos) la interfaz estará temporalmente no disponible.",
-      route: "/",
-    };
-
     const done: TourStep = {
       target: null,
       title: "¡Recorrido Finalizado!",
@@ -509,8 +511,6 @@ export default function TourGuide() {
         adminSettingsStep,
         // Config
         configEditorStep,
-        // Restart
-        restartStep,
         done,
       ];
     }
@@ -709,6 +709,15 @@ export default function TourGuide() {
       <p className="text-sm text-secondary-foreground leading-relaxed">
         {step.content}
       </p>
+      {step.imageSrc && (
+        <div className="mt-3 overflow-hidden rounded-lg border border-secondary-highlight bg-black/10 shadow-inner max-h-[140px] flex items-center justify-center">
+          <img
+            src={step.imageSrc}
+            alt={step.title}
+            className="w-full h-full object-contain max-h-[140px] select-none pointer-events-none"
+          />
+        </div>
+      )}
       <div className="flex items-center justify-between mt-2 pt-2 border-t border-secondary-highlight">
         <button
           onClick={handleBack}
@@ -744,10 +753,20 @@ export default function TourGuide() {
       popoverStyle.transform = "translateX(-50%)";
     } else if (spaceRight > 350) {
       popoverStyle.left = rect.right + 16;
-      popoverStyle.top = Math.max(16, Math.min(window.innerHeight - 260, rect.top + rect.height / 2 - 120));
+      const targetCenterY = rect.top + rect.height / 2;
+      if (targetCenterY > window.innerHeight / 2) {
+        popoverStyle.bottom = Math.max(16, window.innerHeight - rect.bottom);
+      } else {
+        popoverStyle.top = Math.max(16, rect.top);
+      }
     } else if (spaceLeft > 350) {
       popoverStyle.right = window.innerWidth - rect.left + 16;
-      popoverStyle.top = Math.max(16, Math.min(window.innerHeight - 260, rect.top + rect.height / 2 - 120));
+      const targetCenterY = rect.top + rect.height / 2;
+      if (targetCenterY > window.innerHeight / 2) {
+        popoverStyle.bottom = Math.max(16, window.innerHeight - rect.bottom);
+      } else {
+        popoverStyle.top = Math.max(16, rect.top);
+      }
     } else if (spaceBottom > 290) {
       popoverStyle.left = Math.max(16, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175));
       popoverStyle.top = rect.bottom + 16;
