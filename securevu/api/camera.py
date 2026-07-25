@@ -24,7 +24,7 @@ from securevu.api.defs.tags import Tags
 from securevu.config.config import SecureVuConfig
 from securevu.util.builtin import clean_camera_user_pass
 from securevu.util.image import run_ffmpeg_snapshot
-from securevu.util.services import ffprobe_stream
+from securevu.util.services import ffprobe_stream, is_restricted_go2rtc_source
 
 logger = logging.getLogger(__name__)
 
@@ -111,6 +111,19 @@ def go2rtc_camera_stream(request: Request, stream_name: str):
 )
 def go2rtc_add_stream(request: Request, stream_name: str, src: str = ""):
     """Add or update a go2rtc stream configuration."""
+    if src and is_restricted_go2rtc_source(src):
+        logger.warning(
+            "Rejected go2rtc stream '%s' with restricted source type (echo/expr/exec)",
+            stream_name,
+        )
+        return JSONResponse(
+            content={
+                "success": False,
+                "message": "Restricted stream source type",
+            },
+            status_code=400,
+        )
+
     try:
         params = {"name": stream_name}
         if src:
