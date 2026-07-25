@@ -511,7 +511,9 @@ def transcribe_audio(request: Request, body: AudioTranscriptionBody):
             content=({"success": False, "message": message}), status_code=404
         )
 
-    if not request.app.securevu_config.cameras[event.camera].audio_transcription.enabled:
+    if not request.app.securevu_config.cameras[
+        event.camera
+    ].audio_transcription.enabled:
         message = f"Audio transcription is not enabled for {event.camera}."
         logger.error(message)
         return JSONResponse(

@@ -25,8 +25,8 @@ from securevu.comms.events_updater import EventEndSubscriber, EventUpdatePublish
 from securevu.comms.inter_process import InterProcessRequestor
 from securevu.config import (
     CameraMqttConfig,
-    SecureVuConfig,
     RecordConfig,
+    SecureVuConfig,
     SnapshotsConfig,
 )
 from securevu.config.camera.updater import (

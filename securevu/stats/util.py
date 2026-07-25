@@ -124,7 +124,9 @@ async def set_cpu_stats(all_stats: dict[str, Any]) -> None:
         all_stats["cpu_usages"] = cpu_stats
 
 
-async def set_bandwidth_stats(config: SecureVuConfig, all_stats: dict[str, Any]) -> None:
+async def set_bandwidth_stats(
+    config: SecureVuConfig, all_stats: dict[str, Any]
+) -> None:
     """Set bandwidth from nethogs."""
     bandwidth_stats = get_bandwidth_stats(config)
 
@@ -257,7 +259,9 @@ async def set_npu_usages(config: SecureVuConfig, all_stats: dict[str, Any]) -> N
 
 
 def stats_snapshot(
-    config: SecureVuConfig, stats_tracking: StatsTrackingTypes, hwaccel_errors: list[str]
+    config: SecureVuConfig,
+    stats_tracking: StatsTrackingTypes,
+    hwaccel_errors: list[str],
 ) -> dict[str, Any]:
     """Get a snapshot of the current stats that are being tracked."""
     camera_metrics = stats_tracking["camera_metrics"]

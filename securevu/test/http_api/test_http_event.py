@@ -459,6 +459,7 @@ class TestHttpApp(BaseTestHttp):
             in event.text
         )
         assert (
-            'securevu_camera_events_total{camera="porch",label="Mock"} 2.0' in event.text
+            'securevu_camera_events_total{camera="porch",label="Mock"} 2.0'
+            in event.text
         )
         assert 'securevu_camera_events_total{camera="porch",label="inside"} 2.0'

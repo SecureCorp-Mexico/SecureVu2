@@ -13,7 +13,9 @@ class AuthConfig(SecureVuBaseModel):
         default=False, title="Reset the admin password on startup"
     )
     cookie_name: str = Field(
-        default="securevu_token", title="Name for jwt token cookie", pattern=r"^[a-z_]+$"
+        default="securevu_token",
+        title="Name for jwt token cookie",
+        pattern=r"^[a-z_]+$",
     )
     cookie_secure: bool = Field(default=False, title="Set secure flag on cookie")
     session_length: int = Field(

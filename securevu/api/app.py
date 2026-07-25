@@ -29,7 +29,9 @@ from securevu.api.auth import (
     get_allowed_cameras_for_filter,
     require_role,
 )
-from securevu.api.defs.query.app_query_parameters import AppTimelineHourlyQueryParameters
+from securevu.api.defs.query.app_query_parameters import (
+    AppTimelineHourlyQueryParameters,
+)
 from securevu.api.defs.request.app_body import AppConfigSetBody
 from securevu.api.defs.tags import Tags
 from securevu.config import SecureVuConfig

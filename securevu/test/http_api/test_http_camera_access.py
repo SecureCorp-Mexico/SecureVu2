@@ -161,7 +161,9 @@ class TestCameraAccessEventReview(BaseTestHttp):
         async def mock_require_disallowed(camera: str, request: Request = None):
             raise HTTPException(status_code=403, detail="Access denied")
 
-        with patch("securevu.api.review.require_camera_access", mock_require_disallowed):
+        with patch(
+            "securevu.api.review.require_camera_access", mock_require_disallowed
+        ):
             with AuthTestClient(self.app) as client:
                 resp = client.get("/review/rev1")
                 assert resp.status_code == 403

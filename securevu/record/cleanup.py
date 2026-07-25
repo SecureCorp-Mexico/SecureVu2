@@ -10,7 +10,7 @@ from pathlib import Path
 
 from playhouse.sqlite_ext import SqliteExtDatabase
 
-from securevu.config import CameraConfig, SecureVuConfig, RetainModeEnum
+from securevu.config import CameraConfig, RetainModeEnum, SecureVuConfig
 from securevu.const import CACHE_DIR, CLIPS_DIR, MAX_WAL_SIZE, RECORD_DIR
 from securevu.models import Previews, Recordings, ReviewSegment, UserReviewStatus
 from securevu.record.util import remove_empty_directories, sync_recordings

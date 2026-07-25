@@ -105,7 +105,9 @@ class TestConfig(unittest.TestCase):
 
         assert securevu_config.model.path == "/etc/hosts"
         assert securevu_config.detectors["cpu"].model.path == "/cpu_model.tflite"
-        assert securevu_config.detectors["edgetpu"].model.path == "/edgetpu_model.tflite"
+        assert (
+            securevu_config.detectors["edgetpu"].model.path == "/edgetpu_model.tflite"
+        )
         assert securevu_config.detectors["openvino"].model.path == "/etc/hosts"
 
     def test_invalid_mqtt_config(self):
@@ -427,7 +429,9 @@ class TestConfig(unittest.TestCase):
         }
 
         securevu_config = SecureVuConfig(**config)
-        assert "-rtsp_transport" in securevu_config.cameras["back"].ffmpeg_cmds[0]["cmd"]
+        assert (
+            "-rtsp_transport" in securevu_config.cameras["back"].ffmpeg_cmds[0]["cmd"]
+        )
 
     def test_ffmpeg_params_global(self):
         config = {
