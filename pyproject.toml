@@ -1,3 +1,6 @@
 [tool.ruff.lint]
-ignore = ["E501","E711","E712"]
-extend-select = ["I"]
+# Pin the ruleset explicitly so newer ruff releases (whose broader default
+# rule set would otherwise apply) do not introduce unrelated lint failures.
+# This matches the historical default (E/F) plus import sorting (I).
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = ["E501", "E711", "E712"]

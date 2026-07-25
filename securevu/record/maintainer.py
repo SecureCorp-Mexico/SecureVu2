@@ -22,7 +22,7 @@ from securevu.comms.recordings_updater import (
     RecordingsDataPublisher,
     RecordingsDataTypeEnum,
 )
-from securevu.config import SecureVuConfig, RetainModeEnum
+from securevu.config import RetainModeEnum, SecureVuConfig
 from securevu.config.camera.updater import (
     CameraConfigUpdateEnum,
     CameraConfigUpdateSubscriber,
@@ -547,6 +547,8 @@ class RecordingMaintainer(threading.Thread):
                     "copy",
                     "-movflags",
                     "+faststart",
+                    "-metadata",
+                    f"creation_time={start_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ')}",
                     file_path,
                     stderr=asyncio.subprocess.PIPE,
                     stdout=asyncio.subprocess.DEVNULL,

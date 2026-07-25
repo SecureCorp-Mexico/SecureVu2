@@ -9,6 +9,7 @@ from securevu.review.types import SeverityEnum
 from ..base import SecureVuBaseModel
 
 __all__ = [
+    "ChaptersEnum",
     "RecordConfig",
     "RecordExportConfig",
     "RecordPreviewConfig",
@@ -66,9 +67,18 @@ class RecordPreviewConfig(SecureVuBaseModel):
     )
 
 
+class ChaptersEnum(str, Enum):
+    none = "none"
+    recording_segments = "recording_segments"
+
+
 class RecordExportConfig(SecureVuBaseModel):
     timelapse_args: str = Field(
         default=DEFAULT_TIME_LAPSE_FFMPEG_ARGS, title="Timelapse Args"
+    )
+    chapters: ChaptersEnum = Field(
+        default=ChaptersEnum.none,
+        title="Chapter metadata to embed in exported recordings",
     )
 
 

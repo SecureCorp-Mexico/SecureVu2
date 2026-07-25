@@ -9,7 +9,7 @@ from typing import Any, Optional
 
 from playhouse.shortcuts import model_to_dict
 
-from securevu.config import CameraConfig, SecureVuConfig, GenAIConfig, GenAIProviderEnum
+from securevu.config import CameraConfig, GenAIConfig, GenAIProviderEnum, SecureVuConfig
 from securevu.const import CLIPS_DIR
 from securevu.data_processing.post.types import ReviewMetadata
 from securevu.models import Event
