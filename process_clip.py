@@ -13,6 +13,11 @@ import numpy as np
 sys.path.append("/workspace/securevu")
 
 from securevu.config import SecureVuConfig  # noqa: E402
+from securevu.io import (  # noqa: E402
+    capture_frames,
+    process_frames,
+    start_or_restart_ffmpeg,
+)
 from securevu.motion import MotionDetector  # noqa: E402
 from securevu.object_detection.base import LocalObjectDetector  # noqa: E402
 from securevu.track.centroid_tracker import CentroidTracker  # noqa: E402
@@ -21,11 +26,6 @@ from securevu.util import (  # noqa: E402
     EventsPerSecond,
     SharedMemoryFrameManager,
     draw_box_with_label,
-)
-from securevu.io import (  # noqa: E402
-    capture_frames,
-    process_frames,
-    start_or_restart_ffmpeg,
 )
 
 logging.basicConfig(level=logging.DEBUG)

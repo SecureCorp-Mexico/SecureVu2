@@ -34,11 +34,11 @@ from securevu.data_processing.real_time.audio_transcription import (
     AudioTranscriptionRealTimeProcessor,
 )
 from securevu.ffmpeg_presets import parse_preset_input
+from securevu.io import start_or_restart_ffmpeg, stop_ffmpeg
 from securevu.log import LogPipe, suppress_stderr_during
 from securevu.object_detection.base import load_labels
 from securevu.util.builtin import get_ffmpeg_arg_list
 from securevu.util.process import SecureVuProcess
-from securevu.io import start_or_restart_ffmpeg, stop_ffmpeg
 
 try:
     from tflite_runtime.interpreter import Interpreter
@@ -88,7 +88,10 @@ class AudioProcessor(SecureVuProcess):
         stop_event: MpEvent,
     ):
         super().__init__(
-            stop_event, PROCESS_PRIORITY_HIGH, name="securevu.audio_manager", daemon=True
+            stop_event,
+            PROCESS_PRIORITY_HIGH,
+            name="securevu.audio_manager",
+            daemon=True,
         )
 
         self.camera_metrics = camera_metrics

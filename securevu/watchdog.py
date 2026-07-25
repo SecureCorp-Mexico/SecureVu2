@@ -35,7 +35,9 @@ class SecureVuWatchdog(threading.Thread):
                     detector.detect_process is not None
                     and not detector.detect_process.is_alive()
                 ):
-                    logger.info("Detection appears to have stopped. Exiting SecureVu...")
+                    logger.info(
+                        "Detection appears to have stopped. Exiting SecureVu..."
+                    )
                     restart_securevu()
 
         logger.info("Exiting watchdog...")

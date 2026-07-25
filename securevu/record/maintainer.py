@@ -22,7 +22,7 @@ from securevu.comms.recordings_updater import (
     RecordingsDataPublisher,
     RecordingsDataTypeEnum,
 )
-from securevu.config import SecureVuConfig, RetainModeEnum
+from securevu.config import RetainModeEnum, SecureVuConfig
 from securevu.config.camera.updater import (
     CameraConfigUpdateEnum,
     CameraConfigUpdateSubscriber,
