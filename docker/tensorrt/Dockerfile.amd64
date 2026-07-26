@@ -15,7 +15,7 @@ COPY docker/main/requirements-wheels.txt /requirements-wheels.txt
 
 # remove dependencies from the requirements that have type constraints
 RUN  sed -i '/\[.*\]/d' /requirements-wheels.txt \
-    && pip3 wheel --wheel-dir=/trt-wheels -c /requirements-wheels.txt -r /requirements-tensorrt.txt
+    && pip3 wheel --retries=5 --timeout=120 --wheel-dir=/trt-wheels -c /requirements-wheels.txt -r /requirements-tensorrt.txt
 
 FROM deps AS securevu-tensorrt
 ARG PIP_BREAK_SYSTEM_PACKAGES

@@ -3,6 +3,10 @@ description: 'Set up QEMU and Buildx'
 inputs:
   GITHUB_TOKEN:
     required: true
+  root-reserve-mb:
+    description: 'MB to keep free on the root filesystem after mounting the build volume. Larger values leave headroom for the QEMU/binfmt cache written under ~/.docker (avoids ENOSPC on smaller runners).'
+    required: false
+    default: '1024'
 outputs:
   image-name:
     value: ghcr.io/${{ steps.lowercaseRepo.outputs.lowercase }}:${{ steps.create-short-sha.outputs.SHORT_SHA }}
@@ -20,6 +24,7 @@ runs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
+        root-reserve-mb: ${{ inputs.root-reserve-mb }}
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'

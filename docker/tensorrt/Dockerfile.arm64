@@ -100,7 +100,7 @@ RUN --mount=type=bind,source=docker/tensorrt/detector/build_python_tensorrt.sh,t
 
 COPY docker/tensorrt/requirements-arm64.txt /requirements-tensorrt.txt
 
-RUN pip3 wheel --wheel-dir=/trt-wheels -r /requirements-tensorrt.txt
+RUN pip3 wheel --retries=5 --timeout=120 --wheel-dir=/trt-wheels -r /requirements-tensorrt.txt
 
 # See https://elinux.org/Jetson_Zoo#ONNX_Runtime
 ADD https://nvidia.box.com/shared/static/9yvw05k6u343qfnkhdv2x6xhygze0aq1.whl /trt-wheels/onnxruntime_gpu-1.19.0-cp311-cp311-linux_aarch64.whl
@@ -112,7 +112,7 @@ RUN apt-get update \
     && apt-get install -y protobuf-compiler libprotobuf-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN --mount=type=bind,source=docker/tensorrt/requirements-models-arm64.txt,target=/requirements-tensorrt-models.txt \
-    pip3 wheel --wheel-dir=/trt-model-wheels --no-deps -r /requirements-tensorrt-models.txt
+    pip3 wheel --retries=5 --timeout=120 --wheel-dir=/trt-model-wheels --no-deps -r /requirements-tensorrt-models.txt
 
 FROM wget AS jetson-ffmpeg
 ARG DEBIAN_FRONTEND
