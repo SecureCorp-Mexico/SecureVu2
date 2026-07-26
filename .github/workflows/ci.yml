@@ -60,6 +60,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          root-reserve-mb: '4096'
       - name: Build and push arm64 standard build
         uses: docker/build-push-action@v7
         with:
@@ -95,6 +96,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          root-reserve-mb: '4096'
       - name: Build and push TensorRT (Jetson, Jetpack 6)
         env:
           ARCH: arm64
@@ -167,6 +169,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          root-reserve-mb: '4096'
       - name: Build and push Rockchip build
         uses: docker/bake-action@v7
         with:
@@ -192,6 +195,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          root-reserve-mb: '4096'
       - name: Build and push Synaptics build
         uses: docker/bake-action@v7
         with:
