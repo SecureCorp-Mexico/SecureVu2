@@ -14,7 +14,7 @@ edgeTPU:
     - key: yolov9
       label: YOLOv9
       recommended: false
-      download: "[Download the model](https://github.com/dbro/securevu-detector-edgetpu-yolo9/releases/download/v1.0/yolov9-s-relu6-best_320_int8_edgetpu.tflite), bind mount the file into the container, and provide the path with `model.path`. Note that the linked model requires a 17-label [labelmap file](https://raw.githubusercontent.com/dbro/securevu-detector-edgetpu-yolo9/refs/heads/main/labels-coco17.txt) that includes only 17 COCO classes."
+      download: "[Download the model](https://github.com/dbro/frigate-detector-edgetpu-yolo9/releases/download/v1.0/yolov9-s-relu6-best_320_int8_edgetpu.tflite), bind mount the file into the container, and provide the path with `model.path`. Note that the linked model requires a 17-label [labelmap file](https://raw.githubusercontent.com/dbro/frigate-detector-edgetpu-yolo9/refs/heads/main/labels-coco17.txt) that includes only 17 COCO classes."
       ui: |-
         Navigate to **Settings > System > Detectors and model** and select **EdgeTPU** from the detector type dropdown and click **Add**, then set device to `usb`. Then on the same page, in the **Custom Model** tab, configure the model settings:
 

@@ -52,7 +52,7 @@ in your Home Assistant configuration for the Media Browser to appear.
 ### (Optional) Lovelace Card Installation
 
 To install the optional companion Lovelace card, please see the [separate
-installation instructions](https://github.com/dermotduffy/securevu-hass-card) for
+installation instructions](https://github.com/dermotduffy/frigate-hass-card) for
 that card.
 
 ## Configuration

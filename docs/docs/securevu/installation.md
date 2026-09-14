@@ -627,7 +627,7 @@ You can also edit the SecureVu configuration file through the [VS Code App](http
 
 ## Kubernetes
 
-Use the [helm chart](https://github.com/blakeblackshear/blakeshome-charts/tree/master/charts/securevu).
+Use the [helm chart](https://github.com/blakeblackshear/blakeshome-charts/tree/master/charts/frigate).
 
 ## Unraid
 
