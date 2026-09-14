@@ -68,7 +68,8 @@
     "roles": "Lomas",
     "securevuplus": "SecureVu+",
     "notifications": "Paziņojumi",
-    "triggers": "Trigeri"
+    "triggers": "Trigeri",
+    "profiles": "Profili"
   },
   "cameraSetting": {
     "camera": "Kamera"

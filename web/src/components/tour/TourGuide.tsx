@@ -1,6 +1,17 @@
-import React, { useState, useEffect, useMemo, useCallback, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useContext,
+} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { AuthContext } from "@/context/auth-context";
 import useSWR from "swr";
@@ -13,6 +24,7 @@ interface TourStep {
   content: string;
   route: string;
   hash?: string; // URL hash for camera navigation (without the '#' prefix)
+  search?: string; // URL query string (e.g. "?page=triggers") used only to navigate; not matched
   imageSrc?: string; // URL path to overlay image
 }
 
@@ -51,9 +63,22 @@ export default function TourGuide() {
     // Resolve the first camera name so the tour can navigate directly to it.
     const firstCamera = config
       ? Object.values(config.cameras)
-          .filter((c) => c.enabled_in_config && c.ui.dashboard && allowedCameras.includes(c.name))
+          .filter(
+            (c) =>
+              c.enabled_in_config &&
+              c.ui.dashboard &&
+              allowedCameras.includes(c.name),
+          )
           .sort((a, b) => a.ui.order - b.ui.order)[0]?.name
       : undefined;
+
+    // 0.18 feature availability — only surface tour steps for what's enabled.
+    const semanticSearchEnabled = !!config?.semantic_search?.enabled;
+    const hasChatAgent = config
+      ? Object.values(config.genai ?? {}).some((agent) =>
+          agent?.roles?.includes("chat"),
+        )
+      : false;
 
     const adminNavDesc =
       "La barra lateral te da acceso a todas las secciones del administrador: " +
@@ -162,7 +187,10 @@ export default function TourGuide() {
       content:
         "La pestaña Movimiento registra cambios de píxeles en la imagen que el sistema " +
         "detectó pero no pudo clasificar como un objeto específico. " +
-        "Es útil para encontrar actividad sutil o calibrar zonas de detección.",
+        "Es útil para encontrar actividad sutil o calibrar zonas de detección. " +
+        "Novedad: desde el menú (⋮) de cada cámara puedes abrir la Búsqueda de Movimiento " +
+        "—para localizar actividad dibujando una región de interés sobre la escena— y las " +
+        "Vistas Previas de Movimiento, que reproducen de forma rápida los momentos con actividad.",
       route: "/review",
     };
 
@@ -222,6 +250,18 @@ export default function TourGuide() {
       route: "/explore",
     };
 
+    // ── Búsqueda semántica (Explore) — nueva en 0.18 ────────────────────────
+    const exploreSearchStep: TourStep = {
+      target: "#explore-search-bar",
+      title: "Búsqueda Inteligente",
+      content:
+        "Con la búsqueda semántica puedes encontrar eventos describiéndolos con lenguaje natural, " +
+        "por ejemplo «persona con chaqueta roja» o «camioneta blanca en la entrada». " +
+        "El sistema busca por el contenido visual de las grabaciones, no solo por etiquetas, " +
+        "y puedes combinarla con los filtros de cámara, etiqueta y fecha.",
+      route: "/explore",
+    };
+
     const exportStep: TourStep = {
       target: "#pageRoot",
       title: "Exportaciones",
@@ -229,6 +269,18 @@ export default function TourGuide() {
         "Desde aquí puedes exportar clips de grabación en formato de video. Define el rango horario, " +
         "selecciona las cámaras y genera el archivo para compartirlo o archivarlo " +
         "fuera del sistema.",
+      route: "/export",
+    };
+
+    // ── Casos de exportación — nuevos en 0.18 ───────────────────────────────
+    const exportCasesStep: TourStep = {
+      target: "#export-new-case",
+      title: "Casos de Exportación",
+      content:
+        "Novedad: ahora puedes agrupar varias exportaciones en «Casos». Un caso reúne los clips " +
+        "relacionados con un mismo incidente o investigación, con su propia descripción, para " +
+        "mantenerlos organizados y compartirlos de forma ordenada. " +
+        "Usa «Nuevo caso» para crear uno y luego añade las exportaciones que quieras.",
       route: "/export",
     };
 
@@ -349,6 +401,31 @@ export default function TourGuide() {
         "categorías y cargar imágenes para entrenarlo.",
       route: "/classification",
       imageSrc: "/images/tour/clasi-clasificacion.png",
+    };
+
+    // ── Disparadores (Triggers) — nuevos en 0.18 ───────────────────────────
+    const triggersStep: TourStep = {
+      target: "#triggersView",
+      title: "Disparadores (Triggers)",
+      content:
+        "Los Disparadores permiten que una cámara reaccione automáticamente cuando aparece algo " +
+        "visualmente similar a una imagen o descripción de referencia —por ejemplo, avisar cuando " +
+        "se detecte un vehículo parecido a uno marcado previamente. Se configuran por cámara desde " +
+        "Ajustes → Enriquecimientos, y también puedes crearlos desde un evento en la sección Explorar.",
+      route: "/settings",
+      search: `?page=triggers${firstCamera ? `&camera=${firstCamera}` : ""}`,
+    };
+
+    // ── Asistente de IA (Chat) — nuevo en 0.18 ─────────────────────────────
+    const chatStep: TourStep = {
+      target: "#chatPage",
+      title: "Asistente de IA",
+      content:
+        "El Asistente de IA te permite conversar en lenguaje natural con tu sistema: preguntar por " +
+        "eventos recientes, buscar objetos o personas y resumir actividad, todo desde un chat. " +
+        "SecureVu 0.18 admite múltiples proveedores de IA generativa; el asistente aparece aquí " +
+        "cuando se configura un proveedor con el rol de «chat».",
+      route: "/chat",
     };
 
     // (removed playgroundStep — section does not exist in production)
@@ -483,6 +560,7 @@ export default function TourGuide() {
         reviewFilterGeneralStep,
         // Explore
         exploreStep,
+        ...(semanticSearchEnabled ? [exploreSearchStep] : []),
         exploreFilterCamerasStep,
         exploreFilterLabelsStep,
         exploreFilterDatesStep,
@@ -490,6 +568,7 @@ export default function TourGuide() {
         exploreFilterSettingsStep,
         // Export
         exportStep,
+        exportCasesStep,
         // Faces
         facesStep,
         facesLibrarySelectorStep,
@@ -498,6 +577,9 @@ export default function TourGuide() {
         classificationStep,
         classificationTypeTabsStep,
         classificationAddBtnStep,
+        // Enrichments / AI (0.18)
+        ...(semanticSearchEnabled && firstCamera ? [triggersStep] : []),
+        ...(hasChatAgent ? [chatStep] : []),
         // System
         statusbarStep,
         sidebarSettingsStep,
@@ -530,6 +612,7 @@ export default function TourGuide() {
       reviewFilterGeneralStep,
       // Explore
       exploreStep,
+      ...(semanticSearchEnabled ? [exploreSearchStep] : []),
       exploreFilterCamerasStep,
       exploreFilterLabelsStep,
       exploreFilterDatesStep,
@@ -553,7 +636,8 @@ export default function TourGuide() {
 
   useEffect(() => {
     window.addEventListener("securevu:restart-tour", handleRestartTour);
-    return () => window.removeEventListener("securevu:restart-tour", handleRestartTour);
+    return () =>
+      window.removeEventListener("securevu:restart-tour", handleRestartTour);
   }, [handleRestartTour]);
 
   // Handle step transitions and routes (including URL hash for camera view)
@@ -566,15 +650,27 @@ export default function TourGuide() {
     const pathMatches = location.pathname === step.route;
     const hashMatches = location.hash === targetHash;
 
+    // `search` is used only to drive navigation (e.g. settings sub-pages that
+    // read a `?page=` query param on mount and then strip it). It is NOT part
+    // of the match condition, so stripping the param does not re-trigger a
+    // navigation loop. Steps that deep-link into a query param must therefore
+    // not be adjacent to another step sharing the same pathname.
     if (!pathMatches || !hashMatches) {
       setIsNavigating(true);
-      if (step.hash) {
-        navigate({ pathname: step.route, hash: `#${step.hash}` });
-      } else {
-        navigate(step.route);
-      }
+      navigate({
+        pathname: step.route,
+        hash: step.hash ? `#${step.hash}` : "",
+        search: step.search ?? "",
+      });
     }
-  }, [currentStep, navigate, location.pathname, location.hash, shouldShowTour, tourSteps]);
+  }, [
+    currentStep,
+    navigate,
+    location.pathname,
+    location.hash,
+    shouldShowTour,
+    tourSteps,
+  ]);
 
   // Reset isNavigating after the page has mounted (triggered by pathname OR hash change)
   useEffect(() => {
@@ -637,10 +733,18 @@ export default function TourGuide() {
     let y = rect.y - 6;
     let width = rect.width + 12;
     let height = rect.height + 12;
-    if (x < margin) { width -= (margin - x); x = margin; }
-    if (y < margin) { height -= (margin - y); y = margin; }
-    if (x + width > window.innerWidth - margin) width = window.innerWidth - margin - x;
-    if (y + height > window.innerHeight - margin) height = window.innerHeight - margin - y;
+    if (x < margin) {
+      width -= margin - x;
+      x = margin;
+    }
+    if (y < margin) {
+      height -= margin - y;
+      y = margin;
+    }
+    if (x + width > window.innerWidth - margin)
+      width = window.innerWidth - margin - x;
+    if (y + height > window.innerHeight - margin)
+      height = window.innerHeight - margin - y;
     return { x, y, width: Math.max(0, width), height: Math.max(0, height) };
   }, [rect]);
 
@@ -692,7 +796,7 @@ export default function TourGuide() {
     <>
       <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold text-blue-500 uppercase tracking-wider">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
             Guía de Inicio ({currentStep + 1} / {tourSteps.length})
           </span>
           <button
@@ -702,33 +806,33 @@ export default function TourGuide() {
             Omitir
           </button>
         </div>
-        <h4 className="text-lg font-bold text-foreground leading-tight">
+        <h4 className="text-lg font-bold leading-tight text-foreground">
           {step.title}
         </h4>
       </div>
-      <p className="text-sm text-secondary-foreground leading-relaxed">
+      <p className="text-sm leading-relaxed text-secondary-foreground">
         {step.content}
       </p>
       {step.imageSrc && (
-        <div className="mt-3 overflow-hidden rounded-lg border border-secondary-highlight bg-black/10 shadow-inner max-h-[140px] flex items-center justify-center">
+        <div className="mt-3 flex max-h-[140px] items-center justify-center overflow-hidden rounded-lg border border-secondary-highlight bg-black/10 shadow-inner">
           <img
             src={step.imageSrc}
             alt={step.title}
-            className="w-full h-full object-contain max-h-[140px] select-none pointer-events-none"
+            className="pointer-events-none h-full max-h-[140px] w-full select-none object-contain"
           />
         </div>
       )}
-      <div className="flex items-center justify-between mt-2 pt-2 border-t border-secondary-highlight">
+      <div className="mt-2 flex items-center justify-between border-t border-secondary-highlight pt-2">
         <button
           onClick={handleBack}
           disabled={currentStep === 0}
-          className="px-3 py-1.5 rounded-md text-xs font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-md bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground hover:bg-secondary/80 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Atrás
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-1.5 rounded-md text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm"
+          className="rounded-md bg-blue-600 px-4 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-500"
         >
           {currentStep === tourSteps.length - 1 ? "Comenzar" : "Siguiente"}
         </button>
@@ -768,10 +872,16 @@ export default function TourGuide() {
         popoverStyle.top = Math.max(16, rect.top);
       }
     } else if (spaceBottom > 290) {
-      popoverStyle.left = Math.max(16, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175));
+      popoverStyle.left = Math.max(
+        16,
+        Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175),
+      );
       popoverStyle.top = rect.bottom + 16;
     } else if (spaceTop > 290) {
-      popoverStyle.left = Math.max(16, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175));
+      popoverStyle.left = Math.max(
+        16,
+        Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175),
+      );
       popoverStyle.bottom = window.innerHeight - rect.top + 16;
     } else {
       popoverStyle.left = "50%";
@@ -786,10 +896,10 @@ export default function TourGuide() {
     "bg-background_alt/90 backdrop-blur-md p-6 shadow-2xl text-foreground flex flex-col gap-4";
 
   return (
-    <div className="fixed inset-0 z-[99998] overflow-hidden pointer-events-none">
+    <div className="pointer-events-none fixed inset-0 z-[99998] overflow-hidden">
       {/* Dim backdrop — only when no target cutout */}
       {!rect && (
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] pointer-events-auto" />
+        <div className="pointer-events-auto absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
       )}
 
       {/* Spotlight — always mounted for smooth spring transitions */}
@@ -815,7 +925,7 @@ export default function TourGuide() {
       {/* ── Card: centered (no target) vs positioned (has target) ── */}
       {!rect ? (
         // Centered card — use flex so Framer y-animation doesn't break centering
-        <div className="fixed inset-0 flex items-center justify-center z-[99999] pointer-events-none">
+        <div className="pointer-events-none fixed inset-0 z-[99999] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep}

@@ -3,6 +3,7 @@ import ClassificationModelWizardDialog from "@/components/classification/Classif
 import ClassificationModelEditDialog from "@/components/classification/ClassificationModelEditDialog";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { ImageShadowOverlay } from "@/components/overlay/ImageShadowOverlay";
+import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import useOptimisticState from "@/hooks/use-optimistic-state";
@@ -114,7 +115,10 @@ export default function ModelSelectionView({
       />
 
       <div className="flex h-12 w-full items-center justify-between">
-        <div id="classification-type-tabs" className="flex flex-row items-center">
+        <div
+          id="classification-type-tabs"
+          className="flex flex-row items-center"
+        >
           <ToggleGroup
             className="*:rounded-md *:px-3 *:py-4"
             type="single"
@@ -160,7 +164,10 @@ export default function ModelSelectionView({
           modelType={pageToggle}
         />
       ) : (
-        <div id="classification-models-grid" className="grid auto-rows-max grid-cols-2 gap-2 overflow-y-auto p-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10">
+        <div
+          id="classification-models-grid"
+          className="grid auto-rows-max grid-cols-2 gap-2 overflow-y-auto p-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10"
+        >
           {selectedClassificationConfigs.map((config) => (
             <ModelCard
               key={config.name}
@@ -331,13 +338,24 @@ function ModelCard({ config, onClick, onUpdate, onDelete }: ModelCardProps) {
         {coverImage ? (
           <>
             <img
-              className="size-full"
+              className={cn(
+                "size-full",
+                !config.enabled && "opacity-50 grayscale",
+              )}
               src={`${baseUrl}clips/${config.name}/dataset/${coverImage.name}/${coverImage.img}`}
             />
             <ImageShadowOverlay lowerClassName="h-[30%] z-0" />
           </>
         ) : (
           <Skeleton className="flex size-full items-center justify-center" />
+        )}
+        {!config.enabled && (
+          <Badge
+            variant="secondary"
+            className="absolute right-2 top-2 z-40 text-primary-variant"
+          >
+            {t("disabled")}
+          </Badge>
         )}
         <div className="absolute bottom-2 left-3 text-lg text-white smart-capitalize">
           {config.name}

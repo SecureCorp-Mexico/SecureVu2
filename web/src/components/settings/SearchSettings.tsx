@@ -60,9 +60,7 @@ export default function ExploreSettings({
     <div className={cn(className, "my-3 space-y-5 py-3 md:mt-0 md:py-0")}>
       <div className="space-y-4">
         <div className="space-y-0.5">
-          <div className="text-md">
-            {t("explore.settings.defaultView.title")}
-          </div>
+          <div>{t("explore.settings.defaultView.title")}</div>
           <div className="space-y-1 text-xs text-muted-foreground">
             {t("explore.settings.defaultView.desc")}
           </div>
@@ -98,9 +96,7 @@ export default function ExploreSettings({
           <DropdownMenuSeparator />
           <div className="flex w-full flex-col space-y-4">
             <div className="space-y-0.5">
-              <div className="text-md">
-                {t("explore.settings.gridColumns.title")}
-              </div>
+              <div>{t("explore.settings.gridColumns.title")}</div>
               <div className="space-y-1 text-xs text-muted-foreground">
                 {t("explore.settings.gridColumns.desc")}
               </div>
@@ -163,9 +159,7 @@ export function SearchTypeContent({
       <div className="overflow-x-hidden">
         <DropdownMenuSeparator className="mb-3" />
         <div className="space-y-0.5">
-          <div className="text-md">
-            {t("explore.settings.searchSource.label")}
-          </div>
+          <div>{t("explore.settings.searchSource.label")}</div>
           <div className="space-y-1 text-xs text-muted-foreground">
             {t("explore.settings.searchSource.desc")}
           </div>

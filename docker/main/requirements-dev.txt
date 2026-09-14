@@ -1,5 +1,4 @@
-# Pinned so CI formatting/lint stays deterministic across ruff releases.
-ruff == 0.16.*
+ruff == 0.15.20
 
 # types
 types-peewee == 3.17.*

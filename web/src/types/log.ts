@@ -12,7 +12,7 @@ export type LogLine = {
   content: string;
 };
 
-export const logTypes = ["securevu", "go2rtc", "nginx"] as const;
+export const logTypes = ["securevu", "go2rtc", "nginx", "websocket"] as const;
 export type LogType = (typeof logTypes)[number];
 
 export type LogSettingsType = {

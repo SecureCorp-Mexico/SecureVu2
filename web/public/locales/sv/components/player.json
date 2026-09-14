@@ -1,15 +1,16 @@
 {
   "noPreviewFound": "Ingen förhandsvisning hittad",
-  "noRecordingsFoundForThisTime": "Inga inspelningar hittade för denna tid",
+  "noRecordingsFoundForThisTime": "Inga inspelningar hittades vid den här tidpunkten",
   "noPreviewFoundFor": "Ingen förhandsvisning hittad för {{cameraName}}",
   "submitSecureVuPlus": {
     "title": "Skicka denna bild till SecureVu+?",
-    "submit": "Skicka"
+    "submit": "Skicka",
+    "previewError": "Det gick inte att ladda förhandsgranskningen av ögonblicksbilden. Inspelningen är kanske inte tillgänglig just nu."
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 eller senare krävs för den här typen av livestream.",
   "streamOffline": {
-    "title": "Ström ej tillgänglig",
-    "desc": "Inga bildrutor har tagits emot från {{cameraName}}-strömmen <code>detect</code>, kontrollera felloggarna"
+    "title": "Strömmen är inte tillgänglig",
+    "desc": "Inga bildrutor har mottagits på {{cameraName}} <code>detect</code>-strömmen, kontrollera felloggarna"
   },
   "stats": {
     "streamType": {
@@ -24,28 +25,29 @@
       "title": "Latens:",
       "short": {
         "title": "Latens",
-        "value": "{{seconds}} sek"
+        "value": "{{seconds}} s"
       },
       "value": "{{seconds}} sekunder"
     },
-    "totalFrames": "Totala Bildrutor:",
+    "totalFrames": "Totalt antal bildrutor:",
     "droppedFrames": {
-      "title": "Bortfallna bildrutor:",
+      "title": "Förlorade bildrutor:",
       "short": {
-        "title": "Bortfallen",
-        "value": "{{droppedFrames}} Bildrutor"
+        "title": "Förlorade",
+        "value": "{{droppedFrames}} bildrutor"
       }
     },
     "decodedFrames": "Avkodade bildrutor:",
-    "droppedFrameRate": "Frekvens för bortfallna bildrutor:"
+    "droppedFrameRate": "Andel förlorade bildrutor:"
   },
   "cameraDisabled": "Kameran är inaktiverad",
   "toast": {
     "error": {
-      "submitSecureVuPlusFailed": "Bildruta har skickats till SecureVu+ med misslyckat resultat"
+      "submitSecureVuPlusFailed": "Det gick inte att skicka bildrutan till SecureVu+"
     },
     "success": {
-      "submittedSecureVuPlus": "Bildruta har skickats till SecureVu+ med lyckat resultat"
+      "submittedSecureVuPlus": "Bildrutan har skickats till SecureVu+"
     }
-  }
+  },
+  "cameraOff": "Kameran är avstängd"
 }

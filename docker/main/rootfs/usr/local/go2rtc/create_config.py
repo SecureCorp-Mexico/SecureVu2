@@ -9,14 +9,13 @@ from typing import Any
 from ruamel.yaml import YAML
 
 sys.path.insert(0, "/opt/securevu")
+from securevu.config.env import substitute_securevu_vars
 from securevu.const import (
     BIRDSEYE_PIPE,
-    DEFAULT_FFMPEG_VERSION,
-    INCLUDED_FFMPEG_VERSIONS,
     LIBAVFORMAT_VERSION_MAJOR,
 )
 from securevu.ffmpeg_presets import parse_preset_hardware_acceleration_encode
-from securevu.util.config import find_config_file
+from securevu.util.config import find_config_file, resolve_ffmpeg_path
 from securevu.util.services import (
     is_go2rtc_arbitrary_exec_allowed,
     is_restricted_go2rtc_source,
@@ -82,23 +81,18 @@ if go2rtc_config["webrtc"].get("candidates") is None:
     go2rtc_config["webrtc"]["candidates"] = default_candidates
 
 if go2rtc_config.get("rtsp", {}).get("username") is not None:
-    go2rtc_config["rtsp"]["username"] = go2rtc_config["rtsp"]["username"].format(
-        **SECUREVU_ENV_VARS
+    go2rtc_config["rtsp"]["username"] = substitute_securevu_vars(
+        go2rtc_config["rtsp"]["username"]
     )
 
 if go2rtc_config.get("rtsp", {}).get("password") is not None:
-    go2rtc_config["rtsp"]["password"] = go2rtc_config["rtsp"]["password"].format(
-        **SECUREVU_ENV_VARS
+    go2rtc_config["rtsp"]["password"] = substitute_securevu_vars(
+        go2rtc_config["rtsp"]["password"]
     )
 
 # ensure ffmpeg path is set correctly
 path = config.get("ffmpeg", {}).get("path", "default")
-if path == "default":
-    ffmpeg_path = f"/usr/lib/ffmpeg/{DEFAULT_FFMPEG_VERSION}/bin/ffmpeg"
-elif path in INCLUDED_FFMPEG_VERSIONS:
-    ffmpeg_path = f"/usr/lib/ffmpeg/{path}/bin/ffmpeg"
-else:
-    ffmpeg_path = f"{path}/bin/ffmpeg"
+ffmpeg_path = resolve_ffmpeg_path(path, "ffmpeg")
 
 if go2rtc_config.get("ffmpeg") is None:
     go2rtc_config["ffmpeg"] = {"bin": ffmpeg_path}

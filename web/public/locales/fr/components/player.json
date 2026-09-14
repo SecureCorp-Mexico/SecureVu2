@@ -4,7 +4,8 @@
   "noPreviewFound": "Aucun aperçu trouvé",
   "submitSecureVuPlus": {
     "title": "Soumettre cette image à SecureVu+ ?",
-    "submit": "Soumettre"
+    "submit": "Soumettre",
+    "previewError": "Impossible de télécharger le snapshot. L'enregistrement ne pas disponible sur cette période."
   },
   "streamOffline": {
     "title": "Flux hors ligne",
@@ -47,5 +48,6 @@
     "success": {
       "submittedSecureVuPlus": "Image soumise avec succès à SecureVu+"
     }
-  }
+  },
+  "cameraOff": "La camera est éteinte"
 }

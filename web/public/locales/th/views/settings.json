@@ -109,7 +109,8 @@
     "cameraManagement": "จัดการกล้อง - SecureVu",
     "enrichments": "การตั้งค่าของเพิ่มเติม - SecureVu",
     "motionTuner": "ปรับแต่งการเคลื่อนไหว - SecureVu",
-    "object": "ดีบั๊ก - SecureVu"
+    "object": "ดีบั๊ก - SecureVu",
+    "cameraReview": "แสดงการตั้งค่าของกล้อง - SecureVu"
   },
   "menu": {
     "notifications": "การแจ้งเตือน",

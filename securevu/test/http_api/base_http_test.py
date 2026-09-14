@@ -2,6 +2,7 @@ import datetime
 import logging
 import os
 import unittest
+from unittest.mock import patch
 
 from fastapi import Request
 from fastapi.testclient import TestClient
@@ -13,6 +14,8 @@ from pydantic import Json
 from securevu.api.fastapi_app import create_fastapi_app
 from securevu.config import SecureVuConfig
 from securevu.const import BASE_DIR, CACHE_DIR
+from securevu.debug_replay import DebugReplayManager
+from securevu.jobs.export import JobStatePublisher
 from securevu.models import Event, Recordings, ReviewSegment
 from securevu.review.types import SeverityEnum
 from securevu.test.const import TEST_DB, TEST_DB_CLEANUPS
@@ -42,6 +45,19 @@ class BaseTestHttp(unittest.TestCase):
         migrate_db.close()
         self.db = SqliteQueueDatabase(TEST_DB)
         self.db.bind(models)
+
+        # The export job manager broadcasts via JobStatePublisher on
+        # enqueue/start/finish. There is no dispatcher process bound to
+        # the IPC socket in tests, so a real publish() would block on
+        # recv_json forever. Replace publish with a no-op for the
+        # lifetime of this test; the lookup goes through the class so any
+        # already-instantiated publisher (the singleton manager's) picks
+        # up the no-op too.
+        publisher_patch = patch.object(
+            JobStatePublisher, "publish", lambda self, payload: None
+        )
+        publisher_patch.start()
+        self.addCleanup(publisher_patch.stop)
 
         self.minimal_config = {
             "mqtt": {"host": "mqtt"},
@@ -141,6 +157,7 @@ class BaseTestHttp(unittest.TestCase):
             stats,
             event_metadata_publisher,
             None,
+            DebugReplayManager(),
             enforce_default_admin=False,
         )
 

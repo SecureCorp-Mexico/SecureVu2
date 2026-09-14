@@ -1,5 +1,7 @@
 {
-  "documentTitle": "Canlı - SecureVu",
+  "documentTitle": {
+    "default": "Canlı - SecureVu"
+  },
   "documentTitle.withCamera": "{{camera}} - Canlı - SecureVu",
   "muteCameras": {
     "disable": "Tüm Kameraların Sesini Aç",

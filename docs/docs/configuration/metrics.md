@@ -3,19 +3,42 @@ id: metrics
 title: Metrics
 ---
 
+import ConfigTabs from "@site/src/components/ConfigTabs";
+import TabItem from "@theme/TabItem";
+import NavPath from "@site/src/components/NavPath";
+
 # Metrics
 
 SecureVu exposes Prometheus metrics at the `/api/metrics` endpoint that can be used to monitor the performance and health of your SecureVu instance.
 
+## Enabling Telemetry
+
+Prometheus metrics are exposed via the telemetry configuration. Enable or configure telemetry to control metric availability.
+
+<ConfigTabs>
+<TabItem value="ui">
+
+Navigate to <NavPath path="Settings > System > Telemetry" /> to configure metrics and telemetry settings.
+
+</TabItem>
+<TabItem value="yaml">
+
+Metrics are available at `/api/metrics` by default. No additional SecureVu configuration is required to expose them.
+
+</TabItem>
+</ConfigTabs>
+
 ## Available Metrics
 
 ### System Metrics
+
 - `securevu_cpu_usage_percent{pid="", name="", process="", type="", cmdline=""}` - Process CPU usage percentage
 - `securevu_mem_usage_percent{pid="", name="", process="", type="", cmdline=""}` - Process memory usage percentage
 - `securevu_gpu_usage_percent{gpu_name=""}` - GPU utilization percentage
 - `securevu_gpu_mem_usage_percent{gpu_name=""}` - GPU memory usage percentage
 
 ### Camera Metrics
+
 - `securevu_camera_fps{camera_name=""}` - Frames per second being consumed from your camera
 - `securevu_detection_fps{camera_name=""}` - Number of times detection is run per second
 - `securevu_process_fps{camera_name=""}` - Frames per second being processed
@@ -25,21 +48,27 @@ SecureVu exposes Prometheus metrics at the `/api/metrics` endpoint that can be u
 - `securevu_audio_rms{camera_name=""}` - Audio RMS for camera
 
 ### Detector Metrics
+
 - `securevu_detector_inference_speed_seconds{name=""}` - Time spent running object detection in seconds
 - `securevu_detection_start{name=""}` - Detector start time (unix timestamp)
 
 ### Storage Metrics
+
 - `securevu_storage_free_bytes{storage=""}` - Storage free bytes
 - `securevu_storage_total_bytes{storage=""}` - Storage total bytes
 - `securevu_storage_used_bytes{storage=""}` - Storage used bytes
 - `securevu_storage_mount_type{mount_type="", storage=""}` - Storage mount type info
 
+These gauges report the operating system's figures for the whole filesystem (the same numbers as `df`), not SecureVu's own recording footprint. For how this differs from the recordings usage shown in the UI, see [Understanding storage usage](/configuration/record#understanding-storage-usage).
+
 ### Service Metrics
+
 - `securevu_service_uptime_seconds` - Uptime in seconds
 - `securevu_service_last_updated_timestamp` - Stats recorded time (unix timestamp)
 - `securevu_device_temperature{device=""}` - Device Temperature
 
 ### Event Metrics
+
 - `securevu_camera_events{camera="", label=""}` - Count of camera events since exporter started
 
 ## Configuring Prometheus
@@ -48,10 +77,10 @@ To scrape metrics from SecureVu, add the following to your Prometheus configurat
 
 ```yaml
 scrape_configs:
-  - job_name: 'securevu'
-    metrics_path: '/api/metrics'
+  - job_name: "securevu"
+    metrics_path: "/api/metrics"
     static_configs:
-      - targets: ['securevu:5000']
+      - targets: ["securevu:5000"]
     scrape_interval: 15s
 ```
 

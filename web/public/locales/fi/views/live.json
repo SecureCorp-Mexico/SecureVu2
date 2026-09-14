@@ -1,5 +1,7 @@
 {
-  "documentTitle": "Suora - SecureVu",
+  "documentTitle": {
+    "default": "Suora - SecureVu"
+  },
   "documentTitle.withCamera": "{{camera}} - Suora - SecureVu",
   "lowBandwidthMode": "Pienen kaistanleveyden tila",
   "twoWayTalk": {

@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Konfigurasjonsredigering - SecureVu",
+  "documentTitle": "Konfigurasjonsfil - SecureVu",
   "toast": {
     "error": {
       "savingError": "Feil ved lagring av konfigurasjon"
@@ -8,11 +8,11 @@
       "copyToClipboard": "Konfigurasjonen ble kopiert til utklippstavlen."
     }
   },
-  "configEditor": "Konfigurasjonsredigering",
+  "configEditor": "Konfigurasjonsfil",
   "copyConfig": "Kopier konfigurasjonen",
   "saveAndRestart": "Lagre og omstart",
   "saveOnly": "Kun lagre",
   "confirm": "Avslutt uten å lagre?",
-  "safeConfigEditor": "Konfigurasjonsredigering (Sikker modus)",
+  "safeConfigEditor": "Konfigurasjonsfil (Sikker modus)",
   "safeModeDescription": "SecureVu er i sikker modus grunnet en feil i validering av konfigurasjonen."
 }

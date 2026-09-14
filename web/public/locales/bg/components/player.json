@@ -34,7 +34,8 @@
   },
   "submitSecureVuPlus": {
     "title": "Да се изпрати ли този кадър към SecureVu+?",
-    "submit": "Изпрати"
+    "submit": "Изпрати",
+    "previewError": "Не можe да се зареди предварителен преглед на моментната снимка. Записът може да не е наличен в момента."
   },
   "noPreviewFound": "Не е намерен предварителен преглед",
   "noRecordingsFoundForThisTime": "За това време не са намерени записи",
@@ -47,5 +48,6 @@
     "error": {
       "submitSecureVuPlusFailed": "Неуспешно изпратен кадър към SecureVu+"
     }
-  }
+  },
+  "cameraOff": "Камерата е изключена"
 }
