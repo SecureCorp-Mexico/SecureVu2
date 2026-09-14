@@ -758,6 +758,7 @@ function Exports() {
                 />
                 {isAdmin && (
                   <Button
+                    id="export-new-case"
                     className="flex items-center gap-2.5 rounded-lg"
                     variant="default"
                     size="sm"

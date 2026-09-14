@@ -24,6 +24,7 @@ interface TourStep {
   content: string;
   route: string;
   hash?: string; // URL hash for camera navigation (without the '#' prefix)
+  search?: string; // URL query string (e.g. "?page=triggers") used only to navigate; not matched
   imageSrc?: string; // URL path to overlay image
 }
 
@@ -70,6 +71,14 @@ export default function TourGuide() {
           )
           .sort((a, b) => a.ui.order - b.ui.order)[0]?.name
       : undefined;
+
+    // 0.18 feature availability — only surface tour steps for what's enabled.
+    const semanticSearchEnabled = !!config?.semantic_search?.enabled;
+    const hasChatAgent = config
+      ? Object.values(config.genai ?? {}).some((agent) =>
+          agent?.roles?.includes("chat"),
+        )
+      : false;
 
     const adminNavDesc =
       "La barra lateral te da acceso a todas las secciones del administrador: " +
@@ -178,7 +187,10 @@ export default function TourGuide() {
       content:
         "La pestaña Movimiento registra cambios de píxeles en la imagen que el sistema " +
         "detectó pero no pudo clasificar como un objeto específico. " +
-        "Es útil para encontrar actividad sutil o calibrar zonas de detección.",
+        "Es útil para encontrar actividad sutil o calibrar zonas de detección. " +
+        "Novedad: desde el menú (⋮) de cada cámara puedes abrir la Búsqueda de Movimiento " +
+        "—para localizar actividad dibujando una región de interés sobre la escena— y las " +
+        "Vistas Previas de Movimiento, que reproducen de forma rápida los momentos con actividad.",
       route: "/review",
     };
 
@@ -238,6 +250,18 @@ export default function TourGuide() {
       route: "/explore",
     };
 
+    // ── Búsqueda semántica (Explore) — nueva en 0.18 ────────────────────────
+    const exploreSearchStep: TourStep = {
+      target: "#explore-search-bar",
+      title: "Búsqueda Inteligente",
+      content:
+        "Con la búsqueda semántica puedes encontrar eventos describiéndolos con lenguaje natural, " +
+        "por ejemplo «persona con chaqueta roja» o «camioneta blanca en la entrada». " +
+        "El sistema busca por el contenido visual de las grabaciones, no solo por etiquetas, " +
+        "y puedes combinarla con los filtros de cámara, etiqueta y fecha.",
+      route: "/explore",
+    };
+
     const exportStep: TourStep = {
       target: "#pageRoot",
       title: "Exportaciones",
@@ -245,6 +269,18 @@ export default function TourGuide() {
         "Desde aquí puedes exportar clips de grabación en formato de video. Define el rango horario, " +
         "selecciona las cámaras y genera el archivo para compartirlo o archivarlo " +
         "fuera del sistema.",
+      route: "/export",
+    };
+
+    // ── Casos de exportación — nuevos en 0.18 ───────────────────────────────
+    const exportCasesStep: TourStep = {
+      target: "#export-new-case",
+      title: "Casos de Exportación",
+      content:
+        "Novedad: ahora puedes agrupar varias exportaciones en «Casos». Un caso reúne los clips " +
+        "relacionados con un mismo incidente o investigación, con su propia descripción, para " +
+        "mantenerlos organizados y compartirlos de forma ordenada. " +
+        "Usa «Nuevo caso» para crear uno y luego añade las exportaciones que quieras.",
       route: "/export",
     };
 
@@ -365,6 +401,31 @@ export default function TourGuide() {
         "categorías y cargar imágenes para entrenarlo.",
       route: "/classification",
       imageSrc: "/images/tour/clasi-clasificacion.png",
+    };
+
+    // ── Disparadores (Triggers) — nuevos en 0.18 ───────────────────────────
+    const triggersStep: TourStep = {
+      target: "#triggersView",
+      title: "Disparadores (Triggers)",
+      content:
+        "Los Disparadores permiten que una cámara reaccione automáticamente cuando aparece algo " +
+        "visualmente similar a una imagen o descripción de referencia —por ejemplo, avisar cuando " +
+        "se detecte un vehículo parecido a uno marcado previamente. Se configuran por cámara desde " +
+        "Ajustes → Enriquecimientos, y también puedes crearlos desde un evento en la sección Explorar.",
+      route: "/settings",
+      search: `?page=triggers${firstCamera ? `&camera=${firstCamera}` : ""}`,
+    };
+
+    // ── Asistente de IA (Chat) — nuevo en 0.18 ─────────────────────────────
+    const chatStep: TourStep = {
+      target: "#chatPage",
+      title: "Asistente de IA",
+      content:
+        "El Asistente de IA te permite conversar en lenguaje natural con tu sistema: preguntar por " +
+        "eventos recientes, buscar objetos o personas y resumir actividad, todo desde un chat. " +
+        "SecureVu 0.18 admite múltiples proveedores de IA generativa; el asistente aparece aquí " +
+        "cuando se configura un proveedor con el rol de «chat».",
+      route: "/chat",
     };
 
     // (removed playgroundStep — section does not exist in production)
@@ -499,6 +560,7 @@ export default function TourGuide() {
         reviewFilterGeneralStep,
         // Explore
         exploreStep,
+        ...(semanticSearchEnabled ? [exploreSearchStep] : []),
         exploreFilterCamerasStep,
         exploreFilterLabelsStep,
         exploreFilterDatesStep,
@@ -506,6 +568,7 @@ export default function TourGuide() {
         exploreFilterSettingsStep,
         // Export
         exportStep,
+        exportCasesStep,
         // Faces
         facesStep,
         facesLibrarySelectorStep,
@@ -514,6 +577,9 @@ export default function TourGuide() {
         classificationStep,
         classificationTypeTabsStep,
         classificationAddBtnStep,
+        // Enrichments / AI (0.18)
+        ...(semanticSearchEnabled && firstCamera ? [triggersStep] : []),
+        ...(hasChatAgent ? [chatStep] : []),
         // System
         statusbarStep,
         sidebarSettingsStep,
@@ -546,6 +612,7 @@ export default function TourGuide() {
       reviewFilterGeneralStep,
       // Explore
       exploreStep,
+      ...(semanticSearchEnabled ? [exploreSearchStep] : []),
       exploreFilterCamerasStep,
       exploreFilterLabelsStep,
       exploreFilterDatesStep,
@@ -583,13 +650,18 @@ export default function TourGuide() {
     const pathMatches = location.pathname === step.route;
     const hashMatches = location.hash === targetHash;
 
+    // `search` is used only to drive navigation (e.g. settings sub-pages that
+    // read a `?page=` query param on mount and then strip it). It is NOT part
+    // of the match condition, so stripping the param does not re-trigger a
+    // navigation loop. Steps that deep-link into a query param must therefore
+    // not be adjacent to another step sharing the same pathname.
     if (!pathMatches || !hashMatches) {
       setIsNavigating(true);
-      if (step.hash) {
-        navigate({ pathname: step.route, hash: `#${step.hash}` });
-      } else {
-        navigate(step.route);
-      }
+      navigate({
+        pathname: step.route,
+        hash: step.hash ? `#${step.hash}` : "",
+        search: step.search ?? "",
+      });
     }
   }, [
     currentStep,

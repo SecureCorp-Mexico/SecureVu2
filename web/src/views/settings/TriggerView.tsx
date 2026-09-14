@@ -441,7 +441,7 @@ export default function TriggerView({
   }
 
   return (
-    <div className="flex size-full flex-col md:flex-row">
+    <div id="triggersView" className="flex size-full flex-col md:flex-row">
       <div
         className={cn(
           "scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto pb-2",

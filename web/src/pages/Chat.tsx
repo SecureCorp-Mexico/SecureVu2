@@ -306,7 +306,7 @@ export default function ChatPage() {
   );
 
   return (
-    <div className="flex size-full flex-col">
+    <div id="chatPage" className="flex size-full flex-col">
       <div className="flex shrink-0 items-center justify-end gap-2 px-2 pb-3 pt-2 md:px-4 md:pt-4">
         {hasStarted && (
           <Button
