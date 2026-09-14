@@ -2,6 +2,7 @@ import unittest
 
 from securevu.api.auth import resolve_role
 from securevu.config import HeaderMappingConfig, ProxyConfig
+from securevu.config.env import SECUREVU_ENV_VARS
 
 
 class TestProxyRoleResolution(unittest.TestCase):
@@ -91,3 +92,39 @@ class TestProxyRoleResolution(unittest.TestCase):
         headers = {"x-remote-role": "group_unknown"}
         role = resolve_role(headers, self.proxy_config, self.config_roles)
         self.assertEqual(role, self.proxy_config.default_role)
+
+
+class TestProxyAuthSecretEnvString(unittest.TestCase):
+    def setUp(self):
+        self._original_env_vars = dict(SECUREVU_ENV_VARS)
+
+    def tearDown(self):
+        SECUREVU_ENV_VARS.clear()
+        SECUREVU_ENV_VARS.update(self._original_env_vars)
+
+    def test_auth_secret_env_substitution(self):
+        """auth_secret resolves SECUREVU_ env vars via EnvString."""
+        SECUREVU_ENV_VARS["SECUREVU_PROXY_SECRET"] = "my_secret_value"
+        config = ProxyConfig(auth_secret="{SECUREVU_PROXY_SECRET}")
+        self.assertEqual(config.auth_secret, "my_secret_value")
+
+    def test_auth_secret_env_embedded_in_string(self):
+        """auth_secret resolves env vars embedded in a larger string."""
+        SECUREVU_ENV_VARS["SECUREVU_SECRET_PART"] = "abc123"
+        config = ProxyConfig(auth_secret="prefix-{SECUREVU_SECRET_PART}-suffix")
+        self.assertEqual(config.auth_secret, "prefix-abc123-suffix")
+
+    def test_auth_secret_plain_string(self):
+        """auth_secret accepts a plain string without substitution."""
+        config = ProxyConfig(auth_secret="literal_secret")
+        self.assertEqual(config.auth_secret, "literal_secret")
+
+    def test_auth_secret_none(self):
+        """auth_secret defaults to None."""
+        config = ProxyConfig()
+        self.assertIsNone(config.auth_secret)
+
+    def test_auth_secret_unknown_var_raises(self):
+        """auth_secret raises KeyError for unknown env var references."""
+        with self.assertRaises(Exception):
+            ProxyConfig(auth_secret="{SECUREVU_NONEXISTENT_VAR}")

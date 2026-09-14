@@ -3,7 +3,15 @@ id: plus
 title: SecureVu+
 ---
 
+import NavPath from "@site/src/components/NavPath";
+
 For more information about how to use SecureVu+ to improve your model, see the [SecureVu+ docs](/plus/).
+
+:::info
+
+SecureVu+ requires an active internet connection to communicate with `https://api.secure.vu` for model downloads, image uploads, and annotations. See [Network Requirements](/securevu/network_requirements#securevu) for details.
+
+:::
 
 ## Setup
 
@@ -51,7 +59,7 @@ You can view all of your submitted images at [https://plus.securevu.io](https://
 
 Once you have [requested your first model](../plus/first_model.md) and gotten your own model ID, it can be used with a special model path. No other information needs to be configured for SecureVu+ models because it fetches the remaining config from SecureVu+ automatically.
 
-You can either choose the new model from the SecureVu+ pane in the Settings page of the SecureVu UI, or manually set the model at the root level in your config:
+You can either choose the new model from the <NavPath path="Settings > System > Detectors and model" /> pane in the SecureVu UI (the **SecureVu+ Model** tab), or manually set the model at the root level in your config:
 
 ```yaml
 detectors: ...

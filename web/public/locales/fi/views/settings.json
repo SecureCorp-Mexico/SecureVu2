@@ -8,10 +8,12 @@
     "general": "Yleiset asetukset - SecureVu",
     "securevuPlus": "SecureVu+ asetukset - SecureVu",
     "object": "Virheenjäljitys - SecureVu",
-    "authentication": "Autentikointiuasetukset - SecureVu",
+    "authentication": "Autentikointiasetukset - SecureVu",
     "notifications": "Ilmoitusasetukset - SecureVu",
     "enrichments": "Laajennusasetukset – SecureVu",
-    "cameraManagement": "Hallitse Kameroita - SecureVu"
+    "cameraManagement": "Hallitse Kameroita - SecureVu",
+    "globalConfig": "Globaali konfiguraatio - SecureVu",
+    "cameraConfig": "Kamera konfiguraatio - SecureVu"
   },
   "menu": {
     "ui": "Käyttöliittymä",

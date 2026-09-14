@@ -25,10 +25,9 @@ Yes. Subscriptions to SecureVu+ provide access to the infrastructure used to tra
 
 ### Why can't I submit images to SecureVu+?
 
-If you've configured your API key and the SecureVu+ Settings page in the UI shows that the key is active, you need to ensure that you've enabled both snapshots and `clean_copy` snapshots for the cameras you'd like to submit images for. Note that `clean_copy` is enabled by default when snapshots are enabled.
+If you've configured your API key and the SecureVu+ Settings page in the UI shows that the key is active, you need to ensure that snapshots are enabled for the cameras you'd like to submit images for.
 
 ```yaml
 snapshots:
   enabled: true
-  clean_copy: true
 ```

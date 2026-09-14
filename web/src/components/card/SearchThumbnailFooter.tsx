@@ -1,7 +1,7 @@
 import TimeAgo from "../dynamic/TimeAgo";
 import useSWR from "swr";
 import { SecureVuConfig } from "@/types/securevuConfig";
-import { useFormattedTimestamp } from "@/hooks/use-date-utils";
+import { useFormattedTimestamp, use24HourTime } from "@/hooks/use-date-utils";
 import { SearchResult } from "@/types/search";
 import ActivityIndicator from "../indicators/activity-indicator";
 import SearchResultActions from "../menu/SearchResultActions";
@@ -29,9 +29,10 @@ export default function SearchThumbnailFooter({
   const { data: config } = useSWR<SecureVuConfig>("config");
 
   // date
+  const is24Hour = use24HourTime(config);
   const formattedDate = useFormattedTimestamp(
     searchResult.start_time,
-    config?.ui.time_format == "24hour"
+    is24Hour
       ? t("time.formattedTimestampMonthDayHourMinute.24hour", { ns: "common" })
       : t("time.formattedTimestampMonthDayHourMinute.12hour", { ns: "common" }),
     config?.ui.timezone,

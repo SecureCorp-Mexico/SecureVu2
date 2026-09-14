@@ -6,17 +6,20 @@ body:
       value: |
         Use this form to submit a reproducible bug in SecureVu or SecureVu's UI.
 
-        **⚠️ If you are running a beta version (0.17.0-beta or similar), please use the [Beta Support template](https://github.com/SecureCorp-Mexico/SecureVu2/discussions/new?category=beta-support) instead.**
+        **⚠️ If you are running a beta version (0.18.0-beta or similar), please use the [Beta Support template](https://github.com/SecureCorp-Mexico/SecureVu2/discussions/new?category=beta-support) instead.**
 
         Before submitting your bug report, please ask the AI with the "Ask AI" button on the [official documentation site][ai] about your issue, [search the discussions][discussions], look at recent open and closed [pull requests][prs], read the [official SecureVu documentation][docs], and read the [SecureVu FAQ][faq] pinned at the Discussion page to see if your bug has already been fixed by the developers or reported by the community.
 
         **If you are unsure if your issue is actually a bug or not, please submit a support request first.**
+
+        By posting here you agree to follow our [AI policy][ai-policy]. Posts that appear to be written by an AI on your behalf may be closed without a response.
 
         [discussions]: https://www.github.com/SecureCorp-Mexico/SecureVu2/discussions
         [prs]: https://www.github.com/SecureCorp-Mexico/SecureVu2/pulls
         [docs]: https://docs.secure.vu
         [faq]: https://github.com/SecureCorp-Mexico/SecureVu2/discussions/12724
         [ai]: https://docs.secure.vu
+        [ai-policy]: https://github.com/SecureCorp-Mexico/SecureVu2/blob/dev/AI_POLICY.md
   - type: checkboxes
     attributes:
       label: Checklist
@@ -116,9 +119,13 @@ body:
     attributes:
       label: Install method
       options:
-        - Home Assistant Add-on
+        - Home Assistant App
         - Docker Compose
         - Docker CLI
+        - Proxmox via Docker
+        - Proxmox via installation script
+        - Proxomox via VM
+        - Windows WSL2
     validations:
       required: true
   - type: dropdown

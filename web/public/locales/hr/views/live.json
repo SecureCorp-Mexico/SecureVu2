@@ -1,5 +1,7 @@
 {
-  "documentTitle": "Uživo - SecureVu",
+  "documentTitle": {
+    "default": "Uživo - SecureVu"
+  },
   "documentTitle.withCamera": "{{camera}} - Uživo - SecureVu",
   "twoWayTalk": {
     "enable": "Omogući dvosmjerni razgovor",

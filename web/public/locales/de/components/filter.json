@@ -38,7 +38,7 @@
     "hasVideoClip": "Hat einen Video-Clip",
     "submittedToSecureVuPlus": {
       "label": "Eingereicht bei SecureVu+",
-      "tips": "Du musst zuerst nach deine erkannten Objekten, die einen Schnappschuss haben, filtern. <br /><br /> Erkante Objekte ohne Schnappschuss können nicht zu SecureVu+ übermittelt werden."
+      "tips": "Du musst zuerst nach deine erkannten Objekten, die einen Schnappschuss haben, filtern.<br /><br />Erkante Objekte ohne Schnappschuss können nicht zu SecureVu+ übermittelt werden."
     }
   },
   "score": "Ergebnis",

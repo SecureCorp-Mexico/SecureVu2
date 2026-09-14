@@ -1,18 +1,18 @@
 {
-  "documentTitle": "Urejevalnik konfiguracij - SecureVu",
-  "configEditor": "Urejevalnik konfiguracij",
+  "documentTitle": "Urejevalnik konfiguracije - SecureVu",
+  "configEditor": "Urejevalnik konfiguracije",
   "copyConfig": "Kopiraj konfiguracijo",
-  "saveAndRestart": "Shrani & ponovno zaženi",
-  "saveOnly": "Shani",
+  "saveAndRestart": "Shrani in ponovno zaženi",
+  "saveOnly": "Samo shrani",
   "toast": {
     "success": {
-      "copyToClipboard": "Konfiguracija kopirana v odložišče."
+      "copyToClipboard": "Konfiguracija je kopirana v odložišče."
     },
     "error": {
       "savingError": "Napaka pri shranjevanju konfiguracije"
     }
   },
-  "confirm": "Izhod brez shranjevanja?",
-  "safeConfigEditor": "Urejevalnik konfiguracij (Varni Način)",
-  "safeModeDescription": "SecureVu je v varnem načinu zaradi napake pri preverjanju konfiguracije."
+  "confirm": "Želiš zapustiti brez shranjevanja?",
+  "safeConfigEditor": "Urejevalnik konfiguracije (Varni način)",
+  "safeModeDescription": "SecureVu je v varnem načinu zaradi napake pri validaciji konfiguracije."
 }

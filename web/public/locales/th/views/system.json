@@ -64,7 +64,17 @@
     "logs": {
       "securevu": "SecureVu Logs - SecureVu",
       "go2rtc": "Logs ของ Go2RTC - SecureVu",
-      "nginx": "Logs ของ Nginx - SecureVu"
+      "nginx": "Logs ของ Nginx - SecureVu",
+      "websocket": "ประวัติข้อความ - SecureVu"
+    }
+  },
+  "logs": {
+    "websocket": {
+      "pause": "พัก",
+      "clear": "ลบล้าง",
+      "filter": {
+        "all": "ทุกหัวข้อ"
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 {
-  "documentTitle": "Прямой эфир - SecureVu",
+  "documentTitle": {
+    "default": "Прямой эфир - SecureVu"
+  },
   "documentTitle.withCamera": "{{camera}} - Прямой эфир - SecureVu",
   "lowBandwidthMode": "Экономичный режим",
   "twoWayTalk": {
@@ -15,7 +17,8 @@
       "clickMove": {
         "label": "Кликните в кадре для центрирования камеры",
         "enable": "Включить перемещение по клику",
-        "disable": "Отключить перемещение по клику"
+        "disable": "Отключить перемещение по клику",
+        "enableWithZoom": "Включить \"клик для перемещения / перетащить для масштабирования\""
       },
       "left": {
         "label": "Переместить PTZ-камеру влево"

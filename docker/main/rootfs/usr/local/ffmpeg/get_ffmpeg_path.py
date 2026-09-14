@@ -5,11 +5,7 @@ from typing import Any
 from ruamel.yaml import YAML
 
 sys.path.insert(0, "/opt/securevu")
-from securevu.const import (
-    DEFAULT_FFMPEG_VERSION,
-    INCLUDED_FFMPEG_VERSIONS,
-)
-from securevu.util.config import find_config_file
+from securevu.util.config import find_config_file, resolve_ffmpeg_path
 
 sys.path.remove("/opt/securevu")
 
@@ -29,9 +25,4 @@ except FileNotFoundError:
     config: dict[str, Any] = {}
 
 path = config.get("ffmpeg", {}).get("path", "default")
-if path == "default":
-    print(f"/usr/lib/ffmpeg/{DEFAULT_FFMPEG_VERSION}/bin/ffmpeg")
-elif path in INCLUDED_FFMPEG_VERSIONS:
-    print(f"/usr/lib/ffmpeg/{path}/bin/ffmpeg")
-else:
-    print(f"{path}/bin/ffmpeg")
+print(resolve_ffmpeg_path(path, "ffmpeg"))

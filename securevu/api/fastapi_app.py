@@ -1,6 +1,6 @@
+import asyncio
 import logging
 import re
-from typing import Optional
 
 from fastapi import Depends, FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -16,21 +16,30 @@ from securevu.api import app as main_app
 from securevu.api import (
     auth,
     camera,
+    chat,
     classification,
+    debug_replay,
     event,
     export,
     media,
+    motion_search,
     notification,
     preview,
+    record,
     review,
 )
 from securevu.api.auth import get_jwt_secret, limiter, require_admin_by_default
+from securevu.comms.dispatcher import Dispatcher
 from securevu.comms.event_metadata_updater import (
     EventMetadataPublisher,
 )
 from securevu.config import SecureVuConfig
 from securevu.config.camera.updater import CameraConfigUpdatePublisher
+from securevu.config.holder import ConfigHolder
+from securevu.config.profile_manager import ProfileManager
+from securevu.debug_replay import DebugReplayManager, debug_replay_auto_stop_watchdog
 from securevu.embeddings import EmbeddingsContext
+from securevu.genai import GenAIClientManager
 from securevu.ptz.onvif import OnvifController
 from securevu.stats.emitter import StatsEmitter
 from securevu.storage import StorageMaintainer
@@ -55,14 +64,18 @@ class RemoteUserPlugin(Plugin):
 def create_fastapi_app(
     securevu_config: SecureVuConfig,
     database: SqliteQueueDatabase,
-    embeddings: Optional[EmbeddingsContext],
+    embeddings: EmbeddingsContext | None,
     detected_frames_processor,
     storage_maintainer: StorageMaintainer,
     onvif: OnvifController,
     stats_emitter: StatsEmitter,
     event_metadata_updater: EventMetadataPublisher,
     config_publisher: CameraConfigUpdatePublisher,
+    replay_manager: DebugReplayManager,
+    dispatcher: Dispatcher | None = None,
+    profile_manager: ProfileManager | None = None,
     enforce_default_admin: bool = True,
+    config_holder: ConfigHolder | None = None,
 ):
     logger.info("Starting FastAPI app")
     app = FastAPI(
@@ -105,6 +118,11 @@ def create_fastapi_app(
     @app.on_event("startup")
     async def startup():
         logger.info("FastAPI started")
+        asyncio.create_task(
+            debug_replay_auto_stop_watchdog(
+                replay_manager, securevu_config, config_publisher
+            )
+        )
 
     # Rate limiter (used for login endpoint)
     if securevu_config.auth.failed_login_rate_limit is None:
@@ -120,6 +138,7 @@ def create_fastapi_app(
     # Order of include_router matters: https://fastapi.tiangolo.com/tutorial/path-params/#order-matters
     app.include_router(auth.router)
     app.include_router(camera.router)
+    app.include_router(chat.router)
     app.include_router(classification.router)
     app.include_router(review.router)
     app.include_router(main_app.router)
@@ -128,8 +147,14 @@ def create_fastapi_app(
     app.include_router(export.router)
     app.include_router(event.router)
     app.include_router(media.router)
+    app.include_router(motion_search.router)
+    app.include_router(record.router)
+    app.include_router(debug_replay.router)
     # App Properties
     app.securevu_config = securevu_config
+    # snapshot the port nginx bound at startup, the live config can be swapped
+    app.auth_internal_port = securevu_config.networking.listen.internal_port
+    app.genai_manager = GenAIClientManager(securevu_config)
     app.embeddings = embeddings
     app.detected_frames_processor = detected_frames_processor
     app.storage_maintainer = storage_maintainer
@@ -138,6 +163,10 @@ def create_fastapi_app(
     app.stats_emitter = stats_emitter
     app.event_metadata_updater = event_metadata_updater
     app.config_publisher = config_publisher
+    app.replay_manager = replay_manager
+    app.dispatcher = dispatcher
+    app.profile_manager = profile_manager
+    app.config_holder = config_holder
 
     if securevu_config.auth.enabled:
         secret = get_jwt_secret()

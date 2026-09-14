@@ -4,7 +4,8 @@
   "noPreviewFoundFor": "Nenhuma Pré-Visualização Encontrada em {{cameraName}}",
   "submitSecureVuPlus": {
     "title": "Enviar esse frame para SecureVu+?",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "previewError": "Não foi possível carregar a prévia do instantâneo. A gravação pode não estar disponível no momento."
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 ou superior é necessário para esse tipo de transmissão ao vivo.",
   "streamOffline": {
@@ -47,5 +48,6 @@
     "error": {
       "submitSecureVuPlusFailed": "Falha em submeter quadro ao SecureVu+"
     }
-  }
+  },
+  "cameraOff": "A câmera está desligada"
 }

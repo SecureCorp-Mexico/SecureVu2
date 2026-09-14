@@ -33,7 +33,8 @@
   "noPreviewFoundFor": "Nie znaleziono podglądu dla {{cameraName}}",
   "submitSecureVuPlus": {
     "title": "Wyślij tę klatkę do SecureVu+?",
-    "submit": "Wyślij"
+    "submit": "Wyślij",
+    "previewError": "Nie udało się załadować podglądu nagrania. Nagranie może być niedostępne w podanym czasie."
   },
   "livePlayerRequiredIOSVersion": "Wymagana wersja iOS 17.1 lub nowsza dla tego typu transmisji na żywo.",
   "streamOffline": {
@@ -47,5 +48,6 @@
     "error": {
       "submitSecureVuPlusFailed": "Nie udało się wysłać klatki do SecureVu+"
     }
-  }
+  },
+  "cameraOff": "Kamera jest wyłączona"
 }
