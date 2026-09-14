@@ -10,7 +10,6 @@
     "lint": "eslint --ext .jsx,.js,.tsx,.ts --ignore-path .gitignore . && npm run e2e:lint",
     "e2e:lint": "node e2e/scripts/lint-specs.mjs",
     "lint:fix": "eslint --ext .jsx,.js,.tsx,.ts --ignore-path .gitignore --fix .",
-    "i18n:extract:ci": "node scripts/check-i18n.mjs",
     "preview": "vite preview",
     "prettier:write": "prettier -u -w --ignore-path .gitignore \"*.{ts,tsx,js,jsx,css,html}\"",
     "test": "vitest",
