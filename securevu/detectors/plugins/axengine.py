@@ -82,7 +82,7 @@ class Axengine(DetectionApi):
 
         HF_ENDPOINT = os.environ.get("HF_ENDPOINT", "https://huggingface.co")
         urllib.request.urlretrieve(
-            f"{HF_ENDPOINT}/AXERA-TECH/securevu-resource/resolve/axmodel/{filename}",
+            f"{HF_ENDPOINT}/AXERA-TECH/frigate-resource/resolve/axmodel/{filename}",
             model_cache_dir + filename,
         )
 
