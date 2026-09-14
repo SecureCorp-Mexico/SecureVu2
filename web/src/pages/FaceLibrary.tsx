@@ -448,7 +448,10 @@ export default function FaceLibrary() {
             </Button>
           </div>
         ) : (
-          <div id="faces-toolbar" className="flex items-center justify-center gap-2">
+          <div
+            id="faces-toolbar"
+            className="flex items-center justify-center gap-2"
+          >
             <Button className="flex gap-2" onClick={() => setAddFace(true)}>
               <LuScanFace className="size-7 rounded-md p-1 text-secondary-foreground" />
               {isDesktop && t("button.addFace")}

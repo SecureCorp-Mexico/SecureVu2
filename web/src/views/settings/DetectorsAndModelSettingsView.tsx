@@ -721,7 +721,9 @@ export default function DetectorsAndModelSettingsView({
                             <SelectGroup>
                               {filteredModelEntries.length === 0 ? (
                                 <div className="px-4 py-3 text-center text-sm text-muted-foreground">
-                                  {t("securevuPlus.modelInfo.noModelsAvailable")}
+                                  {t(
+                                    "securevuPlus.modelInfo.noModelsAvailable",
+                                  )}
                                 </div>
                               ) : (
                                 filteredModelEntries.map(([id, model]) => (
@@ -804,7 +806,9 @@ export default function DetectorsAndModelSettingsView({
                                   htmlFor="filterBaseModels"
                                   className="cursor-pointer text-primary"
                                 >
-                                  {t("securevuPlus.modelInfo.filter.baseModels")}
+                                  {t(
+                                    "securevuPlus.modelInfo.filter.baseModels",
+                                  )}
                                 </Label>
                                 <Switch
                                   id="filterBaseModels"

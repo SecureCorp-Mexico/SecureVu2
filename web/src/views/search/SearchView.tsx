@@ -536,7 +536,10 @@ export default function SearchView({
         )}
       >
         {config?.semantic_search?.enabled && (
-          <div id="explore-search-bar" className={cn("z-[41] w-full lg:absolute lg:top-0 lg:w-1/3")}>
+          <div
+            id="explore-search-bar"
+            className={cn("z-[41] w-full lg:absolute lg:top-0 lg:w-1/3")}
+          >
             <InputWithTags
               inputFocused={inputFocused}
               setInputFocused={setInputFocused}

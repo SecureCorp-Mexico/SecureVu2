@@ -50,16 +50,16 @@ export function CamerasFilterButton({
   const filteredGroups = useMemo(
     () =>
       groups
-          .map(([name, config]) => {
-            const allowedGroupCameras = config.cameras.filter((camera) =>
-              allowedCameras.includes(camera),
-            );
-            return [name, { ...config, cameras: allowedGroupCameras }] as [
-              string,
-              CameraGroupConfig,
-            ];
-          })
-          .filter(([, config]) => config.cameras.length > 0),
+        .map(([name, config]) => {
+          const allowedGroupCameras = config.cameras.filter((camera) =>
+            allowedCameras.includes(camera),
+          );
+          return [name, { ...config, cameras: allowedGroupCameras }] as [
+            string,
+            CameraGroupConfig,
+          ];
+        })
+        .filter(([, config]) => config.cameras.length > 0),
     [groups, allowedCameras],
   );
 

@@ -65,7 +65,10 @@ test.describe("Replay — active session @medium", () => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
     // Three tabs (Debug / Objects / Messages) in TabsList
     await expect(securevuApp.page.locator('[role="tab"]')).toHaveCount(3);
@@ -98,7 +101,10 @@ test.describe("Replay — active session @medium", () => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     // On desktop the span is visible and gives the button an accessible name.
@@ -118,7 +124,10 @@ test.describe("Replay — active session @medium", () => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     // On mobile the Configuration button text span is hidden (md:inline).
@@ -146,7 +155,10 @@ test.describe("Replay — active session @medium", () => {
     await securevuApp.goto("/replay");
 
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     // Send an activity payload with a person object on front_door.
@@ -189,7 +201,10 @@ test.describe("Replay — active session @medium", () => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     const messagesTab = securevuApp.page.getByRole("tab", {
@@ -201,7 +216,9 @@ test.describe("Replay — active session @medium", () => {
     });
   });
 
-  test("bbox info popover opens and closes cleanly", async ({ securevuApp }) => {
+  test("bbox info popover opens and closes cleanly", async ({
+    securevuApp,
+  }) => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     // The bbox row has an info icon popover trigger next to its label.
@@ -241,7 +258,10 @@ test.describe("Replay — stop flow (desktop) @medium", () => {
 
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     await securevuApp.page
@@ -271,7 +291,10 @@ test.describe("Replay — stop button (mobile) @medium @mobile", () => {
     await installStatusRoute(securevuApp, activeSessionStatus());
     await securevuApp.goto("/replay");
     await expect(
-      securevuApp.page.getByRole("heading", { level: 3, name: /Debug Replay/i }),
+      securevuApp.page.getByRole("heading", {
+        level: 3,
+        name: /Debug Replay/i,
+      }),
     ).toBeVisible({ timeout: 10_000 });
 
     // On mobile the Stop button is an icon (LuSquare) inside an

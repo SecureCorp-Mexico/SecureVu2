@@ -213,7 +213,9 @@ def _resolve_export(
         return MediaAuthResolution.UNRESOLVED_MEDIA, None
 
 
-def check_camera_access(role: str, camera: str, securevu_config: SecureVuConfig) -> bool:
+def check_camera_access(
+    role: str, camera: str, securevu_config: SecureVuConfig
+) -> bool:
     """Return True iff `role` may access `camera`.
 
     Mirrors the gating logic in `require_camera_access`: admin and any role

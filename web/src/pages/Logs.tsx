@@ -479,7 +479,10 @@ function Logs() {
       <Toaster position="top-center" closeButton={true} />
       <LogInfoDialog logLine={selectedLog} setLogLine={setSelectedLog} />
 
-      <div id="logs-service-tabs" className="relative flex h-11 w-full items-center justify-between">
+      <div
+        id="logs-service-tabs"
+        className="relative flex h-11 w-full items-center justify-between"
+      >
         <ScrollArea className="w-full whitespace-nowrap">
           <div ref={tabsRef} className="flex flex-row">
             <ToggleGroup

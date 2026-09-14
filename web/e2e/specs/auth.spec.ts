@@ -84,7 +84,10 @@ test.describe("Auth — viewer restrictions @high", () => {
 });
 
 test.describe("Auth — viewer nav restrictions (desktop) @high", () => {
-  test.skip(({ securevuApp }) => securevuApp.isMobile, "Sidebar only on desktop");
+  test.skip(
+    ({ securevuApp }) => securevuApp.isMobile,
+    "Sidebar only on desktop",
+  );
 
   test("viewer sidebar hides admin routes", async ({ securevuApp }) => {
     await securevuApp.installDefaults({ profile: viewerProfile() });

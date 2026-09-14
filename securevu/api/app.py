@@ -35,14 +35,16 @@ from securevu.api.config_util import (
     publish_camera_section_updates,
     swap_runtime_config,
 )
-from securevu.api.defs.query.app_query_parameters import AppTimelineHourlyQueryParameters
+from securevu.api.defs.query.app_query_parameters import (
+    AppTimelineHourlyQueryParameters,
+)
 from securevu.api.defs.request.app_body import (
     AppConfigSetBody,
     GenAIProbeBody,
     MediaSyncBody,
 )
 from securevu.api.defs.tags import Tags
-from securevu.config import SecureVuConfig, GenAIConfig, GenAIProviderEnum
+from securevu.config import GenAIConfig, GenAIProviderEnum, SecureVuConfig
 from securevu.config.camera.updater import (
     CameraConfigUpdateEnum,
     CameraConfigUpdateTopic,

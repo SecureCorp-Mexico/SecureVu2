@@ -1,6 +1,17 @@
-import React, { useState, useEffect, useMemo, useCallback, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useContext,
+} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { AuthContext } from "@/context/auth-context";
 import useSWR from "swr";
@@ -51,7 +62,12 @@ export default function TourGuide() {
     // Resolve the first camera name so the tour can navigate directly to it.
     const firstCamera = config
       ? Object.values(config.cameras)
-          .filter((c) => c.enabled_in_config && c.ui.dashboard && allowedCameras.includes(c.name))
+          .filter(
+            (c) =>
+              c.enabled_in_config &&
+              c.ui.dashboard &&
+              allowedCameras.includes(c.name),
+          )
           .sort((a, b) => a.ui.order - b.ui.order)[0]?.name
       : undefined;
 
@@ -553,7 +569,8 @@ export default function TourGuide() {
 
   useEffect(() => {
     window.addEventListener("securevu:restart-tour", handleRestartTour);
-    return () => window.removeEventListener("securevu:restart-tour", handleRestartTour);
+    return () =>
+      window.removeEventListener("securevu:restart-tour", handleRestartTour);
   }, [handleRestartTour]);
 
   // Handle step transitions and routes (including URL hash for camera view)
@@ -574,7 +591,14 @@ export default function TourGuide() {
         navigate(step.route);
       }
     }
-  }, [currentStep, navigate, location.pathname, location.hash, shouldShowTour, tourSteps]);
+  }, [
+    currentStep,
+    navigate,
+    location.pathname,
+    location.hash,
+    shouldShowTour,
+    tourSteps,
+  ]);
 
   // Reset isNavigating after the page has mounted (triggered by pathname OR hash change)
   useEffect(() => {
@@ -637,10 +661,18 @@ export default function TourGuide() {
     let y = rect.y - 6;
     let width = rect.width + 12;
     let height = rect.height + 12;
-    if (x < margin) { width -= (margin - x); x = margin; }
-    if (y < margin) { height -= (margin - y); y = margin; }
-    if (x + width > window.innerWidth - margin) width = window.innerWidth - margin - x;
-    if (y + height > window.innerHeight - margin) height = window.innerHeight - margin - y;
+    if (x < margin) {
+      width -= margin - x;
+      x = margin;
+    }
+    if (y < margin) {
+      height -= margin - y;
+      y = margin;
+    }
+    if (x + width > window.innerWidth - margin)
+      width = window.innerWidth - margin - x;
+    if (y + height > window.innerHeight - margin)
+      height = window.innerHeight - margin - y;
     return { x, y, width: Math.max(0, width), height: Math.max(0, height) };
   }, [rect]);
 
@@ -692,7 +724,7 @@ export default function TourGuide() {
     <>
       <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold text-blue-500 uppercase tracking-wider">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
             Guía de Inicio ({currentStep + 1} / {tourSteps.length})
           </span>
           <button
@@ -702,33 +734,33 @@ export default function TourGuide() {
             Omitir
           </button>
         </div>
-        <h4 className="text-lg font-bold text-foreground leading-tight">
+        <h4 className="text-lg font-bold leading-tight text-foreground">
           {step.title}
         </h4>
       </div>
-      <p className="text-sm text-secondary-foreground leading-relaxed">
+      <p className="text-sm leading-relaxed text-secondary-foreground">
         {step.content}
       </p>
       {step.imageSrc && (
-        <div className="mt-3 overflow-hidden rounded-lg border border-secondary-highlight bg-black/10 shadow-inner max-h-[140px] flex items-center justify-center">
+        <div className="mt-3 flex max-h-[140px] items-center justify-center overflow-hidden rounded-lg border border-secondary-highlight bg-black/10 shadow-inner">
           <img
             src={step.imageSrc}
             alt={step.title}
-            className="w-full h-full object-contain max-h-[140px] select-none pointer-events-none"
+            className="pointer-events-none h-full max-h-[140px] w-full select-none object-contain"
           />
         </div>
       )}
-      <div className="flex items-center justify-between mt-2 pt-2 border-t border-secondary-highlight">
+      <div className="mt-2 flex items-center justify-between border-t border-secondary-highlight pt-2">
         <button
           onClick={handleBack}
           disabled={currentStep === 0}
-          className="px-3 py-1.5 rounded-md text-xs font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-md bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground hover:bg-secondary/80 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Atrás
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-1.5 rounded-md text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm"
+          className="rounded-md bg-blue-600 px-4 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-500"
         >
           {currentStep === tourSteps.length - 1 ? "Comenzar" : "Siguiente"}
         </button>
@@ -768,10 +800,16 @@ export default function TourGuide() {
         popoverStyle.top = Math.max(16, rect.top);
       }
     } else if (spaceBottom > 290) {
-      popoverStyle.left = Math.max(16, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175));
+      popoverStyle.left = Math.max(
+        16,
+        Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175),
+      );
       popoverStyle.top = rect.bottom + 16;
     } else if (spaceTop > 290) {
-      popoverStyle.left = Math.max(16, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175));
+      popoverStyle.left = Math.max(
+        16,
+        Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 175),
+      );
       popoverStyle.bottom = window.innerHeight - rect.top + 16;
     } else {
       popoverStyle.left = "50%";
@@ -786,10 +824,10 @@ export default function TourGuide() {
     "bg-background_alt/90 backdrop-blur-md p-6 shadow-2xl text-foreground flex flex-col gap-4";
 
   return (
-    <div className="fixed inset-0 z-[99998] overflow-hidden pointer-events-none">
+    <div className="pointer-events-none fixed inset-0 z-[99998] overflow-hidden">
       {/* Dim backdrop — only when no target cutout */}
       {!rect && (
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] pointer-events-auto" />
+        <div className="pointer-events-auto absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
       )}
 
       {/* Spotlight — always mounted for smooth spring transitions */}
@@ -815,7 +853,7 @@ export default function TourGuide() {
       {/* ── Card: centered (no target) vs positioned (has target) ── */}
       {!rect ? (
         // Centered card — use flex so Framer y-animation doesn't break centering
-        <div className="fixed inset-0 flex items-center justify-center z-[99999] pointer-events-none">
+        <div className="pointer-events-none fixed inset-0 z-[99999] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep}

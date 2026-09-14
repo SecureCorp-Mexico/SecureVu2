@@ -36,7 +36,6 @@ from securevu.data_processing.real_time.audio_transcription import (
     AudioTranscriptionRealTimeProcessor,
 )
 from securevu.ffmpeg_presets import parse_preset_input
-from securevu.io import start_or_restart_ffmpeg, stop_ffmpeg
 from securevu.log import LogPipe, suppress_stderr_during
 from securevu.util.builtin import get_ffmpeg_arg_list, load_labels
 from securevu.util.ffmpeg import start_or_restart_ffmpeg, stop_ffmpeg

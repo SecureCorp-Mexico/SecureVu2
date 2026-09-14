@@ -40,12 +40,14 @@ async function installSaveRoute(
 }
 
 test.describe("Config Editor — Monaco @medium", () => {
-  test("editor loads with mocked configRaw content", async ({ securevuApp }) => {
+  test("editor loads with mocked configRaw content", async ({
+    securevuApp,
+  }) => {
     await securevuApp.installDefaults({ configRaw: SAMPLE_CONFIG });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
     // Assert via DOM-rendered visible text (Monaco virtualizes — works
     // for short configs which covers our mocked content).
     await expect
@@ -68,9 +70,9 @@ test.describe("Config Editor — Save @medium", () => {
       message: "Config saved",
     });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
     await securevuApp.page.getByLabel("Save Only").click();
     await expect
       .poll(() => capture.capturedUrl(), { timeout: 5_000 })
@@ -89,9 +91,9 @@ test.describe("Config Editor — Save @medium", () => {
       message: "Invalid field `cameras.front_door`",
     });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
     await securevuApp.page.getByLabel("Save Only").click();
     await expect(securevuApp.page.getByText(/Invalid field/i)).toBeVisible({
       timeout: 5_000,
@@ -113,9 +115,9 @@ test.describe("Config Editor — Save and Restart @medium", () => {
     await installWsFrameCapture(securevuApp.page);
 
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     await securevuApp.page.getByLabel("Save & Restart").click();
     const dialog = securevuApp.page.getByRole("alertdialog");
@@ -136,9 +138,9 @@ test.describe("Config Editor — Save and Restart @medium", () => {
     await installSaveRoute(securevuApp, 200, { message: "Saved" });
 
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     await securevuApp.page.getByLabel("Save & Restart").click();
     const dialog = securevuApp.page.getByRole("alertdialog");
@@ -164,9 +166,9 @@ test.describe("Config Editor — Copy @medium", () => {
     await grantClipboardPermissions(context);
     await securevuApp.installDefaults({ configRaw: SAMPLE_CONFIG });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     await securevuApp.page.getByLabel("Copy Config").click();
     await expect
@@ -186,9 +188,9 @@ test.describe("Config Editor — schema markers @medium", () => {
   }) => {
     await securevuApp.installDefaults({ configRaw: SAMPLE_CONFIG });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     // Replace editor contents with clearly invalid YAML via keyboard.
     await replaceMonacoValue(
@@ -215,9 +217,9 @@ test.describe("Config Editor — Cmd+S keyboard shortcut @medium", () => {
       message: "Saved",
     });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     // Focus the editor so Monaco's keybinding receives the shortcut.
     await securevuApp.page.locator(".monaco-editor").first().click();
@@ -253,9 +255,9 @@ test.describe("Config Editor — Safe Mode auto-validation @medium", () => {
     });
 
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
     await expect.poll(() => autoSaveCalled, { timeout: 10_000 }).toBe(true);
     await expect(
       securevuApp.page.getByText(/safe-mode validation failure/i),
@@ -269,8 +271,8 @@ test.describe("Config Editor — mobile @medium @mobile", () => {
   test("editor renders at narrow viewport", async ({ securevuApp }) => {
     await securevuApp.installDefaults({ configRaw: SAMPLE_CONFIG });
     await securevuApp.goto("/config");
-    await expect(securevuApp.page.locator(".monaco-editor").first()).toBeVisible(
-      { timeout: 15_000 },
-    );
+    await expect(
+      securevuApp.page.locator(".monaco-editor").first(),
+    ).toBeVisible({ timeout: 15_000 });
   });
 });

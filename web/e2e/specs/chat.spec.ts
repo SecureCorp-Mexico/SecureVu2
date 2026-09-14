@@ -348,7 +348,9 @@ test.describe("Chat — attachment chip @medium", () => {
 test.describe("Chat — mobile @medium @mobile", () => {
   test.skip(({ securevuApp }) => !securevuApp.isMobile, "Mobile-only");
 
-  test("chat input is focusable at mobile viewport", async ({ securevuApp }) => {
+  test("chat input is focusable at mobile viewport", async ({
+    securevuApp,
+  }) => {
     await securevuApp.goto("/chat");
     const input = securevuApp.page.getByPlaceholder(/ask/i);
     await expect(input).toBeVisible({ timeout: 10_000 });

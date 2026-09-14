@@ -129,7 +129,9 @@ class TestStartDebugReplayJob(unittest.TestCase):
     def test_rejects_when_no_recordings(self) -> None:
         empty_qs = MagicMock()
         empty_qs.count.return_value = 0
-        with patch("securevu.jobs.debug_replay.query_recordings", return_value=empty_qs):
+        with patch(
+            "securevu.jobs.debug_replay.query_recordings", return_value=empty_qs
+        ):
             with self.assertRaises(NoRecordingsError):
                 start_debug_replay_job(
                     source=RecordingDebugReplaySource(

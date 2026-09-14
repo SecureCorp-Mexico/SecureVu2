@@ -110,7 +110,9 @@ test.describe("System — tabs @medium", () => {
     }
   });
 
-  test("cameras tab renders each configured camera", async ({ securevuApp }) => {
+  test("cameras tab renders each configured camera", async ({
+    securevuApp,
+  }) => {
     await securevuApp.goto("/system#general");
     await expect(securevuApp.page.getByLabel("Select general")).toHaveAttribute(
       "data-state",
@@ -148,7 +150,9 @@ test.describe("System — tabs @medium", () => {
       "on",
       { timeout: 15_000 },
     );
-    const enrichTab = securevuApp.page.getByLabel(/select enrichments/i).first();
+    const enrichTab = securevuApp.page
+      .getByLabel(/select enrichments/i)
+      .first();
     await expect(enrichTab).toBeVisible({ timeout: 5_000 });
     await enrichTab.click();
     await expect(enrichTab).toHaveAttribute("data-state", "on", {
@@ -163,7 +167,9 @@ test.describe("System — RestartDialog @medium", () => {
     "Sidebar menu is desktop-only",
   );
 
-  test("cancelling restart leaves body interactive", async ({ securevuApp }) => {
+  test("cancelling restart leaves body interactive", async ({
+    securevuApp,
+  }) => {
     // Migrated from radix-overlay-regressions.spec.ts.
     await securevuApp.goto("/");
 

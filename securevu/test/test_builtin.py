@@ -15,7 +15,9 @@ class TestEventsPerSecond(unittest.TestCase):
     def test_eps_counts_events_in_window(self) -> None:
         eps = EventsPerSecond(last_n_seconds=10)
         clock = [1000.0]
-        with patch("securevu.util.builtin.time.monotonic", side_effect=lambda: clock[0]):
+        with patch(
+            "securevu.util.builtin.time.monotonic", side_effect=lambda: clock[0]
+        ):
             eps.start()
             # one event per second for five seconds
             for _ in range(5):
@@ -27,7 +29,9 @@ class TestEventsPerSecond(unittest.TestCase):
     def test_old_timestamps_expire_from_window(self) -> None:
         eps = EventsPerSecond(last_n_seconds=10)
         clock = [0.0]
-        with patch("securevu.util.builtin.time.monotonic", side_effect=lambda: clock[0]):
+        with patch(
+            "securevu.util.builtin.time.monotonic", side_effect=lambda: clock[0]
+        ):
             eps.start()
             for _ in range(10):
                 clock[0] += 1.0

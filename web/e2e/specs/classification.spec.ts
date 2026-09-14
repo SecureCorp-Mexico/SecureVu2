@@ -89,7 +89,9 @@ test.describe("Classification — model list @medium", () => {
     await expect(securevuApp.page.getByText("state_classifier")).toBeVisible({
       timeout: 5_000,
     });
-    await expect(securevuApp.page.getByText("object_classifier")).toHaveCount(0);
+    await expect(securevuApp.page.getByText("object_classifier")).toHaveCount(
+      0,
+    );
   });
 });
 

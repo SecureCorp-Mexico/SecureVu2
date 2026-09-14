@@ -26,8 +26,9 @@ test.describe("Logs — service tabs @medium", () => {
       }),
     );
     // Silence the streaming fetch so it doesn't hang the test.
-    await securevuApp.page.route(/\/api\/logs\/securevu\?stream=true/, (route) =>
-      route.fulfill({ status: 200, body: "" }),
+    await securevuApp.page.route(
+      /\/api\/logs\/securevu\?stream=true/,
+      (route) => route.fulfill({ status: 200, body: "" }),
     );
     await securevuApp.goto("/logs");
     await expect(securevuApp.page.getByLabel("Select securevu")).toBeVisible({
@@ -81,8 +82,9 @@ test.describe("Logs — actions @medium", () => {
         ]),
       }),
     );
-    await securevuApp.page.route(/\/api\/logs\/securevu\?stream=true/, (route) =>
-      route.fulfill({ status: 200, body: "" }),
+    await securevuApp.page.route(
+      /\/api\/logs\/securevu\?stream=true/,
+      (route) => route.fulfill({ status: 200, body: "" }),
     );
     await securevuApp.goto("/logs");
     await expect(securevuApp.page.getByText(/SecureVu started/)).toBeVisible({
@@ -107,8 +109,9 @@ test.describe("Logs — actions @medium", () => {
       }
       return route.fulfill({ json: logsJsonBody(["securevu line"]) });
     });
-    await securevuApp.page.route(/\/api\/logs\/securevu\?stream=true/, (route) =>
-      route.fulfill({ status: 200, body: "" }),
+    await securevuApp.page.route(
+      /\/api\/logs\/securevu\?stream=true/,
+      (route) => route.fulfill({ status: 200, body: "" }),
     );
 
     await securevuApp.goto("/logs");
@@ -126,8 +129,9 @@ test.describe("Logs — websocket tab @medium", () => {
     await securevuApp.page.route(/\/api\/logs\/securevu(\?|$)/, (route) =>
       route.fulfill({ json: logsJsonBody(["securevu line"]) }),
     );
-    await securevuApp.page.route(/\/api\/logs\/securevu\?stream=true/, (route) =>
-      route.fulfill({ status: 200, body: "" }),
+    await securevuApp.page.route(
+      /\/api\/logs\/securevu\?stream=true/,
+      (route) => route.fulfill({ status: 200, body: "" }),
     );
     await securevuApp.goto("/logs");
     const wsTab = securevuApp.page.getByLabel("Select websocket");
@@ -211,8 +215,9 @@ test.describe("Logs — mobile @medium @mobile", () => {
     await securevuApp.page.route(/\/api\/logs\/securevu(\?|$)/, (route) =>
       route.fulfill({ json: logsJsonBody(["securevu line"]) }),
     );
-    await securevuApp.page.route(/\/api\/logs\/securevu\?stream=true/, (route) =>
-      route.fulfill({ status: 200, body: "" }),
+    await securevuApp.page.route(
+      /\/api\/logs\/securevu\?stream=true/,
+      (route) => route.fulfill({ status: 200, body: "" }),
     );
     await securevuApp.goto("/logs");
     await expect(securevuApp.page.getByLabel("Select securevu")).toBeVisible({

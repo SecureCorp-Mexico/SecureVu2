@@ -823,7 +823,9 @@ test.describe("Multi-Review Export @high", () => {
     await selectTrigger.click();
 
     // The dropdown portal renders outside the dialog
-    await securevuApp.page.getByRole("option", { name: /Incident #42/ }).click();
+    await securevuApp.page
+      .getByRole("option", { name: /Incident #42/ })
+      .click();
 
     await dialog.getByRole("button", { name: /export 2 reviews/i }).click();
 
@@ -999,7 +1001,9 @@ test.describe("Export Page - Active Job Progress @medium", () => {
     await expect(securevuApp.page.getByText("Encoding Sample")).toBeVisible();
     // Step label and percent are rendered together as text near the
     // progress bar (separated by a middle dot), not in a corner badge.
-    await expect(securevuApp.page.getByText(/Encoding\s*·\s*42%/)).toBeVisible();
+    await expect(
+      securevuApp.page.getByText(/Encoding\s*·\s*42%/),
+    ).toBeVisible();
   });
 
   test("queued job shows queued badge", async ({ securevuApp }) => {
@@ -1089,7 +1093,9 @@ test.describe("Export Page - Active Job Progress @medium", () => {
     await securevuApp.goto("/export");
 
     // The progress label must be present — proving the rich card won.
-    await expect(securevuApp.page.getByText(/Encoding\s*·\s*67%/)).toBeVisible();
+    await expect(
+      securevuApp.page.getByText(/Encoding\s*·\s*67%/),
+    ).toBeVisible();
 
     // And only ONE card should be visible for that id, not two.
     const titles = securevuApp.page.getByText("Shared Id Encoding");

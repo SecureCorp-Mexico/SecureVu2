@@ -75,11 +75,15 @@ class TestSafeJoin(unittest.TestCase):
 class TestIsContainedIn(unittest.TestCase):
     def test_rejects_sibling_sharing_a_name_prefix(self):
         self.assertFalse(
-            is_contained_in("/media/securevu/clips_evil/x.webp", "/media/securevu/clips")
+            is_contained_in(
+                "/media/securevu/clips_evil/x.webp", "/media/securevu/clips"
+            )
         )
 
     def test_accepts_base_itself_and_children(self):
-        self.assertTrue(is_contained_in("/media/securevu/clips", "/media/securevu/clips"))
+        self.assertTrue(
+            is_contained_in("/media/securevu/clips", "/media/securevu/clips")
+        )
         self.assertTrue(
             is_contained_in("/media/securevu/clips/a/b.webp", "/media/securevu/clips")
         )

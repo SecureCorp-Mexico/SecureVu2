@@ -7,7 +7,9 @@
 import { test, expect } from "../../fixtures/securevu-test";
 
 test.describe("Detectors and model Settings @high", () => {
-  test("page renders with detector and model cards", async ({ securevuApp }) => {
+  test("page renders with detector and model cards", async ({
+    securevuApp,
+  }) => {
     await securevuApp.goto("/settings?page=systemDetectorsAndModel");
     await securevuApp.page.waitForTimeout(2000);
     await expect(securevuApp.page.locator("#pageRoot")).toBeVisible();
