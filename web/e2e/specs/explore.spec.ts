@@ -216,6 +216,18 @@ test.describe("Explore — content @high", () => {
 // Similarity search URL param
 // ---------------------------------------------------------------------------
 
+test.describe("Explore: back button @high", () => {
+  test("direct visits do not show a back button", async ({ securevuApp }) => {
+    await securevuApp.goto("/explore?labels=person");
+    await expect(securevuApp.page.getByLabel("Labels").first()).toBeVisible({
+      timeout: 10_000,
+    });
+    await expect(
+      securevuApp.page.getByRole("button", { name: "Go back" }),
+    ).toHaveCount(0);
+  });
+});
+
 test.describe("Explore — similarity search (desktop) @high", () => {
   test.skip(
     ({ securevuApp }) => securevuApp.isMobile,

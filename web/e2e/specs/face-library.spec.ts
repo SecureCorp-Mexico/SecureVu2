@@ -30,40 +30,51 @@ function groupedFacesMock() {
   });
 }
 
-async function installGroupedFaces(app: SecureVuApp) {
+const GROUPED_EVENT = {
+  id: GROUPED_EVENT_ID,
+  label: "person",
+  sub_label: null,
+  camera: "front_door",
+  start_time: 1775487131.3863528,
+  end_time: 1775487161.3863528,
+  false_positive: false,
+  zones: ["front_yard"],
+  thumbnail: null,
+  has_clip: true,
+  has_snapshot: true,
+  retain_indefinitely: false,
+  plus_id: null,
+  model_hash: "abc123",
+  detector_type: "cpu",
+  model_type: "ssd",
+  data: {
+    top_score: 0.92,
+    score: 0.92,
+    region: [0.1, 0.1, 0.5, 0.8],
+    box: [0.2, 0.15, 0.45, 0.75],
+    area: 0.18,
+    ratio: 0.6,
+    type: "object",
+    path_data: [],
+  },
+};
+
+async function installGroupedFaces(
+  app: SecureVuApp,
+  opts: { withEventIds?: boolean } = {},
+) {
   await app.api.install({
-    events: [
-      {
-        id: GROUPED_EVENT_ID,
-        label: "person",
-        sub_label: null,
-        camera: "front_door",
-        start_time: 1775487131.3863528,
-        end_time: 1775487161.3863528,
-        false_positive: false,
-        zones: ["front_yard"],
-        thumbnail: null,
-        has_clip: true,
-        has_snapshot: true,
-        retain_indefinitely: false,
-        plus_id: null,
-        model_hash: "abc123",
-        detector_type: "cpu",
-        model_type: "ssd",
-        data: {
-          top_score: 0.92,
-          score: 0.92,
-          region: [0.1, 0.1, 0.5, 0.8],
-          box: [0.2, 0.15, 0.45, 0.75],
-          area: 0.18,
-          ratio: 0.6,
-          type: "object",
-          path_data: [],
-        },
-      },
-    ],
+    events: [GROUPED_EVENT],
     faces: groupedFacesMock(),
   });
+
+  // api-mocker does not cover /api/event_ids, which the card needs to link to
+  // Explore. Registered after install so it takes precedence.
+  if (opts.withEventIds) {
+    await app.page.route("**/api/event_ids**", (route) =>
+      route.fulfill({ json: [GROUPED_EVENT] }),
+    );
+  }
 }
 
 async function openGroupedFaceDialog(app: SecureVuApp): Promise<Locator> {
@@ -509,6 +520,34 @@ test.describe("FaceSelectionDialog @high", () => {
         .locator('[role="menu"], [data-radix-menu-content]')
         .first(),
     ).toBeVisible({ timeout: 3_000 });
+  });
+});
+
+test.describe("Face Library: return from Explore @high", () => {
+  test("Explore back button returns to an outlined collection", async ({
+    securevuApp,
+  }) => {
+    await installGroupedFaces(securevuApp, { withEventIds: true });
+    await securevuApp.goto("/faces");
+
+    // Mobile opens the collection as a MobilePage, which has no dialog role
+    const card = securevuApp.page
+      .locator('img[src*="clips/faces/train/"]')
+      .first()
+      .locator("xpath=..");
+    await card.click();
+    await securevuApp.page.getByLabel("View in Explore").click();
+    await expect(securevuApp.page).toHaveURL(
+      new RegExp(`/explore\\?event_id=${GROUPED_EVENT_ID}`),
+    );
+
+    const back = securevuApp.page.getByRole("button", { name: "Go back" });
+    await expect(back).toBeVisible({ timeout: 5_000 });
+    await back.click();
+    await expect(securevuApp.page).toHaveURL(/\/faces/);
+
+    await expect(card).toHaveClass(/outline-selected/, { timeout: 5_000 });
+    await expect(card).not.toHaveClass(/outline-selected/, { timeout: 5_000 });
   });
 });
 
