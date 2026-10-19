@@ -29,6 +29,7 @@ SecureVu supports multiple different detectors that work on different types of h
 
 - [ROCm](#amdrocm-gpu-detector): ROCm can run on AMD Discrete GPUs to provide efficient object detection.
 - [ONNX](#onnx): ROCm will automatically be detected and used as a detector in the `-rocm` SecureVu image when a supported ONNX model is configured.
+- <CommunityBadge /> [XDNA2](#amd-xdna2): AMD Ryzen AI / XDNA2 NPUs can run object detection through the community-maintained `securevu-xdna` ZMQ sidecar.
 
 **Apple Silicon**
 
@@ -507,6 +508,28 @@ Replace `<your_codeproject_ai_server_ip>` and `<port>` with the IP address and p
 To verify that the integration is working correctly, start SecureVu and observe the logs for any error messages related to CodeProject.AI. Additionally, you can check the SecureVu web interface to see if the objects detected by CodeProject.AI are being displayed and tracked properly.
 
 # Community Supported Detectors
+
+## AMD XDNA2
+
+AMD Ryzen AI / XDNA2 NPUs can be used through the community-maintained
+[securevu-xdna](https://github.com/mitchins/securevu-xdna) detector sidecar.
+The sidecar runs separately from SecureVu and connects using SecureVu's ZMQ
+detector interface.
+
+Currently qualified on **Ryzen AI Max 300 / Strix Halo**. Other XDNA2 devices
+are not yet qualified; XDNA1 is unsupported.
+
+Follow the securevu-xdna setup instructions to prepare and start the sidecar
+before starting SecureVu.
+
+### Configuration {#configuration-xdna2}
+
+Using the detector config below will connect SecureVu to the sidecar:
+
+<ModelConfigDropdown detectorTitle="AMD XDNA2" models={objectDetectorsModels.xdna2.models} />
+
+The example assumes SecureVu and the sidecar share a Docker network where the
+sidecar is named `xdna`.
 
 ## MemryX MX3
 

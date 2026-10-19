@@ -11,6 +11,12 @@ MQTT requires a network connection to your broker. This is typically local, but 
 
 :::
 
+:::note
+
+Wherever a topic below includes a camera, mask, or zone name, use its `ID` from the config, not its `friendly_name`. For example, a camera with `friendly_name: "Back Yard"` and ID `back_yard` publishes to `securevu/back_yard/...`, not `securevu/Back Yard/...`.
+
+:::
+
 ## General SecureVu Topics
 
 ### `securevu/available`
