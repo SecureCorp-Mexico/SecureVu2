@@ -2,6 +2,48 @@
 
 All notable changes to SecureVu are documented in this file.
 
+## 0.18.2
+
+Maintenance release that syncs SecureVu with upstream **Frigate 0.18.1 and 0.18.2** (rebranded), preserving all SecureVu-specific modifications (SecureCorp branding, the interactive guided tour, Spanish-default docs, and CI/lint hardening). No configuration changes are required; the config version is unchanged (`0.18-0`).
+
+Image: `ghcr.io/securecorp-mexico/securevu2:0.18.2` (and variants: `-standard-arm64`, `-tensorrt`, `-tensorrt-jp6`, `-rk`, `-rocm`, `-synaptics`).
+
+> This is a drop-in update from 0.18.0. Back up your `/config` directory (config file + `securevu.db`) before upgrading as a precaution. Pulling `:stable` (or `:0.18.2`) and restarting is sufficient.
+
+### Security fixes
+
+- Normalize request paths in media auth and pass only the request path in `X-Original-URL` to the auth subrequest, preventing header/path spoofing of authorization checks (nginx `auth_location.conf`, `proxy.conf`, and go2rtc stream locations now set a non-spoofable `X-Go2rtc-Stream-Proxy` flag).
+- Reject dot-only usernames.
+- Enforce access checks on export thumbnail images.
+- Fix a camera-name collision that could bypass the admin check.
+- Lock ZMQ sockets shared across threads to prevent corruption.
+- Skip malformed webpush subscriptions instead of failing startup.
+
+### Bug fixes
+
+- Pass `environment_vars` through to ffmpeg processes.
+- Stop the MSE buffer trim from spinning in a remove loop.
+- Fix record status getting stuck "offline" after an ffmpeg restart, and back off restarts when a recording stream goes stale.
+- Fix semantic search reindex.
+- Fix Explore paging for non-date sorts, and keep sub-labeled objects visible in the review filter.
+- Use the resolved camera config in the object processor to avoid a race on replay stop.
+- Delete timeline entries when expiring events without clips; apply data checks to all segment-validation cases.
+- Only show the camera-group edit button on the live grid to admins.
+- Save GenAI debug thumbnails on early requests; untrained classification models now save images.
+- Revert the QSV ffmpeg framerate filter and the Annke firmware autotracking workaround.
+- Add a back button to the Explore/Search view (the SecureVu guided-tour anchor `#explore-search-bar` is preserved).
+
+### Other
+
+- Documentation updates ported from upstream (reference/config/detectors/objects/zones/profiles, MQTT, hardware, third-party extensions) with SecureCorp branding and Spanish-default retained.
+- Added upstream test coverage (media auth, go2rtc stream/proxy auth, users, comms thread safety, timeline, process, maintainer, sqlitevec embeddings).
+
+### Intentional deltas vs upstream
+
+- Version string and image repo remain SecureVu (`0.18.2`, `ghcr.io/securecorp-mexico/securevu2`).
+- Docs site stays Spanish-default/Spanish-only with SecureCorp GitHub, demo, and releases links (upstream's English/locale-dropdown navbar changes are not adopted).
+- Third-party extension entries keep their real upstream project names/URLs (e.g. `frigate-abr`, `frigate-notify`) while describing the product as SecureVu.
+
 ## 0.18.0
 
 Major release that brings SecureVu up to parity with **Frigate 0.18.0** (rebranded), while preserving all SecureVu-specific modifications (branding, the interactive guided tour, and CI/lint hardening).
