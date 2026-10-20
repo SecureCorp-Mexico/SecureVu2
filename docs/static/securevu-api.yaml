@@ -8932,7 +8932,7 @@ components:
       name: securevu_token
       description: Authenticated session whose resolved role is 'admin'. The 
         session is established via the JWT cookie issued by POST /login, or via 
-        proxy auth headers (remote-user / remote-role) when SecureVu runs behind 
+        proxy auth headers (remote-user / remote-role) when SecureVu runs behind
         an authenticating reverse proxy.
     securevuUserAuth:
       type: apiKey
