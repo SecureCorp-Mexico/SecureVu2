@@ -52,7 +52,9 @@ jobs:
 
   web_e2e:
     name: Web - E2E Tests
-    runs-on: ubuntu-latest
+    # Pinned to 24.04: Playwright 1.59.1 cannot install chromium on the
+    # ubuntu-latest (26.04) image ("does not support chromium on ubuntu26.04-x64").
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
         with:
