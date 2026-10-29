@@ -587,8 +587,14 @@ class SecureVuApp:
         reap_stale_exports()
 
         self.init_inter_process_communicator()
-        self.start_detectors()
+        # Initialize the dispatcher (which opens the MQTT control/status bus)
+        # before starting detectors. On large NVRs the detector startup floods
+        # the GIL; if MQTT connect runs after it, paho's network thread can be
+        # starved long enough that the broker closes the socket before CONNECT
+        # completes ("exceeded timeout"), so the NVR never shows up connected.
+        # The dispatcher only needs IPC/onvif/ptz metrics, all initialized above.
         self.init_dispatcher()
+        self.start_detectors()
         self.init_profile_manager()
 
         # workers get a copy of the config and can miss the broadcast below, so
