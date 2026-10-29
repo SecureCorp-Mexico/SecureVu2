@@ -1,5 +1,6 @@
 import logging
 import threading
+import time
 from collections.abc import Callable
 from typing import Any
 
@@ -223,6 +224,10 @@ class MqttClient(Communicator):
                     "Unable to connect to MQTT server: Connection refused. Error code: %s",
                     reason_code.getName(),
                 )
+            # Do not mark the client connected on a failed CONNACK; leaving
+            # self.connected False lets _start()'s wait and publish() behave
+            # correctly and lets paho's reconnect loop keep retrying.
+            return
 
         self.connected = True
         logger.debug("MQTT connected")
@@ -353,6 +358,9 @@ class MqttClient(Communicator):
                 self.mqtt_config.user, password=self.mqtt_config.password
             )
         try:
+            # Back off between reconnect attempts (1s, doubling up to 120s)
+            # instead of hammering the broker, and keep retrying forever.
+            self.client.reconnect_delay_set(min_delay=1, max_delay=120)
             # https://stackoverflow.com/a/55390477
             # with connect_async, retries are handled automatically
             self.client.connect_async(self.mqtt_config.host, self.mqtt_config.port, 60)
@@ -360,3 +368,35 @@ class MqttClient(Communicator):
         except Exception as e:
             logger.error(f"Unable to connect to MQTT server: {e}")
             return
+
+        # Wait for the broker to confirm CONNACK (or time out). connect_async()
+        # + loop_start() return immediately, so without this the main thread
+        # races ahead into detector startup and floods the GIL before paho's
+        # network thread finishes the handshake — on large NVRs the broker then
+        # closes the half-open socket ("exceeded timeout") and the client never
+        # shows up connected. Sleeping here releases the GIL so that thread can
+        # complete the handshake, and surfaces connect state in the logs instead
+        # of silently continuing. A healthy connect returns in well under a
+        # second; a failure falls through and paho keeps retrying in background.
+        connect_timeout = 30.0
+        deadline = time.monotonic() + connect_timeout
+        while not self.connected and time.monotonic() < deadline:
+            time.sleep(0.5)
+
+        if self.connected:
+            logger.info(
+                "MQTT connected to %s:%s as %s",
+                self.mqtt_config.host,
+                self.mqtt_config.port,
+                self.mqtt_config.client_id,
+            )
+        else:
+            logger.error(
+                "MQTT CONNECT to %s:%s as %s did not complete within %.0fs; "
+                "the client will keep retrying in the background "
+                "(reconnect backoff 1-120s)",
+                self.mqtt_config.host,
+                self.mqtt_config.port,
+                self.mqtt_config.client_id,
+                connect_timeout,
+            )
